@@ -1,0 +1,30 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+{% include 'template-parts/page-hero.twig' %}
+
+<section class="group leader-group grid-container">
+	<div class="grid-container-background">
+		<div class="grid-x">
+			<div class="cell">
+				<h1>{{ term_page.name }}</h1>
+			</div>
+		</div>
+		<div class="grid-x " data-aos="fade-up" data-aos-delay="0" data-aos-once="true">
+			<div class="cell medium-9 medium-order-2 news-list">
+				<div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3">	
+                    {% for post in posts %}
+						{% include ['template-parts/news-block.twig'] %}
+					{% endfor %}
+					{{ function('foundationpress_pagination') }}
+				</div>
+			</div>
+			<div class="cell medium-3 medium-order-1 sidebar-group">	
+				{{ function('get_sidebar') }}
+			</div>
+		</div>
+	</div>
+</section>
+{#% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %#}
+{% endblock %}

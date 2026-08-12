@@ -1,0 +1,18 @@
+<ul class="{{item.classes | join(' ')}} vertical menu accordion-menu nav-items" data-accordion-menu data-submenu-toggle="false">
+	{% for item in menu.items %}
+    <li class="menu-item-{{loop.index}} {{ item.classes|join(' ') }}">
+			<a href="{{item.link}}">
+				<span>{{item.title}}</span> <i class="fa fa-chevron-down" aria-hidden="true"></i>
+			</a>
+            {% if item.children %}
+            <ul class="nav-drop">
+                {% for child in item.children %}
+                    <li class="nav-drop-item">
+                        <a href="{{child.link}}">{{ child.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+		</li>
+	{% endfor %}
+	</ul>

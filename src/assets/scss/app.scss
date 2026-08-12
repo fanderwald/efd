@@ -1,0 +1,40 @@
+@charset 'utf-8';
+
+@use 'settings';
+@use '../../../node_modules/foundation-sites/scss/foundation' as *;
+
+// Global
+@use "global/wp-admin";
+@use "global/gutenberg";
+@use "global/mixins";
+
+//Components
+@use "components/button";
+@use "components/dropdown_menu";
+@use "components/accordion_menu";
+
+// Templates
+@use "templates/page_tpl";
+
+// Modules
+@use "modules/navigation";
+@use "modules/footer";
+@use "modules/typography";
+//@use "modules/swiper";
+@use "modules/wpforms";
+
+// Blocks
+@import "../../../blocks/**/*.scss";
+
+//@import url("https://use.typekit.net/yie1qvj.css");
+//@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,400;0,800;0,900;1,400;1,800;1,900&display=swap');
+
+
+//@include foundation-typography;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-responsive-embed;
+@include foundation-media-object;
+@include foundation-sticky;
+@include foundation-title-bar;
+@include foundation-visibility-classes;

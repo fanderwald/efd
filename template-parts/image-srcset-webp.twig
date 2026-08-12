@@ -1,0 +1,19 @@
+{% set srcsizes = {
+    'fp-xsmall': '320w',
+    'fp-small': '640w',
+    'fp-plus': '800w',
+    'fp-medium': '1024w',
+    'fp-xmedium': '1280w',
+    'fp-large': '1440w',
+    'fp-xlarge': '1680w',
+    'fp-xxlarge': '1920w',
+} %}
+
+<source srcset="{{ image|responsive_srcset(srcsizes)|towebp }}" type="image/webp">
+<img src="{{ image.src }}"
+     srcset="{{ image|responsive_srcset(srcsizes) }}"
+     sizes="{{ sizes }}"
+     width="{{ image.width }}"
+     height="{{ image.height }}"
+     alt="{{ image.alt }}"
+>

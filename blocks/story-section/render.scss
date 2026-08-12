@@ -1,0 +1,118 @@
+// Story Section
+@use '../../src/assets/scss/global' as *;
+.story-section {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  transition:background-color 0.75s ease;
+  &:not(.has-full-bleed) {
+    //@include grid-container;
+  }
+  &.has-full-bleed {
+    .story-grid {
+      @include breakpoint(medium){
+        @include grid-container;
+      }
+    }
+    .story {
+      @include breakpoint(small only){
+        padding-left:24px;
+        padding-right:24px;
+        max-width: 100%;
+        width:unset;
+      }
+    }
+     .story .story {
+      padding-left:0;
+      padding-right:0;
+    }
+  }
+  
+  .section-background-image {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: 0;
+    mix-blend-mode: soft-light;
+    background-size:cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    opacity:0.3;
+    img {
+      width:100%;
+      height:100%;
+      object-fit: cover;
+    }
+  }
+  &.has-billboard-background {
+    .section-background-image {
+      background-size:contain !important;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      @include breakpoint(medium){
+        background-size:cover !important;
+        background-position: top;
+      }
+    }
+  }
+  .section-top-gradient {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:25%;
+    z-index: 0;
+    background-image: linear-gradient(180deg, #F4F1E8 0%, rgba(244, 241, 232, 0.00) 100%);
+    pointer-events:none;
+  }
+ .section-left-texture, .section-right-texture {
+    position:absolute;
+    top:0;
+    width:clamp(4.688rem, -0.042rem + 10.811vi, 9.688rem);
+    height:100%;
+    z-index: -1;
+    background-size:contain;
+    background-position: top;
+    background-repeat: repeat-y;
+  }
+  .section-left-texture {
+    left:0;
+    background-image: url('../images/left-texture-r2.png');
+  }
+  .section-right-texture {
+    right:0;
+    background-image: url('../images/right-texture-r2.png');
+  }
+  &.has-shape-mask {
+    mask-image: url('../images/shape-mask.svg');
+    mask-size: cover;
+    mask-position:90% 0%;
+    mask-repeat: no-repeat;
+    margin-top:calc(var(--wp--preset--spacing--max-50) * -1);
+  }
+  
+  
+  .wp-block-columns, .image-layout {
+    margin-top: var(--wp--preset--spacing--max-50);
+    margin-bottom: var(--wp--preset--spacing--max-50);
+  }
+
+  
+  
+}
+
+.editor-styles-wrapper {
+  .wp-block-acf-story-section {
+    .section-background-image {
+      pointer-events:none !important;
+    }
+  }
+  &.has-full-bleed {
+    img {
+      width:auto;
+    }
+    
+  }
+}

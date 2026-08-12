@@ -1,0 +1,6 @@
+
+<ul class="social-networks">
+    {% for social in global.social_networks %}
+    <li><a class="social-link" href="{{social.social_network_url}}" target="_blank" rel="nofollow noreferrer"><i class="fab fa-{{social.social_network_icon_name}}"></i><span class="show-for-sr">{{social.social_network_icon_name}}</span></a></li>
+    {% endfor %}
+</ul>

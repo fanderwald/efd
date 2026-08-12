@@ -1,0 +1,13 @@
+{% set classes = [
+    'jumbo-list',
+    block.textColor ? 'has-'~block['textColor']~'-color',
+    block.backgroundColor ? 'has-'~block['backgroundColor']~'-background-color'
+    ]|filter(v => v)|join(' ') %}
+<ul class="{{classes}}" >
+	{% for info in fields.jumbo_list %}
+	<li class="jumbo-list__item"{{ fields.aos_animations ? ' data-aos="' ~ fields.aos_animations  ~ '"'}}>
+		<h3>{{ info.item_title }}</h3>
+		{{ info.item_description }}
+	</li>
+	{% endfor %}
+</ul>

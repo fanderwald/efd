@@ -1,0 +1,19 @@
+{
+    "name": "acf/jumbo-list",
+    "title": "Jumbo List",
+    "description": "This component creates lists with unique styling.",
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom", "link"],
+    "supports": {
+        "align": true,
+        "color": true
+    },
+    "screenshot": "screenshot.jpg",
+    "acf": {
+        "renderTemplate": "render.php",
+        "blockVersion": 3,
+        "mode": "edit",
+        "useForm": true
+    }
+}

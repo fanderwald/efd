@@ -1,0 +1,39 @@
+{
+    "apiVersion": 3,
+    "name": "acf/topper-cover",
+    "title": "Topper (Cover)",
+    "description"  : "This component displays text overlaying a large full-cover top-to-bottom background image or video.",
+    "options":["Mobile Image"],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","topper"],
+    "attributes": {
+        "headingColor": {
+            "type": "string",
+            "default": "var(--wp--preset--color--eggshell)"
+        },
+        "paragraphColor": {
+            "type": "string",
+            "default": "var(--wp--preset--color--eggshell)"
+        }
+    },
+    "supports": {
+        "align": true,
+        "jsx": true,
+        "color": {
+            "text": true,
+            "link": false,
+            "background": true,
+            "gradients": true
+        }
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": [ "file:./style-index.css", "wp-mediaelement" ],
+    "script": "wp-mediaelement"
+}
+

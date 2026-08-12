@@ -1,0 +1,16 @@
+<section class="{{ [
+	'topper-cover',
+	block.align ? 'align-' ~ block.align,
+	fields.hero_image ? 'has-image' : 'no-image',
+	fields.hero_video ? 'has-video',
+	block.textColor ? 'has-' ~ block.textColor ~ '-color',
+	block.backgroundColor ? 'has-' ~ block.backgroundColor ~ '-background-color'
+  	]|filter(v => v)|join(' ') }}">
+	<InnerBlocks />
+	{% if fields.topper_flourish %}
+		<picture class="topper-flourish">
+			{% set image = get_image(fields.topper_flourish) %}
+			<img src="{{image.src}}" alt="{{image.alt}}" width="{{image.width}}" height="{{image.height}}" loading="lazy" />
+		</picture>
+	{% endif %}
+</section>

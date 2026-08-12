@@ -1,0 +1,38 @@
+// Jumbo List
+@use '../../src/assets/scss/global' as *;
+.jumbo-list {
+  list-style: none;
+  padding:0;
+  li {
+    margin-bottom:var(--wp--preset--spacing--fluid-24-40);
+    padding-left:24px;
+    //margin-left:24px;
+    font-size:var(--wp--preset--font-size--fluid-18-22);
+    @include breakpoint(xmedium){
+      padding-left:36px;
+    }
+    h3 {
+      position: relative;
+      margin-bottom:6px;
+      font-size:var(--wp--preset--font-size--fluid-18-22);
+      line-height:1.4;
+       &::before {
+        content: '';
+        position: absolute;
+        left: -32px;
+        background-color: currentColor;
+        width:10px;
+        height:10px;
+        border-radius: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        
+        
+      }
+    }
+    @include breakpoint(small only){
+      line-height: 1.5;
+    }
+   
+  }
+}

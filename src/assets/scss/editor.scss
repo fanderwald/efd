@@ -1,0 +1,21 @@
+/*!
+ * Gutenberg Editor Styles
+ */
+
+/** === Includes === */
+
+@charset 'utf-8';
+
+@use 'settings';
+@use '../../../node_modules/foundation-sites/scss/foundation' as *;
+
+@use "global/wp-admin";
+@use "global/gutenberg";
+@use "global/mixins";
+@use "components/button";
+@use "templates/page_tpl";
+@use "modules/typography";
+//@use "modules/swiper";
+@use "modules/wpforms";
+
+@import "../../../blocks/**/*.scss";

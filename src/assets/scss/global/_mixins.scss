@@ -1,0 +1,76 @@
+// Mixins
+@use 'sass:map';
+@use '../../../node_modules/foundation-sites/scss/util/util' as *;
+@use '../settings' as *;
+
+$border-radius: unquote("clamp(10px, 1.6875rem + ((1vw - 7.68px) * 3.245), 15px);");
+$border-radius-large: unquote("clamp(40px, 1.6875rem + ((1vw - 7.68px) * 3.245), 60px);");
+$border-radius-small: 10px;
+
+@mixin bp($name) {
+  @media screen and (min-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@function em-calc($pixels, $context) {
+  @return #{calc($pixels/$context)}em;
+}
+
+@function vw-calc($target) { 
+$vw-context: (1920*.01) * 1px;
+@return (calc($target*1px/$vw-context)) * 1vw;
+}
+
+@mixin grid-container {
+    padding-left:24px;
+    padding-right:24px;
+    margin-left:auto;
+    margin-right:auto;
+    @include breakpoint(medium){
+        padding-left:var(--wp--preset--spacing--fluid-0-100);
+        padding-right:var(--wp--preset--spacing--fluid-0-100);
+    }
+}
+@mixin header-grid-container {
+    padding-left:24px;
+    padding-right:24px;
+    @include breakpoint(medium){
+        padding-left:var(--wp--preset--spacing--fluid-32-138);
+        padding-left:40px;
+        padding-right:var(--wp--preset--spacing--fluid-32-138);
+        padding-right:40px;
+    }
+
+}
+
+@mixin center {
+display:flex;
+align-items: center;
+justify-content: center;
+}
+
+@mixin background-center {
+background-position:center;
+background-size:cover;
+background-repeat: no-repeat;
+}
+
+@mixin background-left {
+background-position:center left;
+background-size:cover;
+background-repeat: no-repeat;
+}
+
+@mixin background-right {
+background-position:center right;
+background-size:cover;
+background-repeat: no-repeat;
+}
+
+@mixin pseudo-element {
+display:block;
+content:'';
+position:absolute;
+}
+

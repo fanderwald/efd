@@ -1,0 +1,24 @@
+{% set classes = [
+    'story',
+    block.align ? 'align-' ~ block.align,
+    block.textColor ? 'has-'~block['textColor']~'-text-color',
+    block.backgroundColor ? 'has-'~block['backgroundColor']~'-background-color',
+	block.className ? block['className'],
+    fields.story_bleed ? 'has-' ~ fields.story_bleed ~'-bleed',
+	fields.story_width ? 'has-' ~ fields.story_width ~'-width',
+	fields.left_padding_mobile_only ? 'has-left-padding-mobile-only',
+    fields.right_padding_mobile_only ? 'has-right-padding-mobile-only',
+    fields.bottom_padding_mobile_only ? 'has-bottom-padding-mobile-only',
+    fields.top_padding_none_mobile_only ? 'has-no-top-padding-mobile-only',
+    fields.story_border_left ? 'has-story-border-left',
+    ]|filter(v => v)|join(' ') %}
+
+<div{{fields.section_id ? ' id="'~fields.section_id~'"'}} class="{{classes}}" {{attributes}}>	
+    {% if fields.story_background_image %}
+		{% set image = get_image(fields.story_background_image) %}
+        <div class="story-background-image" 
+        {{ image ? 'style="background-image:url(' ~ image ~ ');background-size:' ~ fields.story_background_size ~ ';"' : '' }}>
+		</div>
+    {% endif %}
+    <InnerBlocks />
+</div>

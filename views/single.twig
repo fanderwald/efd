@@ -1,0 +1,46 @@
+{% extends "base.twig" %}
+
+
+{% block content %}
+
+{% include 'template-parts/page-hero.twig' %}
+
+<section class="group leader-group grid-container single-article">
+	<div class="grid-container-background">
+		<div class="grid-x">
+			<div class="cell">
+				<h1>{{ post.title }}</h1>
+			</div>
+		</div>
+		<div class="grid-x" data-aos="fade-up" data-aos-delay="0" data-aos-once="true">
+			<div class="cell large-3 article-sidebars">
+				<ul class="article-discretes">
+					<li><span class="label">Date </span><span class="post-date">{{ post.post_date|date('F j, Y') }}</span></li>
+					<li><span class="label">Category </span><span class="post-category">{{ post.terms('category') | join(', ') }}</span></li>
+				</ul>
+			</div>
+			<div class="cell large-8 article-contents">
+				{{post.content}}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="post-navigation">
+	<div class="grid-container">
+	<div class="grid-x wayfinding">
+		<div class="cell prev-project post-nav-link post-next">
+			{% if post.prev.link %}
+			<p class="micro-title">Next</p>
+			 <a class="" href="{{ post.prev.link }}" title="{{ post.prev.title }}"><span>{{ post.prev.title }}</span></a>
+			 {% else %}
+			 <p class="micro-title">Next</p>
+			 <a class="" href="{{TimberPost(7).link}}">Back to News</a>
+			 {% endif %}
+		</div>
+	</div>
+	</div>
+</section>
+{% endblock %}
+
+   

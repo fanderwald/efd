@@ -1,0 +1,44 @@
+{
+    "name": "acf/story-grid",
+    "title": "Story Grid",
+    "description"  : "This component is used to display stories in a grid layout.",
+    "options":["Mobile Image"],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","story"],
+    "supports": {
+        "jsx": true,
+        "align": true,
+        "color": true,
+        "innerBlocks": true,
+        "spacing": {
+            "margin": false,
+            "padding": true,
+            "blockGap": true,
+            "units": ["px", "em", "rem", "%"],
+            "__experimentalDefaultControls": {
+                "padding": true,
+                "blockGap": true
+            }
+        }
+    },
+    "attributes": {
+      "style": {
+        "type": "object",
+        "default": {
+          "spacing": {
+            "blockGap": "16px",
+            "padding": {
+              "top": "var(--wp--preset--spacing--max-16)",
+              "bottom": "var(--wp--preset--spacing--max-16)"
+            }
+          }
+        }
+      }
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    }
+}
+

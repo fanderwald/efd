@@ -1,0 +1,18 @@
+<ul class="{{item.classes | join(' ')}} dropdown menu desktop-menu">
+	{% for item in dropdown.items %}
+    <li class="menu-item-{{loop.index}} {{ item.classes|join(' ') }}{{item.children ? ' is-dropdown-submenu-parent'}}">
+            <a href="{{ item.link }}" target="{{ item.meta( '_menu_item_target' ) ? item.meta( '_menu_item_target' ) : '_self' }}">
+				<span>{{item.title}}</span>
+			</a>
+            {% if item.children %}
+            <ul class="dropdown menu vertical submenu is-dropdown-submenu">
+                {% for child in item.children %}
+                    <li class="nav-drop-item is-dropdown-submenu-item {{child.classes | join(' ')}}">
+                        <a href="{{child.link}}">{{child.title}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+		</li>
+	{% endfor %}
+	</ul>

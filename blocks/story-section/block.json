@@ -1,0 +1,49 @@
+ {
+    "apiVersion": 3,
+    "name": "acf/story-section",
+    "title": "Story Section",
+    "description": "This component displays the main story content body with a unique set of features.",
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","story"],
+    "supports": {
+        "align": true,
+        "jsx": true,
+        "color": {
+          "text": true,
+          "link": false,
+          "background": true,
+          "gradients": true
+        },
+        "customClassName": true,
+        "spacing": {
+            "margin": true,
+            "padding": true,
+            "__experimentalDefaultControls": {
+                "padding": true,
+                "margin": true
+            }
+        }
+    },
+    "attributes": {
+        "style": {
+          "type": "object",
+          "default": {
+            "spacing": {
+              "padding": {
+                "top": "var(--wp--preset--spacing--fluid-50-100)",
+                "bottom": "var(--wp--preset--spacing--fluid-50-100)"
+              }
+            },
+            "color": {
+              "background": "var(--wp--preset--color--off-white)"
+            }
+          }
+        }
+      },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    }
+}
+

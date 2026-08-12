@@ -1,0 +1,191 @@
+[
+    {
+        "key": "group_67587288e0a2f",
+        "title": "Story Grid",
+        "fields": [
+            {
+                "key": "field_67587288e3372",
+                "label": "Grid Style",
+                "name": "grid_style",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "two-wide": "Two-Column",
+                    "two-wide-split-left": "Two-Column Split Left",
+                    "two-wide-asymmetric": "Two-Column Asymmetric Left",
+                    "two-wide-asymmetric-right": "Two-Column Asymmetric Right",
+                    "three-wide": "Three-Column",
+                    "three-wide-asymmetric": "Three-Column Asymmetric",
+                    "four-wide": "Four-Column",
+                    "two-wide-25-75": "Two-Column (25\/75)"
+                },
+                "default_value": "two-wide",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "create_options": 0,
+                "save_options": 0
+            },
+            {
+                "key": "field_67cc5355d956e",
+                "label": "Grid Width",
+                "name": "story_grid_width",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "default": "Default",
+                    "wide": "Wide"
+                },
+                "default_value": "default",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "create_options": 0,
+                "save_options": 0
+            },
+            {
+                "key": "field_677d672db0802",
+                "label": "Stack on Tablet",
+                "name": "stack_on_tablet",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            },
+            {
+                "key": "field_67d2f3c9b36cd",
+                "label": "Image Offset",
+                "name": "image_offset",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "Image bleeds off the edge of screen, except on mobile.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            },
+            {
+                "key": "field_6759cf263e376",
+                "label": "Stack on Mobile",
+                "name": "stack_on_mobile",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            },
+            {
+                "key": "field_680bf73714e38",
+                "label": "No Grid Gap on Mobile",
+                "name": "grid_gap_off_mobile",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            },
+            {
+                "key": "field_67d6ed1e4f82c",
+                "label": "Reverse Order",
+                "name": "reverse_order_on_mobile",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "Reverse two-wide column display order on mobile devices.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/story-grid"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]

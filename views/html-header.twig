@@ -1,0 +1,14 @@
+<!doctype html>
+<html class="no-js" {{ site.language_attributes }} >
+<head>
+    {% if global.head_scripts_high %}
+    {{ global.head_scripts_high }}
+    {% endif %}
+    <meta charset="{{ site.charset }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#2B52358">
+
+    <link rel="icon" href="{{theme.link}}/dist/assets/images/icons/favicon.png" data-href-light="{{theme.link}}/dist/assets/images/icons/favicon.png" data-href-dark="{{theme.link}}/dist/assets/images/icons/favicon.png">
+    
+    {{function('wp_head')}}

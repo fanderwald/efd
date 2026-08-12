@@ -1,0 +1,25 @@
+<footer class="footer-container">
+	<div class="content-group-container">
+		<div class="content-group">
+			<div class="content-block logo-block">
+				<a href="{{site.link}}" rel="home" aria-label="Home">
+				<picture>
+					{% set image = get_image(global.primary_logo) %}
+					{% include 'template-parts/image-srcset.twig' %}
+				</picture>
+				</a>
+			</div>
+			<div class="legal-group">
+				<div class="nav-group">
+					<div class="legal-nav">
+						{% for item in legal.items %}
+						<a href="{{item.link}}"><span>{{item.title}}</span></a>
+						{% endfor %}
+					</div>
+					<p><span class="copyright">&copy; {{ "now"|date("Y") }} {{ site.name }}.</span> All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+</footer>

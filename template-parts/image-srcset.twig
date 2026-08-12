@@ -1,0 +1,16 @@
+<source 
+srcset="{{image.src('fp-medium')}} 300w,
+        {{image.src('fp-large')}} 768w,
+        {{image.src('fp-xlarge')}} 1440w,
+        {{image}} 1920w"
+type="image/webp">
+<img src="{{image}}"
+srcset="{{image.src('fp-medium')}} 300w,
+        {{image.src('fp-large')}} 768w,
+        {{image.src('fp-xlarge')}} 1440w,
+        {{image}} 1920w"
+sizes="(max-width: 1920px) 100vw, 1920px"
+width="{{image.width}}"
+height="{{image.height}}"
+alt="{{image.alt}}"
+>

@@ -1,0 +1,70 @@
+{% block html_head_container %}
+
+	{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+    {% if global.head_scripts %}
+    {{ global.head_scripts }}
+    {% endif %}
+	</head>
+
+{% endblock %}
+
+<body class="{{ body_class }}">
+    {% if global.body_scripts %}
+    {{ global.body_scripts }}
+    {% endif %}
+    
+    {{function('wp_body_open')}}
+     
+    <header id="home" class="site-header">
+        <div class="nav-underlay"></div>
+        <nav class="site-navigation">
+            <div class="top-nav-left column">
+                <a class="logo" href="{{site.link}}" rel="home" aria-label="Home">
+                    <img src="{{get_image(global.primary_logo).src}}" alt="{{ site.name }}" width="{{get_image(global.primary_logo).width}}" height="{{get_image(global.primary_logo).height}}"/>
+                </a>            
+            </div>
+            <div class="top-nav-right column">
+                {% set dropdown = top_menu %}
+                {% include 'template-parts/dropdown-menu.twig' %}
+                 <div class="expanding-pill" id="expanding-pill-container">
+                    <div class="pill-header">
+                        <a href="#contact"><span>Contact</span></a>
+                        <button id="pill-toggle-button" aria-expanded="false" aria-controls="pill-link-list" aria-label="Menu" class="nav-toggle" type="button"><span class="nav-icon"></span></button>
+                    </div>
+                    
+                    <div class="pill-links" id="pill-link-list">
+                        {% for item in menu.items %}
+                        <a href="{{item.link}}"><span>{{item.title}}</span></a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div> 
+           
+            {#<button aria-label="Menu" class="nav-toggle closed" type="button"><span class="nav-icon"></span></button>#}
+        </nav>
+	</header> 
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="menu-group">
+                {% include 'template-parts/accordion-menu.twig' %}
+            </div>
+        </div>
+    </div>
+{% block content %}
+    Sorry, no content
+{% endblock %}
+
+
+
+{% block footer %}
+	{% include 'footer.twig' %}
+	{{ function('wp_footer') }}
+{% endblock %}
+{% if global.footer_scripts %}
+{{ global.footer_scripts }}
+{% endif %}
+
+</body>
+</html>

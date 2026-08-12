@@ -1,0 +1,69 @@
+@use '../global' as *;
+footer {
+	padding-top:28px;
+	padding-bottom:50px;
+	@include breakpoint(medium){
+		padding-top:50px;
+		padding-bottom:75px;
+	}
+	.content-group-container {
+		@include grid-container;
+	}
+	.content-group {
+		display:grid;
+		gap:10px var(--wp--preset--spacing--fluid-30-60);
+		//padding-bottom:var(--wp--preset--spacing--fluid-30-60);
+		justify-content: space-between;
+		@include breakpoint(medium){
+			grid-template-columns:1fr 1.75fr;
+		}
+		
+		
+		.logo-block {
+			picture {
+				display:block;
+			}
+			img {
+				max-width:clamp(250px, calc((100vw - 744px) / (1440 - 744) * (380 - 250) + 250px), 380px);
+				display:block;
+				height:auto;
+				@include breakpoint(small only){
+					width:100%;
+				}
+			}
+		}
+		
+	}
+	.legal-group {
+		display:grid;
+		gap:20px;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+	
+	
+	.legal-nav {
+		a {
+			position:relative;
+			padding-right:15px;
+			&:hover {
+				span {
+					opacity:1;
+				}
+			}
+		}
+		a:not(:last-child) {
+			margin-right:5px;
+		}
+	}
+	.legal-group {
+		padding-top:24px;
+		p, a {
+			font-size:var(--wp--preset--font-size--tiny);
+		}
+		@include breakpoint(medium){
+			padding-top:0;
+			text-align: right;
+		}
+	}
+}

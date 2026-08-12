@@ -1,0 +1,16 @@
+{% set classes = [
+    'story-grid',
+    block.align ? 'align-' ~ block.align,
+    block.textColor ? 'has-'~block['textColor']~'-text-color',
+    block.backgroundColor ? 'has-'~block['backgroundColor']~'-background-color',
+	block.className ? block['className'],
+	fields.grid_style ? ' ' ~ fields.grid_style ~'-grid',
+    fields.stack_on_tablet ? 'has-stack-on-tablet',
+    fields.stack_on_mobile ? 'has-stack-on-mobile',
+    fields.grid_gap_off_mobile ? 'has-grid-gap-off-mobile',
+    fields.reverse_order_on_mobile ? ' has-reverse-order-on-mobile'
+    ]|filter(v => v)|join(' ') %}
+
+<div{{fields.section_id ? ' id="'~fields.section_id~'"'}} class="{{classes}}" {{attributes}}>	
+    <InnerBlocks />
+</div>
