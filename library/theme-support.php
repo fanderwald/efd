@@ -37,3 +37,27 @@ if ( ! function_exists( 'foundationpress_theme_support' ) ) :
 
 	add_action( 'after_setup_theme', 'foundationpress_theme_support' );
 endif;
+
+add_action( 'init', function() {
+    register_block_style(
+        'core/paragraph',
+        array(
+            'name'  => 'micro-heading',
+            'label' => __( 'Micro Heading', 'foundationpress' ),
+        )
+    );
+	register_block_style(
+        'core/list',
+        array(
+            'name'  => 'jumbo-list',
+            'label' => __( 'Jumbo List', 'foundationpress' ),
+        )
+    );
+    register_block_style(
+        'core/group',
+        array(
+            'name'  => 'rounded-corners',
+            'label' => __( 'Rounded Corners', 'foundationpress' ),
+        )
+    );
+} );

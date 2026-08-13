@@ -28,18 +28,17 @@ $vw-context: (1920*.01) * 1px;
     margin-left:auto;
     margin-right:auto;
     @include breakpoint(medium){
-        padding-left:var(--wp--preset--spacing--fluid-0-100);
-        padding-right:var(--wp--preset--spacing--fluid-0-100);
+        padding-left:var(--wp--preset--spacing--fluid-32-90-vw);
+        padding-right:var(--wp--preset--spacing--fluid-32-90-vw);
     }
 }
 @mixin header-grid-container {
     padding-left:24px;
     padding-right:24px;
     @include breakpoint(medium){
-        padding-left:var(--wp--preset--spacing--fluid-32-138);
-        padding-left:40px;
-        padding-right:var(--wp--preset--spacing--fluid-32-138);
-        padding-right:40px;
+        padding-left:var(--wp--preset--spacing--fluid-32-90-vw);
+
+        padding-right:var(--wp--preset--spacing--fluid-32-90-vw);
     }
 
 }

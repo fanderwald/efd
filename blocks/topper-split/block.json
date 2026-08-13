@@ -1,22 +1,12 @@
 {
     "apiVersion": 3,
-    "name": "acf/topper-cover",
-    "title": "Topper (Home)",
-    "description"  : "This component displays text overlaying a large animated gallery background.",
+    "name": "acf/topper-split",
+    "title": "Topper (Split)",
+    "description"  : "This component displays a topper with image on left and text on right.",
     "options":["Mobile Image"],
     "category": "custom-blocks",
     "icon": "images-alt2",
     "keywords": ["custom","topper"],
-    "attributes": {
-        "headingColor": {
-            "type": "string",
-            "default": "var(--wp--preset--color--eggshell)"
-        },
-        "paragraphColor": {
-            "type": "string",
-            "default": "var(--wp--preset--color--eggshell)"
-        }
-    },
     "supports": {
         "align": true,
         "jsx": true,
@@ -31,7 +21,7 @@
         "mode": "preview",
         "renderTemplate": "render.php"
     },
-    "editorScript": "file:./index.js",
+    "editorScript": "file:./edit.js",
     "editorStyle": "file:./index.css",
     "style": [ "file:./style-index.css", "wp-mediaelement" ],
     "script": "wp-mediaelement"

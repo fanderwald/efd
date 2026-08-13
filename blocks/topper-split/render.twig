@@ -1,0 +1,51 @@
+{% set align_map = {
+    'center center': 'align-items: center; justify-content: center;',
+    'center top':    'align-items: flex-start; justify-content: center;',
+    'center bottom': 'align-items: flex-end; justify-content: center;',
+    'left center':   'align-items: center; justify-content: flex-start;',
+    'right center':  'align-items: center; justify-content: flex-end;',
+	'left bottom':   'align-items: flex-end; justify-content: flex-start;',
+	'right bottom':  'align-items: flex-end; justify-content: flex-end;',
+	'left top':      'align-items: flex-start; justify-content: flex-start;',
+	'right top':     'align-items: flex-start; justify-content: flex-end;'
+} %}
+
+{% set current_align = align_map[fields.focal_point] ?: align_map['center center'] %}
+<section class="{{ [
+	'topper-split',
+	block.align ? 'align-' ~ block.align,
+	fields.hero_image ? 'has-image' : 'no-image',
+	block.textColor ? 'has-' ~ block.textColor ~ '-color',
+	block.backgroundColor ? 'has-' ~ block.backgroundColor ~ '-background-color',
+	fields.topper_size ? 'has-' ~ fields.topper_size ~ '-topper-size'
+  	]|filter(v => v)|join(' ') }}" {{'style="' ~ current_align ~ ';"'}}>
+	<div class="topper-background no-image"></div>
+	<div class="topper-title">
+		<div>
+		{% if fields.micro_heading %}
+		<p class="wp-block-paragraph is-style-micro-heading">{{fields.micro_heading}}</p>
+		{% endif %}
+		<h1 class="wp-block-heading">{{fields.main_heading}}</h1>
+		</div>
+	</div>
+	<div class="image-div">
+		<div class="image-div__container">
+			{% if fields.main_image %}
+			<picture>
+				<img src="{{fields.main_image.url}}" alt="{{fields.main_image.alt}}" width="{{fields.main_image.width}}" height="{{fields.main_image.height}}">
+			</picture>
+			{% endif %}
+			{% if fields.image_caption %}
+			<figcaption>{{fields.image_caption}}
+				{% if fields.image_link %}
+				<a href="{{fields.image_link.url}}" target="{{fields.image_link.target}}">{{fields.image_link.title}}</a>
+				{% endif %}
+			</figcaption>
+			{% endif %}
+		</div>
+	</div>
+	<div class="content-div">
+		<InnerBlocks />
+	</div>
+	
+</section>

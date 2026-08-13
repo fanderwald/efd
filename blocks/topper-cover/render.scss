@@ -2,7 +2,8 @@
 @use '../../src/assets/scss/global' as *;
 .topper-cover {
   position: relative;
- 
+  background-color:var(--wp--preset--color--black);
+  height:800px;
   overflow:hidden;
   z-index:1;
   padding-left:0;
@@ -11,6 +12,13 @@
   margin-right:auto;
   @include breakpoint(medium){
       @include grid-container;
+  }
+  .topper-content {
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    height:100%;
   }
   .wp-block-cover {
     padding-top:75px;
@@ -51,22 +59,68 @@
       max-width:700px;
     }
   }
-  .topper-flourish {
-    position:absolute;
-    bottom:-5px;
-    right:0;
-    width:120px;
-    z-index:1;
-    img {
-      width:100%;
-      height:100%;
-      object-fit:contain;
-    }
-    @include breakpoint(medium){
-        right:var(--wp--preset--spacing--fluid-0-100);
-        width:28vw;
+
+  &.has-gallery {
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(36, 76, 90, 0.5);
+      z-index: 1;
+      pointer-events: none;
+      //mix-blend-mode: multiply;
     }
   }
+
+  .topper-gallery-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    gap: 3px;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+
+    .gallery-col {
+      flex: 1;
+      overflow: hidden;
+
+      &--1 { --col-duration: 820s; --col-delay: 0s; }
+      &--2 { --col-duration: 980s; --col-delay: -200s; }
+      &--3 { --col-duration: 1050s; --col-delay: -480s; }
+
+      &__track {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        will-change: transform;
+        animation-name: gallery-scroll-up;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: var(--col-duration, 30s);
+        animation-delay: var(--col-delay, 0s);
+      }
+
+      &__item {
+        flex-shrink: 0;
+        width: 100%;
+        aspect-ratio: 4/5;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@keyframes gallery-scroll-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
 }
 
 .editor-styles-wrapper {

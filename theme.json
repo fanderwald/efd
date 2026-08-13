@@ -29,18 +29,28 @@
 				},
 				{
 					"slug": "medium",
-					"size": "20px",
+					"size": "18px",
 					"name": "Medium"
 				},
 				{
 					"slug": "regular",
-					"size": "22px",
+					"size": "20px",
 					"name": "Regular"
 				},
 				{
-					"slug": "fluid-18-22",
-					"size": "clamp(18px, calc((100vw - 744px) / (1440 - 744) * (22 - 18) + 18px), 22px)",
-					"name": "Fluid 18-22"
+					"slug": "fluid-14-16",
+					"size": "clamp(14px, calc((100vw - 744px) / (1440 - 744) * (16 - 14) + 14px), 16px)",
+					"name": "Fluid 14-16"
+				},
+				{
+					"slug": "fluid-18-20",
+					"size": "clamp(18px, calc((100vw - 744px) / (1440 - 744) * (20 - 18) + 18px), 20px)",
+					"name": "Fluid 18-20"
+				},
+				{
+					"slug": "fluid-22-28",
+					"size": "clamp(22px, calc((100vw - 744px) / (1440 - 744) * (28 - 22) + 22px), 28px)",
+					"name": "Fluid 22-28"
 				},
 				{
 					"slug": "fluid-24-42",
@@ -53,9 +63,9 @@
 					"name": "Fluid 24-52"
 				},
 				{
-					"slug": "fluid-30-60",
-					"size": "clamp(30px, calc((100vw - 744px) / (1440 - 744) * (60 - 30) + 30px), 60px)",
-					"name": "Fluid 30-60"
+					"slug": "fluid-36-65",
+					"size": "clamp(36px, calc((100vw - 744px) / (1440 - 744) * (65 - 36) + 36px), 65px)",
+					"name": "Fluid 36-65"
 				}
 			]
 		},
@@ -166,19 +176,9 @@
 					"name": "Fluid 32-80"
 				},
 				{
-					"slug": "fluid-32-72",
-					"size": "clamp(32px, calc((100vw - 744px) / (1440 - 744) * (72 - 32) + 32px), 72px)",
-					"name": "Fluid 32-72"
-				},
-				{
-					"slug": "fluid-40-80",
-					"size": "clamp(45px, calc((100vw - 744px) / (1440 - 744) * (80 - 45) + 45px), 80px)",
-					"name": "Fluid 40-80"
-				},
-				{
-					"slug": "fluid-0-100",
+					"slug": "fluid-32-90-vw",
 					"size": "6vw",
-					"name": "Fluid 0-100"
+					"name": "Fluid 32-90 VW"
 				},
 				{
 					"slug": "fluid-50-100",
@@ -245,7 +245,11 @@
 		"blocks": {
 			"core/paragraph": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--fluid-18-22)"
+					"fontSize": "var(--wp--preset--font-size--fluid-18-20)",
+					"fontWeight": "500"
+				},
+				"color": {
+				"text": "#244c5a"
 				}
 			}
 		}
