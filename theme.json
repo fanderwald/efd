@@ -140,6 +140,13 @@
 					"slug": "custom-brand-duotone",
 					"name": "Custom Brand Duotone"
 				}
+			],
+			"gradients": [
+				{
+					"slug": "dark-to-light-green",
+					"gradient": "linear-gradient(199deg, #244c5a 0%, #5cb8b2 250%)",
+					"name": "Dark to Light Green"
+				}
 			]
 		},
 		"spacing": {

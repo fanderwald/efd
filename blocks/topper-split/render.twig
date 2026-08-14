@@ -16,10 +16,10 @@
 	block.align ? 'align-' ~ block.align,
 	fields.hero_image ? 'has-image' : 'no-image',
 	block.textColor ? 'has-' ~ block.textColor ~ '-color',
-	block.backgroundColor ? 'has-' ~ block.backgroundColor ~ '-background-color',
 	fields.topper_size ? 'has-' ~ fields.topper_size ~ '-topper-size'
-  	]|filter(v => v)|join(' ') }}" {{'style="' ~ current_align ~ ';"'}}>
-	<div class="topper-background no-image"></div>
+  	]|filter(v => v)|join(' ') }}" {{'style="' ~ current_align ~ '"'}}>
+	{{dump(block)}}
+	<div class="topper-background no-image{% if block.gradient %} has-{{ block.gradient }}-gradient-background{% endif %}"></div>
 	<div class="topper-title">
 		<div>
 		{% if fields.micro_heading %}

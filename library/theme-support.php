@@ -61,3 +61,99 @@ add_action( 'init', function() {
         )
     );
 } );
+
+function my_theme_register_button_styles() {
+    register_block_style(
+        'core/button',
+        array(
+            'name'  => 'fill',
+            'label' => __('Fill', 'foundationpress'),
+            'inline_style' => '
+            .wp-block-button.is-style-fill .wp-block-button__link { 
+            border: 2px solid var(--wp--preset--color--primary); 
+            background-color: var(--wp--preset--color--primary); 
+            color: var(--wp--preset--color--cloud); 
+            } 
+            .wp-block-button.is-style-fill .wp-block-button__link:hover { 
+            border: 2px solid var(--wp--preset--color--yellow-green);
+            background-color: var(--wp--preset--color--yellow-green); 
+            color: var(--wp--preset--color--primary); 
+            }'
+        )
+    );
+    register_block_style(
+        'core/button',
+        array(
+            'name'  => 'fill-cloud',
+            'label' => __('Fill - Cloud', 'foundationpress'),
+            'inline_style' => '
+            .wp-block-button.is-style-fill-cloud .wp-block-button__link { 
+            border: 2px solid var(--wp--preset--color--cloud); 
+            background-color: var(--wp--preset--color--cloud); 
+            color: var(--wp--preset--color--primary); 
+            } 
+            .wp-block-button.is-style-fill-cloud .wp-block-button__link:hover { 
+            border: 2px solid var(--wp--preset--color--primary);
+            background-color: var(--wp--preset--color--primary); 
+            color: var(--wp--preset--color--cloud); 
+            }'
+        )
+    );
+    register_block_style(
+        'core/button',
+        array(
+            'name'  => 'fill-primary',
+            'label' => __('Fill - Primary', 'foundationpress'),
+            'inline_style' => '
+            .wp-block-button.is-style-fill-primary .wp-block-button__link { 
+            border: 2px solid var(--wp--preset--color--primary); 
+            background-color: var(--wp--preset--color--primary); 
+            color: var(--wp--preset--color--cloud); 
+            } 
+            .wp-block-button.is-style-fill-primary .wp-block-button__link:hover { 
+            border: 2px solid var(--wp--preset--color--yellow-green);
+            background-color: var(--wp--preset--color--yellow-green); 
+            color: var(--wp--preset--color--primary); 
+            }'
+        )
+    );
+    register_block_style(
+        'core/button',
+        array(
+            'name'  => 'fill-yellow-green',
+            'label' => __('Fill - Yellow Green', 'foundationpress'),
+            'inline_style' => '
+            .wp-block-button.is-style-fill-yellow-green .wp-block-button__link { 
+            border: 2px solid var(--wp--preset--color--yellow-green); 
+            background-color: var(--wp--preset--color--yellow-green); 
+            color: var(--wp--preset--color--primary); 
+            } 
+            .wp-block-button.is-style-fill-yellow-green .wp-block-button__link:hover { 
+            border: 2px solid var(--wp--preset--color--primary);
+            background-color: var(--wp--preset--color--primary); 
+            color: var(--wp--preset--color--cloud); 
+            }'
+        )
+    );
+    
+    register_block_style(
+        'core/button',
+        array(
+            'name'  => 'outline-white',
+            'label' => __('Outline - White', 'foundationpress'),
+            'inline_style' => '
+            .wp-block-button.is-style-outline-white .wp-block-button__link { 
+            background-color: transparent; 
+			box-shadow: 0 0 0 2px var(--wp--preset--color--white) inset;
+            color: var(--wp--preset--color--white); 
+            } 
+            .wp-block-button.is-style-outline-white .wp-block-button__link:hover { 
+            box-shadow: 0 0 0 2px var(--wp--preset--color--white) inset;
+			background-color: var(--wp--preset--color--white); 
+            color: var(--wp--preset--color--primary) !important; 
+            }'
+        )
+    );
+    
+}
+add_action( 'init', 'my_theme_register_button_styles' );

@@ -4,14 +4,11 @@
   position: relative;
   display:grid;
   @include breakpoint(medium){
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     grid-template-rows: auto auto;
   }
-  @include breakpoint(xmedium){
-    grid-template-columns: 1fr minmax(0, 600px);
-  }
   @include breakpoint(large){
-    grid-template-columns: 1fr minmax(0, 650px);
+    grid-template-columns: 1fr minmax(0, 600px);
   }
   .topper-title {
     padding-bottom:var(--wp--preset--spacing--fluid-50-100);
@@ -63,6 +60,7 @@
     position:relative;
     height:100%;
     min-width:0;
+    padding-top:var(--wp--preset--spacing--fluid-50-100);
     @include breakpoint(medium){
       grid-column: 2 / 3;
       grid-row: 1 / span 2;
@@ -73,16 +71,16 @@
   }
   
   .image-div__container {
-    position:sticky;
-    top:24px;
+    
     padding-right:calc(var(--wp--preset--spacing--fluid-32-90-vw) - 24px);
     @include breakpoint(medium){
-      
+    position:sticky;
+    top:24px;  
       padding-top:0;
     }
     picture {
       display:block;
-      aspect-ratio: 1/1;
+      aspect-ratio: 1/1.25;
       border-radius: $border-radius;
       overflow:hidden;
       height:100%;
@@ -111,14 +109,15 @@
     height:100%;
     z-index:0;
     min-height: 400px;
-    height: 40vh;
-    max-height: 500px;
-    background-color: var(--wp--preset--color--primary);
+    height: 40vw;
+    //max-height: 500px;
+    //background-color: var(--wp--preset--color--primary);
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
-    @include breakpoint(xmedium){
-      max-height: 600px;
-      height: 60vh;
+    @include breakpoint(medium){
+      //ax-height: 550px;
+      height: calc(37vw + 146px);
+      height:clamp(400px, calc((100vw - 744px) / (1440 - 744) * (650 - 400) + 400px), 650px);
     }
     img {
       object-fit:cover;
@@ -180,10 +179,11 @@
 }
 
 .editor-styles-wrapper {
-  .topper-split {
+  .wp-block-acf-topper-split {
     z-index:0;
     margin-top:0;
-    grid-template-columns: 2fr 1fr;      
+    grid-template-columns: 2fr 1fr;  
+    background:transparent !important;    
     .swiper-slide:not(:first-child) {
       display:none;
     }
