@@ -1,0 +1,21 @@
+{% set classes = [
+    'topper-grid__hero',
+    block.align ? 'align-' ~ block.align,
+    block.textColor ? 'has-'~block['textColor']~'-text-color',
+    block.backgroundColor ? 'has-'~block['backgroundColor']~'-background-color',
+	block.className ? block['className']
+    ]|filter(v => v)|join(' ') %}
+
+<div{{fields.section_id ? ' id="'~fields.section_id~'"'}} class="{{classes}}" {{attributes}}>	
+    <InnerBlocks class="hero-content"/>
+    <div class="topper-grid__controls">
+        <div class="topper-grid__caption-card" aria-live="polite">
+            <p><span class="caption-title"></span><br/>
+            <span class="caption-body"></span> <a href="#" class="caption-link" style="display: none;"></a></p>
+        </div>
+        <div class="swiper-navigation">
+            <div class="swiper-button-prev"><svg class="small-icon"><use xlink:href="#swiper-arrow"></use></svg></div>
+            <div class="swiper-button-next"><svg class="small-icon"><use xlink:href="#swiper-arrow"></use></svg></div>
+        </div>
+    </div>
+</div>

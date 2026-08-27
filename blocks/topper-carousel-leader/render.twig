@@ -1,0 +1,12 @@
+{% set classes = [
+    'topper-grid__card',
+    block.align ? 'align-' ~ block.align,
+    block.textColor ? 'has-'~block['textColor']~'-text-color',
+    block.backgroundColor ? 'has-'~block['backgroundColor']~'-background-color',
+    block['gradient'] ? ' has-'~block['gradient']~'-gradient-background',
+	block.className ? block['className']
+    ]|filter(v => v)|join(' ') %}
+
+<div{{fields.section_id ? ' id="'~fields.section_id~'"'}} class="{{classes}}" {{attributes}}>	
+    <InnerBlocks />
+</div>

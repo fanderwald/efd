@@ -26,6 +26,9 @@ function register_acf_blocks() {
     register_block_type( __DIR__ . '/../blocks/jumbo-list' );
     register_block_type( __DIR__ . '/../blocks/story-grid' );
 	register_block_type( __DIR__ . '/../blocks/story-section' );
+    register_block_type( __DIR__ . '/../blocks/topper-carousel-content' );
+    register_block_type( __DIR__ . '/../blocks/topper-carousel-leader' );
+    register_block_type( __DIR__ . '/../blocks/topper-carousel-grid' );
     register_block_type( __DIR__ . '/../blocks/topper-cover' );
     register_block_type( __DIR__ . '/../blocks/topper-split' );
 }

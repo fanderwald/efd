@@ -1,8 +1,5 @@
 import $ from 'jquery';
 import whatInput from 'what-input';
-//import slick from 'slick-carousel';
-//import inview from 'in-view';
-//import FontFaceObserver from 'fontfaceobserver';
 
 window.$ = $;
 
@@ -12,6 +9,14 @@ import Foundation from 'foundation-sites';
 //import './lib/foundation-explicit-pieces';
 
 $(document).foundation();
+
+
+const topperContainer = document.querySelector('.topper-carousel-grid');
+
+if (topperContainer) {
+  const { initTopperCarousel } = await import('../../../blocks/topper-carousel-grid/render.js');
+  initTopperCarousel(topperContainer);
+}
 
 
 var e = window.matchMedia("(prefers-color-scheme: dark)"),

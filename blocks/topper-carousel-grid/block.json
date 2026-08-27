@@ -1,0 +1,27 @@
+{
+    "name": "acf/topper-carousel-grid",
+    "title": "Topper (Carousel Grid)",
+    "description"  : "This component displays a topper with a carousel grid layout.",
+    "options":["Mobile Image"],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","topper"],
+    "supports": {
+        "align": true,
+        "jsx": true,
+        "color": {
+            "text": true,
+            "link": false,
+            "background": true,
+            "gradients": true
+        }
+    },
+    "acf": {
+        "blockVersion": 3,
+        "renderTemplate": "render.php",
+        "mode": "preview",
+        "hideFieldsInSidebar": true,
+        "expandedEditorButtonText": "Edit Carousel Fields"
+    }
+}
+

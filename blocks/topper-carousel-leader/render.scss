@@ -1,0 +1,19 @@
+// Story 
+@use '../../src/assets/scss/global' as *;
+.topper-grid__card {
+  grid-row: 2 / 4;
+  //background-color: #2b5763;
+  color: #ffffff;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border-radius: $border-radius;
+  margin-left:-6vw;
+  margin-right:-6vw;
+  @include breakpoint(medium){
+    margin-left:unset;
+    margin-right:unset;
+  }
+  @include breakpoint(xmedium) {
+    padding-right: var(--wp--preset--spacing--fluid-50-100);
+    padding-left: var(--wp--preset--spacing--fluid-50-100);
+  }
+}

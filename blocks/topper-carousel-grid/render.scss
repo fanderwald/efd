@@ -1,0 +1,104 @@
+// Topper - Split
+@use '../../src/assets/scss/global' as *;
+.topper-carousel-grid {
+  position: relative;
+  display:grid;
+  grid-template-rows: auto clamp(3rem, 8vw, 6rem) auto;
+  grid-template-columns: 1fr;
+  width: 100%;
+  height:100%;
+  min-width: 0; 
+  .topper-grid__bg-slider {
+    grid-row: 1 / 3;
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+  }
+  .topper-grid__content {
+    position: relative;
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    z-index: 3;
+    display: grid;
+    grid-template-rows: minmax(400px, 1fr) auto;
+    grid-template-rows: subgrid;
+    width: 100%;
+    margin: 0 auto;
+    padding: 180px var(--wp--preset--spacing--fluid-32-90-vw) 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    @include breakpoint(xmedium){
+      padding: 210px var(--wp--preset--spacing--fluid-32-90-vw) 0;
+    }
+    a,.swiper-navigation,.hero-content {
+      pointer-events: auto;
+    }
+  }
+  
+  .topper-background, .topper-grid__bg-slider {
+    background-color:var(--wp--preset--color--carbon);
+    .swiper-wrapper {
+      display: flex;
+      align-items: stretch;
+    }
+    .swiper-slide {
+      display: none;
+    }
+    
+    .swiper-slide:first-child {
+      display: flex;
+    }
+    
+    .swiper-initialized .swiper-slide {
+      display: flex !important;
+    }
+    .topper-carousel-swiper {
+      height:100%;
+    }
+    .topper-carousel-image {
+      picture {
+        //aspect-ratio: 1/1.5;
+        display: block;
+        width: 100%;
+        height: 100%;
+        opacity:0.5;
+        @include breakpoint(medium){
+          aspect-ratio: 1/1;
+        }
+        @include breakpoint(xmedium){
+          aspect-ratio: 16/9;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .has-top-vertical-alignment {
+        img {
+          object-position: top;
+        }
+      }
+      .has-bottom-vertical-alignment {
+        img {
+          object-position: bottom;
+        }
+      }
+    }
+  }
+  
+}
+
+.editor-styles-wrapper {
+  .wp-block-acf-topper-split {
+    z-index:0;
+    margin-top:0;
+    grid-template-columns: 2fr 1fr;  
+    background:transparent !important;    
+    .swiper-slide:not(:first-child) {
+      display:none;
+    }
+  }
+}
+

@@ -1,0 +1,28 @@
+{
+    "name": "acf/topper-carousel-content",
+    "title": "Topper Carousel Content",
+    "description"  : "This component is used only with Topper Carousel to add content overlaying the carousel.",
+    "options":["Mobile Image"],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","story"],
+    "supports": {
+        "jsx": true,
+        "align": true,
+        "color": true,
+        "innerBlocks": true,
+        "spacing": {
+            "margin": false,
+            "padding": true,
+            "blockGap": true,
+            "__experimentalDefaultControls": {
+                "padding": true
+            }
+        }
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    }
+}
+

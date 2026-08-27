@@ -58,9 +58,9 @@
 					"name": "Fluid 24-42"
 				},
 				{
-					"slug": "fluid-24-52",
-					"size": "clamp(26px, calc((100vw - 744px) / (1440 - 744) * (52 - 26) + 26px), 52px)",
-					"name": "Fluid 24-52"
+					"slug": "fluid-30-48",
+					"size": "clamp(30px, calc((100vw - 744px) / (1440 - 744) * (48 - 30) + 30px), 48px)",
+					"name": "Fluid 30-48"
 				},
 				{
 					"slug": "fluid-36-65",
@@ -218,8 +218,33 @@
 		"elements": {
 			"heading": {
 				"typography": {
-					"fontFamily": "heading",
-					"fontWeight": "500"
+					"fontFamily": "var(--wp--preset--font-family--primary)",
+					"fontWeight": "400"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontWeight": "700"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontWeight": "700"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontWeight": "700"
+				}
+			},
+			"h5": {
+				"typography": {
+					"fontWeight": "700"
+				}
+			},
+			"h6": {
+				"typography": {
+					"fontWeight": "700"
 				}
 			},
 		  "button": {
@@ -253,7 +278,8 @@
 			"core/paragraph": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--fluid-18-20)",
-					"fontWeight": "500"
+					"fontWeight": "500",
+					"lineHeight": "1.4"
 				},
 				"color": {
 				"text": "#244c5a"

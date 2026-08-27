@@ -2,6 +2,7 @@
 @use '../global' as *;
 .wp-block-buttons {
     margin-top:2rem;
+    gap:15px;
 }
 .button-link {
     background-size: 0 1px;
@@ -39,7 +40,7 @@
         padding-right:clamp(20px, calc((100vw - 375px) / (1440 - 375) * (24 - 20) + 20px), 24px) !important;
         white-space: nowrap;
         border-radius:50px;
-        color:var(--wp--preset--color--cloud) !important;
+       //color:var(--wp--preset--color--cloud) !important;
         &:hover {
             color:var(--wp--preset--color--primary) !important;
             background-color: var(--wp--preset--color--yellow-green) !important;
@@ -60,7 +61,7 @@
 	// add outline styles
 	&.is-style-outline .wp-block-button__link {
 		@extend .hollow !optional;
-        border: 2px solid currentColor; 
+        //border: 2px solid currentColor; 
         background-color: transparent; 
         color: var(--wp--preset--color--primary); 
         &:hover {

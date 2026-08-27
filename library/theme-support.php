@@ -93,7 +93,7 @@ function my_theme_register_button_styles() {
             color: var(--wp--preset--color--primary); 
             } 
             .wp-block-button.is-style-fill-cloud .wp-block-button__link:hover { 
-            border: 2px solid var(--wp--preset--color--primary);
+            border: 2px solid var(--wp--preset--color--yellow-green);
             background-color: var(--wp--preset--color--primary); 
             color: var(--wp--preset--color--cloud); 
             }'
@@ -148,8 +148,8 @@ function my_theme_register_button_styles() {
             color: var(--wp--preset--color--white); 
             } 
             .wp-block-button.is-style-outline-white .wp-block-button__link:hover { 
-            box-shadow: 0 0 0 2px var(--wp--preset--color--white) inset;
-			background-color: var(--wp--preset--color--white); 
+            box-shadow: 0 0 0 2px var(--wp--preset--color--yellow-green) inset;
+			background-color: var(--wp--preset--color--yellow-green); 
             color: var(--wp--preset--color--primary) !important; 
             }'
         )

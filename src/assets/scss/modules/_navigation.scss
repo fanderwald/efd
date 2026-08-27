@@ -53,7 +53,7 @@
 		display:block;
 		img,svg {
 			width:100%;
-			max-width:clamp(200px, calc((100vw - 744px) / (1440 - 744) * (250 - 200) + 200px), 250px);
+			max-width:clamp(200px, calc((100vw - 744px) / (1440 - 744) * (243 - 200) + 200px), 243px);
 			height: auto;
 			display:block;
 		}

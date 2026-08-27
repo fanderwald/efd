@@ -1,0 +1,47 @@
+{% set align_map = {
+    'center center': 'align-items: center; justify-content: center;',
+    'center top':    'align-items: flex-start; justify-content: center;',
+    'center bottom': 'align-items: flex-end; justify-content: center;',
+    'left center':   'align-items: center; justify-content: flex-start;',
+    'right center':  'align-items: center; justify-content: flex-end;',
+    'left bottom':   'align-items: flex-end; justify-content: flex-start;',
+    'right bottom':  'align-items: flex-end; justify-content: flex-end;',
+    'left top':      'align-items: flex-start; justify-content: flex-start;',
+    'right top':     'align-items: flex-start; justify-content: flex-end;'
+} %}
+
+{% set current_align = align_map[fields.focal_point] ?: align_map['center center'] %}
+<section class="{{ [
+    'topper-carousel-grid',
+    block.align ? 'align-' ~ block.align,
+    fields.hero_image ? 'has-image' : 'no-image',
+    block.textColor ? 'has-' ~ block.textColor ~ '-color',
+    fields.topper_size ? 'has-' ~ fields.topper_size ~ '-topper-size'
+    ]|filter(v => v)|join(' ') }}" {{'style="' ~ current_align ~ '"'}}>
+    
+    <div class="topper-grid__bg-slider">
+        <div class="topper-carousel-swiper swiper" {{ fields.autoplay_speed ? 'data-autoplay="false" data-autoplay-speed="' ~ fields.autoplay_speed ~ '"' }}>
+            <div class="swiper-wrapper">
+                {% for slide in fields.topper_carousel_slides %}
+                    {% set caption_payload = {
+                        'title': slide.caption_title|default(''),
+                        'body':  slide.caption_body|default(''),
+                        'url':   slide.caption_link.url|default(''),
+                        'text':  slide.caption_link.title|default('Read Story')
+                    } %}
+                    <div class="topper-carousel-slide swiper-slide" 
+                        data-caption="{{ caption_payload|json_encode|e('html_attr') }}">
+                        <div class="topper-carousel-image">
+							<picture class="{{ 'has-' ~ slide.vertical_alignment ~ '-vertical-alignment' }}">
+								{% set image = get_image(slide.slide_image) %}
+								{% include 'template-parts/image-srcset.twig' %}
+							</picture>
+						</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+	<InnerBlocks class="topper-grid__content"/>
+    
+</section>
