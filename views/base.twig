@@ -26,20 +26,13 @@
                 </a>            
             </div>
             <div class="top-nav-right column">
-                {% set dropdown = top_menu %}
+                {% set dropdown = menu %}
                 {% include 'template-parts/dropdown-menu.twig' %}
-                 <div class="expanding-pill" id="expanding-pill-container">
-                    <div class="pill-header">
-                        <a href="#contact"><span>Contact</span></a>
-                        <button id="pill-toggle-button" aria-expanded="false" aria-controls="pill-link-list" aria-label="Menu" class="nav-toggle" type="button"><span class="nav-icon"></span></button>
+                {% if global.donate_button %}
+                    <div class="donate-button">
+                        <a href="{{global.donate_button['url']}}"{{global.donate_button['target'] ? ' target="' ~ global.donate_button['target'] ~ '"' : ''}}>{{global.donate_button['title']}}</a>
                     </div>
-                    
-                    <div class="pill-links" id="pill-link-list">
-                        {% for item in menu.items %}
-                        <a href="{{item.link}}"><span>{{item.title}}</span></a>
-                        {% endfor %}
-                    </div>
-                </div>
+                {% endif %}
             </div> 
            
             <button aria-label="Menu" class="nav-toggle closed" type="button"><span class="nav-icon"></span></button>
