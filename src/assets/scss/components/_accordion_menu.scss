@@ -9,113 +9,61 @@
 		display:flex;
 		flex-direction: column;
 		position: relative;
-		padding:0;
+		padding:0 !important;
 		justify-content: center;
-		gap:var(--wp--preset--spacing--max-60);
+		gap:10px;
     }
 	a {
 		position:relative;
 		padding:0;
-        font-size:28px;
+        font-size:26px;
 		font-family: $body-font-family !important;
-		text-transform: uppercase;
 		display:block;
-		color:$secondary-color;
+		color:var(--wp--preset--color--white);
 		line-height: 1.1;
 		transition:0.2s ease;
-		padding-top:16px !important;
-		padding-bottom:16px !important;
 		i.fa-chevron-down {
 			display:none;
 		}
 		span {
 			position: relative;
 			display:inline-block;
-			padding-bottom:12px;
 			transition:all 0.3s ease;
-			// &:before {
-			// 	@include pseudo-element;
-			// 	bottom:0px;
-			// 	left:0;
-			// 	right:0;
-			// 	height:2px;
-			// 	width:100%;
-			// 	background-color:white;
-			// 	z-index: 2;
-			// 	opacity:0;
-			// 	transition: opacity .3s ease;
-			// }
-		}
-		&:hover {
-			// span:before {
-			// 	opacity:1;
-			// }
-			span {
-				color:var(--wp--preset--color--beige);
-			}
 		}
 	}
 	a:hover {
 		span {
-			color:var(wp--preset--color--beige);
+			color:var(--wp--preset--color--white);
 		}
 	}
-	// & > li.highlight > a {
-	// 	margin-top:12px;
-	// 	background-color: var(--wp--preset--color--beige) !important;
-	// 	span {
-	// 		padding-bottom:0;
-	// 	}
-	// 	span:before {
-	// 		display:none;
-	// 	}
-	// 	&:hover {
-	// 		background-color: var(--wp--preset--color--white) !important;
-	// 		color: var(--wp--preset--color--primary) !important;
-	// 	}
-	// }
+
 	&.nav-items li {
         list-style-type: none;
 		position: relative;
-		
-		&.current-menu-item, &.current_page_item {
-			&.is-active a {
-				color:var(--wp--preset--color--beige) !important;
+		&.current_page_parent {
+			& > a {
+				color:var(--wp--preset--color--secondary) !important;
+			}
+			.nav-drop .current-menu-item > a {
+				color:var(--wp--preset--color--secondary) !important;
 			}
 		}
-		
-		a {
-			color:$white;
-		}
-		&.promoted > a {
-			border:2px solid $white;
-			padding:5px 15px;
-			background-image:none;
-			&:hover {
-				background-color:$white;
-				color:$secondary-color !important;
-			}
-		}
-		
-		
 		&.is-accordion-submenu-parent {
-			&[aria-expanded="true"] a {
-				color:$secondary-color;
+			&[aria-expanded="true"] {
+				padding-bottom: 16px !important;
 			}
-		}
-		&.is-active a {
-			color:var(--wp--preset--color--beige) !important;
 		}
 		&.is-accordion-submenu-parent > a:after {
-			//display:none;
+			display:none;
 		}
 		&.is-accordion-submenu-parent > a i.fa-chevron-down {
 			display: inline;
-			font-size:18px;
+			font-size:20px;
 			position:absolute;
-			top:50%;
+			top:calc(50% - 4px);
 			transform:translateY(-50%);
 			margin:0 1rem;
+			color:currentColor
 		}
 		&.is-accordion-submenu-parent[aria-expanded=true] > a i.fa-chevron-down {
 			transform:translateY(-50%) rotate(180deg);
@@ -126,17 +74,17 @@
 		display:inline-flex;
 		flex-direction: column;
 		margin-left:0;
+		padding-left:0;
 		li {
 			justify-content: flex-start;
 			
 		}
 		a {
 			font-family: $header-font-family;
-			font-size:var(--wp--preset--font-size--max-62);
-			font-variation-settings: "wght" 500;
+			font-size:20px;
+			font-weight: 500;
 			text-transform: unset;
 			padding-right:unset;
-			color:$secondary-color;
 			@include breakpoint(medium){
 				padding-top:0.5rem;
 				padding-bottom:0.5rem;

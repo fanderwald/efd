@@ -6,7 +6,6 @@
 	align-items: center;
 	justify-content: flex-end;
 	gap:24px;
-	transform: translateY(-16px);
 	li {
 		list-style-type: none;
 		color:var(--wp--preset--color--white);
@@ -67,7 +66,7 @@
 		@include pseudo-element;
 		width: 7px;
 		height: 7px;
-		background-color: var(--wp--preset--color--secondary);
+		background-color: var(--wp--preset--color--white);
 		border-radius: 50%;
 		bottom: -14px;
 		left: 50%;
@@ -130,7 +129,7 @@
 				padding-bottom:1px;
 				background-color: transparent;
 				background-image: linear-gradient(currentColor, currentColor);
-				background-size: 0 2px;
+				background-size: 0 1px;
 				background-position: 100% 100%;
 				background-repeat: no-repeat;
 				transition: background-size .3s ease;
@@ -141,7 +140,7 @@
 				color:currentColor;
 			}
 			&:hover span {
-				background-size: 100% 2px;
+				background-size: 100% 1px;
 				background-position:0 100%;
 			}
 			
@@ -188,24 +187,19 @@
 	}
 }
 
-.has-topper-cover, .nav-open {
-	.dropdown.menu:not(.submenu) {
-		li {
-			color:var(--wp--preset--color--white);
-		}
-		& > li.menu-item > a {
-			color: var(--wp--preset--color--white);
-			&:hover {
-				color: var(--wp--preset--color--campfire);
-			}
-		}
-		.is-dropdown-submenu a {
-			color: var(--wp--preset--color--primary);
-		}
-		.is-dropdown-submenu-parent {
-			&:hover::before {
-				background-color: var(--wp--preset--color--white);
-			}
-		}
-	}
-}
+// .has-topper-cover, .nav-open {
+// 	.dropdown.menu:not(.submenu) {
+// 		li {
+// 			color:var(--wp--preset--color--white);
+// 		}
+// 		& > li.menu-item > a {
+// 			color: var(--wp--preset--color--white);
+// 			&:hover {
+// 				color: var(--wp--preset--color--campfire);
+// 			}
+// 		}
+// 		.is-dropdown-submenu a {
+// 			color: var(--wp--preset--color--primary);
+// 		}
+// 	}
+// }

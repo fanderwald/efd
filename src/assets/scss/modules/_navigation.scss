@@ -69,7 +69,7 @@
 		justify-content: flex-end;
 		padding-right:rem-calc(50);
 		@include breakpoint(xmedium){ 
-			padding-right:unset;
+			padding-right:70px;
 			display:flex;
 		}
 		
@@ -85,14 +85,14 @@
     left: 0;
 	padding-top: 90px;
     padding-bottom: 90px;
-    background-color: var(--wp--preset--color--primary);
-    height: 100vh;
     opacity: 0;
     pointer-events: none;
     transition: opacity .2s cubic-bezier(0.645, 0.045, 0.355, 1);
     visibility: hidden;
     width: 100%;
     z-index: 900;
+	background:linear-gradient(199deg, #244c5a 0%, #5cb8b2 250%);
+	background:var(--wp--preset--color--primary);
 	@include breakpoint(medium){
 		width:50%;
 		left:unset;
@@ -130,17 +130,22 @@
 	}
 	.mobile-menu-content {
 		width:100%;
-		margin:60px 0 0 0;
-		height:100%;
+		margin:100px 0 0 0;
 		overflow:auto;
-		padding-bottom:150px;
+		height:100%;
+		@include breakpoint(medium){
+			margin:150px 0 0 0;
+		}
 		.menu-group {
 			padding-bottom:2rem;
+			display:flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height:90%;
 		}
 	}
 }
 .nav-toggle {
-	pointer-events: none;
 	margin-top:3px;
 	height:45px;
 	width:45px;
@@ -158,7 +163,7 @@
 	right:24px;
 	@include breakpoint(medium){
 		right:var(--wp--preset--spacing--fluid-32-90-vw);
-		top:clamp(36px, calc((100vw - 744px) / (1440 - 744) * (50 - 36) + 36px), 50px);
+		top:74px
 	}
 	@include breakpoint(xmedium){
 		display:none;
@@ -201,18 +206,32 @@
 	
 }
 
-
+html.no-scroll {
+	@include breakpoint(small only){
+		height: 100% !important;
+		position: relative;
+		background:linear-gradient(199deg, #244c5a 0%, #5cb8b2 250%);
+		background:var(--wp--preset--color--primary);
+		body {
+			overflow: hidden !important;
+			height: 100% !important;
+			position: relative;
+			background:linear-gradient(199deg, #244c5a 0%, #5cb8b2 250%);
+			background:var(--wp--preset--color--primary);
+		}
+	}
+}
 
 body.nav-open {
 	overflow: hidden;
 	@include breakpoint(xmedium){
 		overflow: auto;
 	}
-	&:not(.has-topper-cover) main {
-		@include breakpoint(xmedium) {
-			padding-top:133px;
-		}
-	}
+	// &:not(.has-topper-cover) main {
+	// 	@include breakpoint(xmedium) {
+	// 		padding-top:133px;
+	// 	}
+	// }
 }
 
 .nav-open {
@@ -221,12 +240,20 @@ body.nav-open {
 		top:0;
 		left: 0;
 		right:0;
+		background-color:var(--wp--preset--color--primary);
+		height:150px;
 		@include breakpoint(medium){
 			left:50%;
+			height:unset;
+			
 		}
 		@include breakpoint(xmedium){
-			background-color:var(--wp--preset--color--primary);
 			left:0;
+		}
+		.site-navigation {
+			@include breakpoint(xmedium){
+				background:linear-gradient(199deg, #244c5a 0%, #5cb8b2 250%);
+			}
 		}
 	}
 	svg.primary-logo {
@@ -243,9 +270,6 @@ body.nav-open {
 		display: flex !important;
 		justify-content:center;
 		margin-top:1rem;
-	}
-	.site-navigation .nav-items, .header-background, .dropdown.menu {
-		//display: none !important;
 	}
 	.nav-toggle, .is_stuck .nav-toggle {
 		display:block !important;

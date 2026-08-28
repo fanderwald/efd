@@ -1,0 +1,23 @@
+// Social Networks
+@use '../global' as *;
+
+.social-networks {
+	display:inline-flex;
+	gap:24px;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	li {
+		a {
+			font-size:36px;
+			color:var(--wp--preset--color--secondary);
+			background-size:0 1px;
+			@include breakpoint(medium){
+				font-size:32px;
+			}
+			&:hover {
+				color:var(--wp--preset--color--yellow-green);
+			}
+		}
+	}
+}
