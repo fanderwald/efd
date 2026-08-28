@@ -35,6 +35,18 @@ p {
 		background-position:0 100%;
 	}
 }
+footer a:not(.social-link) {
+	background-color: transparent;
+	background-image: linear-gradient(currentColor, currentColor);
+	background-size: 0 1px;
+	background-position: 100% 100%;
+	background-repeat: no-repeat;
+	transition: background-size .3s ease;
+	&:hover {
+		background-size: 100% 1px;
+		background-position:0 100%;
+	}
+}
 h1 {
 	font-family:$header-font-family;
 	line-height:1.1;

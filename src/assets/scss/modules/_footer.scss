@@ -1,18 +1,22 @@
 @use '../global' as *;
 footer {
-	padding-top:28px;
 	padding-bottom:50px;
 	@include breakpoint(medium){
-		padding-top:50px;
-		padding-bottom:75px;
+		padding-bottom:var(--wp--preset--spacing--fluid-50-100);
+	}
+	p, a {
+		font-family:var(--wp--preset--font-family--primary);
+		color:var(--wp--preset--color--primary);
 	}
 	.content-group-container {
 		@include grid-container;
 	}
 	.content-group {
+		padding-top:var(--wp--preset--spacing--fluid-50-100);
+		margin-top:var(--wp--preset--spacing--fluid-70-150);
+		border-top: 1px solid var(--wp--preset--color--primary);
 		display:grid;
-		gap:10px var(--wp--preset--spacing--fluid-30-60);
-		//padding-bottom:var(--wp--preset--spacing--fluid-30-60);
+		gap: 40px;
 		justify-content: space-between;
 		@include breakpoint(medium){
 			grid-template-columns:1fr 1.75fr;
@@ -34,18 +38,49 @@ footer {
 		}
 		
 	}
-	.legal-group {
+	.legal-group, .contact-group {
 		display:grid;
-		gap:20px;
+		gap:32px;
 		align-items: flex-end;
 		justify-content: flex-end;
+		@include breakpoint(medium){
+			gap:24px;
+		}
+	}
+	.address-group {
+		display:flex;
+		flex-direction: column;
+		gap:5px;
+		@include breakpoint(medium){
+			justify-content: flex-end;
+			align-items: flex-end;
+		}
+		@include breakpoint(xmedium){
+		flex-direction: row;
+		gap:30px;
+		align-items: center;
+		
+		}
+		p, a:not(.social-link) {
+			font-size:18px;
+			margin:0;
+			color:var(--wp--preset--color--primary);
+		}
+		.social-networks {
+			margin-top:28px;
+			@include breakpoint(medium){
+				margin-top:16px;
+			}
+			@include breakpoint(xmedium){
+				margin-top:0;
+			}
+		}
 	}
 	
-	
 	.legal-nav {
+		padding-top:5px;
 		a {
 			position:relative;
-			padding-right:15px;
 			&:hover {
 				span {
 					opacity:1;
@@ -56,10 +91,11 @@ footer {
 			margin-right:5px;
 		}
 	}
-	.legal-group {
-		padding-top:24px;
+	.nav-group {
+		padding-top:0;
 		p, a {
 			font-size:var(--wp--preset--font-size--tiny);
+			margin:0;
 		}
 		@include breakpoint(medium){
 			padding-top:0;

@@ -3,10 +3,13 @@
 
 .social-networks {
 	display:inline-flex;
-	gap:24px;
+	gap:20px;
 	list-style-type:none;
 	margin:0;
 	padding:0;
+	@include breakpoint(medium){
+		gap: 12px;
+	}
 	li {
 		a {
 			font-size:36px;

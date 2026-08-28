@@ -71,6 +71,8 @@
 		@include breakpoint(xmedium){ 
 			padding-right:70px;
 			display:flex;
+			align-items: center;
+			gap: 24px;
 		}
 		
 	}
@@ -146,10 +148,9 @@
 	}
 }
 .nav-toggle {
-	margin-top:3px;
 	height:45px;
 	width:45px;
-	background-color:#f7f1f2;
+	background-color:var(--wp--preset--color--white);
 	border-radius:45px;
 	border:0;
 	appearance:none;
@@ -163,7 +164,7 @@
 	right:24px;
 	@include breakpoint(medium){
 		right:var(--wp--preset--spacing--fluid-32-90-vw);
-		top:74px
+		top:79px
 	}
 	@include breakpoint(xmedium){
 		display:none;

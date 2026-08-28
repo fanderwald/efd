@@ -9,14 +9,34 @@
 				</picture>
 				</a>
 			</div>
-			<div class="legal-group">
+			<div class="contact-group">
+				<div class="address-group">
+					<div itemscope itemtype="https://schema.org/PostalAddress">
+						<a href="https://www.google.com/maps/search/?api=1&query={{global.contact_info_address | url_encode}}+{{global.contact_info_city | url_encode}}+{{global.contact_info_state | url_encode}}+{{global.contact_info_zip_code | url_encode}}" target="_blank">
+						<span itemprop="streetAddress">{{global.contact_info_address}}</span>
+						<span itemprop="addressLocality">{{global.contact_info_city}}</span>, 
+						<span itemprop="addressRegion">{{global.contact_info_state}}</span> 
+						<span itemprop="postalCode">{{global.contact_info_zip_code}}</span>
+						</a>
+					</div>
+					{% if global.contact_info_phone %}
+					<div class="phone-group">
+					<p>
+						<a href="tel:{{global.contact_info_phone}}" itemprop="telephone">
+						<span>{{global.contact_info_phone}}</span>
+						</a>
+					</p>
+					</div>
+					{% endif %}
+					{% include 'template-parts/social-networks.twig' %}
+				</div>
 				<div class="nav-group">
+					<p><span class="copyright">&copy; {{ "now"|date("Y") }} {{ site.name }}.</span> All rights reserved.</p>
 					<div class="legal-nav">
 						{% for item in legal.items %}
 						<a href="{{item.link}}"><span>{{item.title}}</span></a>
 						{% endfor %}
 					</div>
-					<p><span class="copyright">&copy; {{ "now"|date("Y") }} {{ site.name }}.</span> All rights reserved.</p>
 				</div>
 			</div>
 		</div>
