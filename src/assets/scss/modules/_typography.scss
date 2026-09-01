@@ -36,7 +36,7 @@ p,li {
 		background-position:0 100%;
 	}
 }
-footer a:not(.social-link) {
+footer a:not(.social-link), .impact-title a {
 	background-color: transparent;
 	background-image: linear-gradient(currentColor, currentColor);
 	background-size: 0 1px;

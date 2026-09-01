@@ -23,6 +23,7 @@ add_filter( 'block_categories_all', 'custom_block_category', 10, 2 );
 add_action( 'init', 'register_acf_blocks');
 function register_acf_blocks() {
     register_block_type( __DIR__ . '/../blocks/factoids' );
+    register_block_type( __DIR__ . '/../blocks/impact-scroll' );
     register_block_type( __DIR__ . '/../blocks/info-card' );
     register_block_type( __DIR__ . '/../blocks/jumbo-list' );
     register_block_type( __DIR__ . '/../blocks/story' );

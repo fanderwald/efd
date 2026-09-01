@@ -1,12 +1,7 @@
 // Factoids
 @use '../../src/assets/scss/global' as *;
 .factoids {
-  padding-top:var(--wp--preset--spacing--max-62);
-  padding-bottom:var(--wp--preset--spacing--max-62);
-  
-  @include breakpoint(medium){
-    
-  }
+
 ul {
   display:grid;
   margin:0;
@@ -16,16 +11,20 @@ ul {
 }
 
 ul li {
-  padding: 24px 0;
+  padding: var(--wp--preset--spacing--fluid-24-36) 0;
   display:grid;
   gap:0;
   position: relative;
   align-items: center;
   border-top:2px solid var(--wp--preset--color--secondary);
+  transition:background-color 0.3s ease;
   @include breakpoint(medium){
    grid-template-columns: 1fr 1fr;
    align-items: center;
    justify-content: space-between; 
+  }
+  &:hover {
+    background-color:color-mix(in srgb, var(--wp--preset--color--white) 80%, var(--wp--preset--color--cloud) 80%  );
   }
   .factoids-metric {
     font-size:var(--wp--preset--font-size--fluid-42-70);

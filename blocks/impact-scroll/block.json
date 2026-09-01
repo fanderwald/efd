@@ -1,0 +1,20 @@
+{
+    "name": "acf/impact-scroll",
+    "title": "Impact Scroll",
+    "description"  : "This component displays image-based impact stories in a scrollable format",
+    "options":["Grid","Carousel"],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","story"],
+    "supports": {
+        "jsx": true,
+        "align": true,
+        "color": true
+    },
+    "acf": {
+        "renderTemplate": "render.php",
+        "blockVersion": 3,
+        "useForm": true
+    }
+}
+

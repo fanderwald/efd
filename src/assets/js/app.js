@@ -17,7 +17,9 @@ if (topperContainer) {
   const { initTopperCarousel } = await import('../../../blocks/topper-carousel-grid/render.js');
   initTopperCarousel(topperContainer);
 }
-
+if (document.querySelector('.impact-scroll')) {
+    await import('../../../blocks/impact-scroll/render.js');
+  }
 
 var e = window.matchMedia("(prefers-color-scheme: dark)"),
     t = e.matches,
