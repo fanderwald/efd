@@ -1,8 +1,11 @@
 /** === Button === */
 @use '../global' as *;
 .wp-block-buttons {
-    margin-top:1.625rem;
+    //margin-top:1.625rem;
     gap:15px;
+    @include breakpoint(medium down){
+        justify-content: flex-start !important;
+    }
 }
 .button-link {
     background-size: 0 1px;
@@ -61,7 +64,6 @@
         padding-right:clamp(20px, calc((100vw - 375px) / (1440 - 375) * (24 - 20) + 20px), 24px) !important;
         white-space: nowrap;
         border-radius:50px;
-       //color:var(--wp--preset--color--cloud) !important;
         &:hover {
             color:var(--wp--preset--color--primary) !important;
             background-color: var(--wp--preset--color--yellow-green) !important;
@@ -95,18 +97,14 @@
         .wp-block-button__link {
             background-color:transparent;
             font-family: var(--wp--preset--font-family--primary);
-            font-weight: 500;
+            font-weight: 700;
             font-size: var(--wp--preset--font-size--fluid-18-20);
             border-top: none;
             border-right:none;
             border-radius:0;
             padding-left: 0 !important;
             padding-right:30px !important;
-            //position:relative;
-            
             white-space: normal;         
-            // Add background-image 1px from the bottom, aligned to the left
-            
             span {
                 transition:all 0.3s ease;
                 line-height: 1.2;
@@ -123,24 +121,20 @@
             &:hover {
                 background-color:transparent !important;
                 span {
-                    background-size: 100% 1px; /* Expand underline to full width on hover */
+                    background-size: 100% 1px; 
                 }
                 svg {
-                    transform: translateX(14px) ;
+                    transform: translateX(14px) translateY(1px);
                 }
             }
             svg {
                 width:20px;
                 height:15px;
                 display:inline-block;
-                //position:relative;
-                //left:100%;
-                // right:0;
-                // top:50%;
-                // transform:translateY(-50%);
                 transition:all 0.3s ease;
-                transform: translateX(10px);
+                transform: translateX(10px) translateY(1px);
                 margin-right:-1rem;
+                color: var(--wp--preset--color--secondary);
             }
         }
     }

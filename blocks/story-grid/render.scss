@@ -28,6 +28,11 @@
       
     }
   }
+  &.two-wide-70-30-grid > .acf-innerblocks-container {
+    @include breakpoint(xmedium){
+      grid-template-columns: 7fr 3fr;
+    }
+  }
   &.has-stack-on-mobile {
     & > .acf-innerblocks-container {
       @include breakpoint(small only){

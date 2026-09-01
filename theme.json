@@ -48,6 +48,11 @@
 					"name": "Fluid 18-20"
 				},
 				{
+					"slug": "fluid-18-24",
+					"size": "clamp(18px, calc((100vw - 744px) / (1440 - 744) * (24 - 18) + 18px), 24px)",
+					"name": "Fluid 18-24"
+				},
+				{
 					"slug": "fluid-22-28",
 					"size": "clamp(22px, calc((100vw - 744px) / (1440 - 744) * (28 - 22) + 22px), 28px)",
 					"name": "Fluid 22-28"
@@ -66,6 +71,11 @@
 					"slug": "fluid-36-65",
 					"size": "clamp(36px, calc((100vw - 744px) / (1440 - 744) * (65 - 36) + 36px), 65px)",
 					"name": "Fluid 36-65"
+				},
+				{
+					"slug": "fluid-42-70",
+					"size": "clamp(42px, calc((100vw - 744px) / (1440 - 744) * (70 - 42) + 42px), 70px)",
+					"name": "Fluid 42-70"
 				}
 			]
 		},

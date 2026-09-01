@@ -9,22 +9,23 @@
   display:grid;
   transition:background-color 0.3s ease;
   &.has-gold-background-color:hover {
-    background-color: color-mix(in srgb, #cfb500 85%, black 20%) !important;
+    background-color: color-mix(in srgb, #cfb500 100%, black 20%) !important;
+    //background-color:scale-color(#cfb500, $lightness: -20%) !important;
   }
   &.has-light-blue-background-color:hover {
-    background-color: color-mix(in srgb, #71b2c9 85%, black 20%) !important;
+    background-color: color-mix(in srgb, #71b2c9 100%, black 20%) !important;
   }
   &.has-red-background-color:hover {
-    background-color: color-mix(in srgb, #d14124 85%, black 20%) !important;
+    background-color: color-mix(in srgb, #d14124 100%, black 20%) !important;
   }
   &.has-yellow-green-background-color:hover {
-    background-color: color-mix(in srgb, #b5bd00 85%, black 20%) !important;
+    background-color: color-mix(in srgb, #b5bd00 100%, black 20%) !important;
   }
   &.has-secondary-background-color:hover {
-    background-color: color-mix(in srgb, #5cb8b2 85%, black 20%) !important;
+    background-color: color-mix(in srgb, #5cb8b2 100%, black 20%) !important;
   }
   &.has-primary-background-color:hover {
-    background-color: color-mix(in srgb, #244c5a 85%, black 20%) !important;
+    background-color: color-mix(in srgb, #244c5a 100%, black 20%) !important;
   }
   .info-card__content {
     display:flex;
@@ -33,7 +34,7 @@
   }
   h3 {
     font-size:var(--wp--preset--font-size--fluid-30-48);
-    padding-bottom:8px;
+    padding-bottom:12px;
     line-height: 1.1;
   }
   &.has-text-color {
@@ -45,10 +46,12 @@
     margin-top:0;
     align-items: flex-end;
     height:100%;  
+    @include breakpoint(xmedium){
+      margin-top:2rem;
+    }
     .wp-block-button.is-style-link-arrow{
       //padding-right:25px;
       .wp-block-button__link {
-        
         padding-right:25px;
         align-self:flex-end;
         text-align:left;
@@ -58,6 +61,9 @@
           width:100%;
           height:100%;
           @include pseudo-element; 
+        }
+        svg {
+          color:currentColor;
         }
       }
     }

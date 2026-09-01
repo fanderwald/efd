@@ -1,0 +1,12 @@
+<div class="factoids 
+{{fields.factoids_size ? 'factoids-xl'}}
+"  {{attributes ? attributes}}>	
+	<ul class="factoids-list">
+		{% for factoid in fields.factoids%}
+		<li class="factoids-item{{block.textColor ? ' has-'~block['textColor']~'-text-color'}}">
+			<p class="factoids-metric"><span>{{factoid.factoids_metric}}</span></p>
+			<span class="factoids-description">{{factoid.factoids_description}}</span>
+		</li>
+		{% endfor %}
+	</ul>
+</div>

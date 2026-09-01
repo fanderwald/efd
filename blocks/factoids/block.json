@@ -1,0 +1,38 @@
+{
+    "name": "acf/factoids",
+    "title": "Factoids",
+    "description"  : "This component displays a list of figures in a bold style.",
+    "options":["Size: Default, Extra Large.", "Footnotes"],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","link"],
+    "supports": {
+        "align": true,
+        "jsx": true,
+        "color": true,
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+      "style": {
+        "type": "object",
+        "default": {
+          "spacing": {
+            "padding": {
+              "top": "var(--wp--preset--spacing--fluid-32-80)"
+            }
+          }
+        }
+      }
+    },
+    "acf": {
+      "blockVersion": 3,
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "hideFieldsInSidebar": true,
+        "expandedEditorButtonText": "Edit Factoid Fields"
+    }
+}
+
