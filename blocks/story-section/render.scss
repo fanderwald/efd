@@ -6,7 +6,7 @@
   z-index: 1;
   transition:background-color 0.75s ease;
   &:not(.has-full-bleed) {
-    //@include grid-container;
+    @include grid-container;
   }
   &.has-full-bleed {
     .story-grid {
@@ -27,7 +27,6 @@
       padding-right:0;
     }
   }
-  
   .section-background-image {
     position:absolute;
     top:0;
@@ -105,8 +104,9 @@
 
 .editor-styles-wrapper {
   .wp-block-acf-story-section {
-    .section-background-image {
-      pointer-events:none !important;
+    & > .story-section {
+      padding-top:0 !important;
+      padding-bottom:0 !important;
     }
   }
   &.has-full-bleed {

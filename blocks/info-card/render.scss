@@ -1,0 +1,74 @@
+// Info Cards Component
+@use '../../src/assets/scss/global' as *;
+@use 'sass:color';
+.info-card {
+  overflow: hidden;
+  position: relative;
+  border-radius: $border-radius;
+  padding:26px;
+  display:grid;
+  transition:background-color 0.3s ease;
+  &.has-gold-background-color:hover {
+    background-color: color-mix(in srgb, #cfb500 85%, black 20%) !important;
+  }
+  &.has-light-blue-background-color:hover {
+    background-color: color-mix(in srgb, #71b2c9 85%, black 20%) !important;
+  }
+  &.has-red-background-color:hover {
+    background-color: color-mix(in srgb, #d14124 85%, black 20%) !important;
+  }
+  &.has-yellow-green-background-color:hover {
+    background-color: color-mix(in srgb, #b5bd00 85%, black 20%) !important;
+  }
+  &.has-secondary-background-color:hover {
+    background-color: color-mix(in srgb, #5cb8b2 85%, black 20%) !important;
+  }
+  &.has-primary-background-color:hover {
+    background-color: color-mix(in srgb, #244c5a 85%, black 20%) !important;
+  }
+  .info-card__content {
+    display:flex;
+    flex-direction: column;
+    min-width:0;
+  }
+  h3 {
+    font-size:var(--wp--preset--font-size--fluid-30-48);
+    padding-bottom:8px;
+    line-height: 1.1;
+  }
+  &.has-text-color {
+    h3, p, .wp-block-button__link {
+      color: inherit !important;
+    }
+  }
+  .wp-block-buttons {
+    margin-top:0;
+    align-items: flex-end;
+    height:100%;  
+    .wp-block-button.is-style-link-arrow{
+      //padding-right:25px;
+      .wp-block-button__link {
+        
+        padding-right:25px;
+        align-self:flex-end;
+        text-align:left;
+        &:before {
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          @include pseudo-element; 
+        }
+      }
+    }
+    
+  }
+  
+}
+
+
+.editor-styles-wrapper {
+  .wp-block-acf-info-card {
+    border-radius: $border-radius;
+  }
+}

@@ -17,3 +17,9 @@
     padding-left: var(--wp--preset--spacing--fluid-50-100);
   }
 }
+
+.editor-styles-wrapper {
+  .wp-block-acf-topper-carousel-leader {
+    border-radius: $border-radius;
+  }
+}

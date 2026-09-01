@@ -154,6 +154,60 @@ function my_theme_register_button_styles() {
             }'
         )
     );
+    register_block_style(
+        'core/button',
+        array(
+            'name'  => 'link-arrow',
+            'label' => __('Link Arrow', 'foundationpress'),
+            'inline_style' => '
+            .wp-block-button.is-style-link-arrow .wp-block-button__link { 
+            color: var(--wp--preset--color--primary); 
+            border-top: none;
+            border-right:none;
+            border-left:none;
+            padding-left:0;
+            padding-right:0;
+            } 
+            .wp-block-button.is-style-link-arrow .wp-block-button__link:hover { 
+            color: var(--wp--preset--color--yellow-green); 
+            }'
+        )
+    );
     
 }
 add_action( 'init', 'my_theme_register_button_styles' );
+
+function add_inline_svg_to_link_arrow_button( string $block_content, array $block ): string {
+    if ( 'core/button' !== $block['blockName'] ) {
+        return $block_content;
+    }
+
+    $className = $block['attrs']['className'] ?? '';
+    if ( false === strpos( $className, 'is-style-link-arrow' ) ) {
+        return $block_content;
+    }
+
+    $svg = '<svg class="link-arrow"><use xlink:href="#link-arrow"></use></svg>';
+
+    return preg_replace_callback(
+        '/(<a[^>]*class="[^"]*wp-block-button__link[^"]*"[^>]*>)(.*?)(<\/a>)/s',
+        function ( $matches ) use ( $svg ) {
+            $opening_tag = $matches[1];
+            $content     = trim( $matches[2] );
+            $closing_tag = $matches[3];
+
+            $words = explode( ' ', $content );
+            if ( count( $words ) > 1 ) {
+                $last_word = array_pop( $words );
+                $rest      = implode( ' ', $words );
+                $wrapped   = '<span class="wp-block-button__text">' . $rest . ' <span class="wp-block-button__last-word">' . $last_word . $svg . '</span></span>';
+            } else {
+                $wrapped   = '<span class="wp-block-button__text"><span class="wp-block-button__last-word">' . $content . $svg . '</span></span>';
+            }
+
+            return $opening_tag . $wrapped . $closing_tag;
+        },
+        $block_content
+    );
+}
+add_filter( 'render_block', 'add_inline_svg_to_link_arrow_button', 10, 2 );

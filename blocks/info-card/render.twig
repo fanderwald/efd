@@ -1,0 +1,13 @@
+{% set classes = [
+    'info-card',
+    block.align ? 'align-' ~ block.align,
+	block.textColor ? 'has-text-color',
+    block.textColor ? 'has-'~block['textColor']~'-color',
+    block.backgroundColor ? 'has-background',
+    block.backgroundColor ? 'has-'~block['backgroundColor']~'-background-color',
+	block.className ? block['className']
+    ]|filter(v => v)|join(' ') %}
+
+<div class="{{classes}}" {{attributes}}>	
+    <InnerBlocks class="info-card__content" />
+</div>

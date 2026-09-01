@@ -27,7 +27,7 @@
         "type": "object",
         "default": {
           "spacing": {
-            "blockGap": "16px",
+            "blockGap": "21px",
             "padding": {
               "top": "var(--wp--preset--spacing--max-16)",
               "bottom": "var(--wp--preset--spacing--max-16)"

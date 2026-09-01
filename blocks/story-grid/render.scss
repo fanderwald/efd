@@ -20,12 +20,11 @@
     display:grid;
     gap: var(--wp--style--block-gap, 0);
     @include breakpoint(xmedium){
-      grid-template-columns: 1fr 2.5fr;
-      justify-content: center;
+      grid-template-columns: 1fr 1fr 1fr;
       
     }
     @include breakpoint(xmedium){
-      grid-template-columns: 1fr 3.5fr;
+      //grid-template-columns: 1fr 3.5fr;
       
     }
   }

@@ -1,6 +1,6 @@
 <section{{fields.section_id ? ' id="'~fields.section_id~'"'}} {{attributes}}>	
 	
-	<InnerBlocks />
+	<InnerBlocks class="section-content"/>
     {% if fields.section_background_image %}
 		{% set image = get_image(fields.section_background_image) %}
         <div class="section-background-image" 
