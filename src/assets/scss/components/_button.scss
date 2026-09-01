@@ -58,10 +58,9 @@
         font-family: var(--wp--preset--font-family--primary);
         font-size:var(--wp--preset--font-size--fluid-18-20);
         font-weight:700;
-        padding-top: 12px !important;
-        padding-bottom: 12px !important;
-        padding-left:clamp(20px, calc((100vw - 375px) / (1440 - 375) * (24 - 20) + 20px), 24px) !important;
-        padding-right:clamp(20px, calc((100vw - 375px) / (1440 - 375) * (24 - 20) + 20px), 24px) !important;
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+        background-color:var(--wp--preset--color--primary);
         white-space: nowrap;
         border-radius:50px;
         &:hover {
@@ -72,8 +71,7 @@
     &.is-style-fill-accent-beige .wp-block-button__link,
     &.is-style-fill-primary .wp-block-button__link,
     &.is-style-fill-off-white .wp-block-button__link {
-        padding-top: clamp(15px, calc((100vw - 375px) / (1440 - 375) * (17 - 15) + 15px), 17px) !important;
-        padding-bottom: clamp(15px, calc((100vw - 375px) / (1440 - 375) * (17 - 15) + 15px), 17px) !important;
+        
     }
     
 	// add special styling for squared buttons

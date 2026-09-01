@@ -161,6 +161,11 @@
 					"slug": "dark-to-light-green",
 					"gradient": "linear-gradient(199deg, #244c5a 0%, #5cb8b2 250%)",
 					"name": "Dark to Light Green"
+				},
+				{
+					"slug": "light-green-gradient",
+					"gradient": "linear-gradient(190deg, #244c5a -150%, #5cb8b2 50%);",
+					"name": "Light Green Gradient"
 				}
 			]
 		},

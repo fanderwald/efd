@@ -1,0 +1,58 @@
+// Call To Action
+@use '../../src/assets/scss/global' as *;
+
+.call-to-action {
+  border-radius: $border-radius;
+  padding: var(--wp--preset--spacing--fluid-32-80 );
+  @include breakpoint(xmedium) {
+    
+  }
+  @include grid-container;
+  .section-content {
+    display:grid;
+
+    h2,p,a {
+      color:inherit;
+    }
+    picture {
+      width:100%;
+      height: auto;
+      max-height:100px;
+      @include breakpoint(medium){
+       max-height:320px;
+      }
+      img {
+        width:100%;
+        height:100%;
+        object-fit:contain;
+        object-position:top left;
+        @include breakpoint(medium){
+          object-position:top center;
+        }
+      }
+    }
+  }
+  &.has-image .section-content {
+    gap:32px;
+    @include breakpoint(medium){
+      grid-template-columns: 3fr 1fr;
+      
+    }
+    .text-group {
+      @include breakpoint(medium){
+        order:1;
+      }
+    }
+    picture {
+      @include breakpoint(medium){
+        order:2;
+      }
+    }
+  }
+}
+
+.editor-styles-wrapper {
+  .wp-block-acf-call-to-action {
+    border-radius: $border-radius;
+  }
+}

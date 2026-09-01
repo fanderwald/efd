@@ -1,0 +1,11 @@
+<div {{ attributes }}>
+	<div class="section-content">
+		{% if fields.cta_image %}
+		<picture>
+			{% set image = get_image(fields.cta_image) %}
+			{% include 'template-parts/image-srcset.twig' %}
+		</picture>
+		{% endif %}
+		<InnerBlocks class="text-group"/>
+	</div>
+</div>

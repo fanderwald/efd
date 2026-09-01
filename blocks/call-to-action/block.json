@@ -1,0 +1,25 @@
+{
+    "name": "acf/call-to-action",
+    "title": "Call-To-Action",
+    "description"  : "This component is used to display a large call-to-action section.",
+    "options":["Background Color"],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","link"],
+    "supports": {
+        "align": true,
+        "jsx": true,
+        "color": {
+          "text": true,
+          "link": false,
+          "background": true,
+          "gradients": true
+        }
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "blockVersion": 3
+    }
+}
+
