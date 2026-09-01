@@ -17,14 +17,35 @@ ul li {
   position: relative;
   align-items: center;
   border-top:2px solid var(--wp--preset--color--secondary);
-  transition:background-color 0.3s ease;
+  background-color:var(--wp--preset--color--eggshell);
+  //transition:background-color 0.3s ease;
   @include breakpoint(medium){
    grid-template-columns: 1fr 1fr;
    align-items: center;
    justify-content: space-between; 
+   
   }
+  
   &:hover {
-    background-color:color-mix(in srgb, var(--wp--preset--color--white) 80%, var(--wp--preset--color--cloud) 80%  );
+    background-color:color-mix(in srgb, var(--wp--preset--color--white) 80%, var(--wp--preset--color--cloud) 80% );
+    &::before, &::after {
+      content:"";
+      position:absolute;
+      display:block;
+      width:var(--wp--preset--spacing--fluid-30-60);
+      height:100%;
+      border:2px solid var(--wp--preset--color--secondary);
+      background-color:color-mix(in srgb, var(--wp--preset--color--white) 80%, var(--wp--preset--color--cloud) 80% );
+      border-radius: $border-radius;
+      top:-2px;
+      z-index:-1;
+    }
+    &::before {
+      left:calc(-1 * var(--wp--preset--spacing--fluid-24-36));
+    }
+    &::after {
+      right:calc(-1 * var(--wp--preset--spacing--fluid-24-36));
+    }
   }
   .factoids-metric {
     font-size:var(--wp--preset--font-size--fluid-42-70);
@@ -39,9 +60,6 @@ ul li {
       text-align: right;
     }
   }
-}
-ul li:before {
-  display:none;
 }
 
 
