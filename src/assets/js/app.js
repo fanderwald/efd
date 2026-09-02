@@ -18,8 +18,12 @@ if (topperContainer) {
   initTopperCarousel(topperContainer);
 }
 if (document.querySelector('.impact-scroll')) {
-    await import('../../../blocks/impact-scroll/render.js');
-  }
+  await import('../../../blocks/impact-scroll/render.js');
+}
+
+if (document.querySelector('.video-mp4')) {
+    await import('../../../blocks/video-mp4/render.js');
+}
 
 var e = window.matchMedia("(prefers-color-scheme: dark)"),
     t = e.matches,

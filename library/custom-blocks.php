@@ -35,6 +35,7 @@ function register_acf_blocks() {
     register_block_type( __DIR__ . '/../blocks/topper-carousel-grid' );
     register_block_type( __DIR__ . '/../blocks/topper-cover' );
     register_block_type( __DIR__ . '/../blocks/topper-split' );
+    register_block_type( __DIR__ . '/../blocks/video-mp4' );
 }
 function pel_split_quote_cite( $block_content, $block ) {
     if ( false === strpos( $block_content, '<cite' ) ) {

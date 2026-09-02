@@ -1,0 +1,252 @@
+// Video YouTube
+@use '../../src/assets/scss/global' as *;
+
+.video-mp4 {
+  position: relative;
+  box-sizing: border-box;
+  
+  @include breakpoint(medium down){
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+  }
+  .image-group .video {
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    position:relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+  .video-caption {
+      font-family: var(--wp--preset--font-family--primary);
+      font-size: 16px;
+      color:var(--wp--preset--color--primary);
+      padding:10px 0;
+      @include breakpoint(xmedium){
+        max-width:75%;
+      }
+  }
+
+  &.is-click-to-play {
+    &:not(.is-player-loaded) {
+      .video .js-player {
+        //opacity: 0;
+        //visibility: hidden;
+        pointer-events: none;
+      }
+    }
+
+    &.is-player-loaded {
+      .video .js-player {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+    }
+
+    .video {
+      .plyr__controls,
+      .plyr__control--overlaid {
+        transition: opacity 0.2s ease;
+      }
+    }
+
+    &.is-paused {
+      .video {
+        .plyr__controls,
+        .plyr__control--overlaid {
+          opacity: 0 !important;
+          pointer-events: none !important;
+        }
+      }
+    }
+
+    &.is-playing {
+      .video {
+        .plyr__controls,
+        .plyr__control--overlaid {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+  
+.video {
+    border-radius: $border-radius;
+    overflow: hidden;
+    background-color:transparent;
+    box-sizing: border-box;
+    position:relative;
+    //aspect-ratio: 16/9;;
+    .plyr.plyr--stopped .plyr__controls {
+      display:none;
+    }
+    .plyr__control--overlaid {
+        background-color:transparent;
+        width:clamp(48px, calc((100vw - 600px) / (1440 - 744) * (100 - 48) + 48px), 100px);
+        height:clamp(48px, calc((100vw - 600px) / (1440 - 744) * (100 - 48) + 48px), 100px);
+        bottom: var(--wp--preset--spacing--fluid-24-60);
+        right: var(--wp--preset--spacing--fluid-24-60);
+        position:absolute;
+        top:unset;
+        left:unset;
+        transform:unset;
+        svg {
+          display:none;
+        }
+    }
+    button.js-video-play-btn {
+      position:absolute;
+      bottom: var(--wp--preset--spacing--fluid-30-60);
+      right: var(--wp--preset--spacing--fluid-30-60);
+      height:clamp(48px, calc((100vw - 600px) / (1440 - 744) * (100 - 48) + 48px), 100px);
+      width:clamp(48px, calc((100vw - 600px) / (1440 - 744) * (100 - 48) + 48px), 100px);
+    } 
+    .plyr--stopped.plyr__poster-enabled .plyr__poster {
+      background-size:cover;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      &:after {
+        @include pseudo-element;
+        background-color:rgba(0,0,0,0.10);
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+      }
+    }
+    .plyr__video-wrapper, .plyr--video {
+      background-color:transparent;
+      background:transparent;
+      opacity:1;
+      aspect-ratio: 16/9;
+      @include breakpoint(medium){
+        aspect-ratio: 16/9;
+      }
+    }
+
+    .js-player {
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.2s ease;
+    }
+
+    // Prevent global Plyr zoom treatment from expanding this block's poster/video.
+    .plyr__video-wrapper {
+      width: 100%;
+      max-width: 100%;
+      left: 0;
+      transform: none;
+    }
+    .tdc-video-controls__mute {
+        position: absolute;
+        bottom: 24px;
+        right: 24px;
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.4);
+        border: none;
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include breakpoint(medium){
+          bottom: var(--wp--preset--spacing--fluid-30-60);
+          right: var(--wp--preset--spacing--fluid-30-60);
+        }
+        &:hover,
+        &:focus-visible {
+          background: rgba(255, 255, 255, 0.6);
+        }
+    }
+
+    .tdc-video-controls__mute svg {
+        position: absolute;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    /* State: Muted (Default) */
+    .tdc-video-controls__mute .icon-unmuted {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    .tdc-video-controls__mute .icon-muted {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* State: Unmuted (Active) */
+    .tdc-video-controls__mute.is-unmuted .icon-unmuted {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .tdc-video-controls__mute.is-unmuted .icon-muted {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    .video-play-btn {
+      position: absolute;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 3;
+      transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+      padding:0;
+      &:hover,
+      &:focus-visible {
+        background: rgba(255, 255, 255, 0.5);
+        //transform: translate(-50%, -50%) scale(1.06);
+      }
+
+    }
+
+    .video-play-btn.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+    .image-group {
+      background-color:dimgray;
+      overflow: hidden;
+      position: relative;
+      border-radius:$border-radius;
+      object-fit: cover;
+      &:before {
+        @include pseudo-element;
+        content: 'Video Content';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color:white;
+        font-family: var(--wp--preset--font-family--body);
+        font-size: 18px;
+      }
+      img {
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        
+      }
+    } 
+  
+}
+   
+  
+  

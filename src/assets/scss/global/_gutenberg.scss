@@ -20,9 +20,21 @@ Frontend styles for gutenberg blocks
 
 .wp-block-image {
     figcaption {
-        font-family: var(--wp--preset--font-family--body);
-        font-size: var(--wp--preset--font-size--fluid-14-18);
-        color:var(--wp--preset--color--charcoal);
+        font-family: var(--wp--preset--font-family--primary);
+        font-size: 16px;
+        color:var(--wp--preset--color--primary);
+        margin:10px 0 !important;
+        @include breakpoint(xmedium){
+            font-size: 18px;
+        }
+    }
+    &.is-style-rounded {
+        img {
+            border-radius: $border-radius;
+            width:100%;
+            max-width:100%;
+        }
+        
     }
 }
 figcaption {
@@ -34,6 +46,12 @@ figcaption {
 .wp-block-list {
     li {
         margin-bottom:1rem;
+        color:inherit;
+    }
+    &.is-style-no-bullets {
+        padding:0;
+        margin:0;
+        list-style: none;
     }
 }
 .wp-block-separator {

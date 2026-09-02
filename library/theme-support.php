@@ -46,6 +46,13 @@ add_action( 'init', function() {
             'label' => __( 'Micro Heading', 'foundationpress' ),
         )
     );
+    register_block_style(
+        'core/list',
+        array(
+            'name'  => 'no-bullets',
+            'label' => __( 'No Bullets', 'foundationpress' ),
+        )
+    );
 	register_block_style(
         'core/list',
         array(

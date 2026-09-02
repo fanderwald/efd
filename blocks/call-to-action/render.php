@@ -11,6 +11,7 @@ $classes = array_filter([
     !empty($block['textColor']) ? 'has-' . $block['textColor'] . '-color' : '',
     !empty($block['backgroundColor']) ? 'has-' . $block['backgroundColor'] . '-background-color' : '',
     !empty($block['gradient']) ? 'has-' . $block['gradient'] . '-gradient-background' : '',
+    !empty($context['fields']['outset_style']) ? 'has-outset-style' : '',
     !empty($block['className']) ? $block['className'] : '',
     !empty($context['fields']['cta_image']) ? 'has-image' : '',
 ]);

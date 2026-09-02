@@ -2,7 +2,7 @@
 @use '../global' as *;
 .wp-block-buttons {
     //margin-top:1.625rem;
-    gap:15px;
+    gap:10px 15px;
     @include breakpoint(medium down){
         justify-content: flex-start !important;
     }
@@ -102,6 +102,8 @@
             border-radius:0;
             padding-left: 0 !important;
             padding-right:30px !important;
+            padding-top:6px !important;
+            padding-bottom:6px !important;
             white-space: normal;         
             span {
                 transition:all 0.3s ease;

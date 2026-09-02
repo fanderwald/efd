@@ -73,6 +73,11 @@
 					"name": "Fluid 30-48"
 				},
 				{
+					"slug": "fluid-36-56",
+					"size": "clamp(35px, calc((100vw - 744px) / (1440 - 744) * (56 - 35) + 35px), 56px)",
+					"name": "Fluid 35-56"
+				},
+				{
 					"slug": "fluid-36-65",
 					"size": "clamp(36px, calc((100vw - 744px) / (1440 - 744) * (65 - 36) + 36px), 65px)",
 					"name": "Fluid 36-65"
@@ -164,7 +169,7 @@
 				},
 				{
 					"slug": "light-green-gradient",
-					"gradient": "linear-gradient(190deg, #244c5a -150%, #5cb8b2 50%);",
+					"gradient": "linear-gradient(190deg, #244c5a -100%, #5cb8b2 50%);",
 					"name": "Light Green Gradient"
 				}
 			]
@@ -206,6 +211,11 @@
 					"slug": "fluid-32-80",
 					"size": "clamp(32px, calc((100vw - 744px) / (1440 - 744) * (80 - 32) + 32px), 80px)",
 					"name": "Fluid 32-80"
+				},
+				{
+					"slug": "fluid-50-80",
+					"size": "clamp(50px, calc((100vw - 744px) / (1440 - 744) * (80 - 50) + 50px), 80px)",
+					"name": "Fluid 50-80"
 				},
 				{
 					"slug": "fluid-32-90-vw",

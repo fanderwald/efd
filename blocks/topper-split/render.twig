@@ -18,7 +18,6 @@
 	block.textColor ? 'has-' ~ block.textColor ~ '-color',
 	fields.topper_size ? 'has-' ~ fields.topper_size ~ '-topper-size'
   	]|filter(v => v)|join(' ') }}" {{'style="' ~ current_align ~ '"'}}>
-	{{dump(block)}}
 	<div class="topper-background no-image{% if block.gradient %} has-{{ block.gradient }}-gradient-background{% endif %}"></div>
 	<div class="topper-title">
 		<div>

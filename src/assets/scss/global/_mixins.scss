@@ -3,7 +3,7 @@
 @use '../../../node_modules/foundation-sites/scss/util/util' as *;
 @use '../settings' as *;
 
-$border-radius: unquote("clamp(10px, 1.6875rem + ((1vw - 7.68px) * 3.245), 15px);");
+$border-radius:clamp(10px, 1.6875rem + ((1vw - 7.68px) * 3.245), 15px) !important;
 $border-radius-large: unquote("clamp(40px, 1.6875rem + ((1vw - 7.68px) * 3.245), 60px);");
 $border-radius-small: 10px;
 

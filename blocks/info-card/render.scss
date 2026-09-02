@@ -46,9 +46,6 @@
     margin-top:0;
     align-items: flex-end;
     height:100%;  
-    @include breakpoint(xmedium){
-      margin-top:2rem;
-    }
     .wp-block-button.is-style-link-arrow{
       //padding-right:25px;
       .wp-block-button__link {

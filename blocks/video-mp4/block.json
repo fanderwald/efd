@@ -1,0 +1,22 @@
+{
+    "name": "acf/video-mp4",
+    "title": "Video - MP4",
+    "description"  : "This component embeds an MP4 video with custom styling.",
+    "options":[],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","video"],
+    "supports": {
+        "jsx": true,
+        "align": true,
+        "color": true,
+        "innerBlocks": true
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "blockVersion": 3
+    },
+    "align": "full"
+}
+
