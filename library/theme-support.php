@@ -195,21 +195,25 @@ function add_inline_svg_to_link_arrow_button( string $block_content, array $bloc
     }
 
     $svg = '<svg class="link-arrow"><use xlink:href="#link-arrow"></use></svg>';
+    $svg_external = '<svg class="link-arrow"><use xlink:href="#external-link-arrow"></use></svg>';
 
     return preg_replace_callback(
         '/(<a[^>]*class="[^"]*wp-block-button__link[^"]*"[^>]*>)(.*?)(<\/a>)/s',
-        function ( $matches ) use ( $svg ) {
+        function ( $matches ) use ( $svg, $svg_external ) {
             $opening_tag = $matches[1];
             $content     = trim( $matches[2] );
             $closing_tag = $matches[3];
+
+            $opens_new_window = (bool) preg_match( '/target="_blank"/', $opening_tag );
+            $icon              = $opens_new_window ? $svg_external : $svg;
 
             $words = explode( ' ', $content );
             if ( count( $words ) > 1 ) {
                 $last_word = array_pop( $words );
                 $rest      = implode( ' ', $words );
-                $wrapped   = '<span class="wp-block-button__text">' . $rest . ' <span class="wp-block-button__last-word">' . $last_word . $svg . '</span></span>';
+                $wrapped   = '<span class="wp-block-button__text">' . $rest . ' <span class="wp-block-button__last-word">' . $last_word . $icon . '</span></span>';
             } else {
-                $wrapped   = '<span class="wp-block-button__text"><span class="wp-block-button__last-word">' . $content . $svg . '</span></span>';
+                $wrapped   = '<span class="wp-block-button__text"><span class="wp-block-button__last-word">' . $content . $icon . '</span></span>';
             }
 
             return $opening_tag . $wrapped . $closing_tag;

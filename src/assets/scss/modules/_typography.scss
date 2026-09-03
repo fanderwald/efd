@@ -51,6 +51,7 @@ footer a:not(.social-link), .impact-title a {
 h1 {
 	font-family:$header-font-family;
 	line-height:1.1;
+	text-wrap:pretty;
 	margin-block-start:0 !important;
 	@include breakpoint(medium) {
 		line-height:1.2 !important;

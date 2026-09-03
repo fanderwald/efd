@@ -42,8 +42,14 @@
         <div class="mobile-menu-content">
             <div class="menu-group">
                 {% include 'template-parts/accordion-menu.twig' %}
+                {% if global.donate_button %}
+                    <div class="donate-button">
+                        <a href="{{global.donate_button['url']}}"{{global.donate_button['target'] ? ' target="' ~ global.donate_button['target'] ~ '"' : ''}}>{{global.donate_button['title']}}</a>
+                    </div>
+                {% endif %}
+                </div>
                 {% include 'template-parts/social-networks.twig' %}
-            </div>
+            
         </div>
     </div>
 {% block content %}

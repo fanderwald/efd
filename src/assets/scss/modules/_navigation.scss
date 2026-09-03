@@ -134,16 +134,16 @@
 		width:100%;
 		margin:100px 0 0 0;
 		overflow:auto;
-		height:100%;
+		height:90%;
 		@include breakpoint(medium){
 			margin:150px 0 0 0;
 		}
 		.menu-group {
-			padding-bottom:2rem;
+			padding-bottom:3rem;
 			display:flex;
 			flex-direction: column;
 			justify-content: space-between;
-			height:90%;
+			gap:30px;
 		}
 	}
 }

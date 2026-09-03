@@ -19,6 +19,9 @@
 	}
 }
 .donate-button {
+    @include breakpoint(medium down) {
+        text-align: center;
+    }
     a {
         background-color:var(--wp--preset--color--white);
         color:var(--wp--preset--color--primary);
@@ -32,7 +35,9 @@
         padding-right:clamp(20px, calc((100vw - 375px) / (1440 - 375) * (24 - 20) + 20px), 24px) !important;
         white-space: nowrap;
         border-radius:50px;
-       //color:var(--wp--preset--color--cloud) !important;
+        @include breakpoint(medium down) {
+        font-size: 24px;
+        }
         &:hover {
             color:var(--wp--preset--color--primary) !important;
             background-color: var(--wp--preset--color--yellow-green) !important;
@@ -124,16 +129,17 @@
                     background-size: 100% 1px; 
                 }
                 svg {
-                    transform: translateX(14px) translateY(1px);
+                    transform: translateX(14px) translateY(-1px);
                 }
             }
             svg {
                 width:20px;
-                height:15px;
+                height:20px;
                 display:inline-block;
                 transition:all 0.3s ease;
-                transform: translateX(10px) translateY(1px);
+                transform: translateX(10px) translateY(-1px);
                 margin-right:-1rem;
+                vertical-align: middle;
                 color: var(--wp--preset--color--secondary);
             }
         }

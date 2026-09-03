@@ -15,11 +15,32 @@
             "link": false,
             "background": true,
             "gradients": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true,
+            "__experimentalDefaultControls": {
+                "padding": true,
+                "margin": true
+            }
         }
     },
+    "attributes": {
+        "style": {
+          "type": "object",
+          "default": {
+            "spacing": {
+              "padding": {
+                "bottom": "var(--wp--preset--spacing--fluid-50-80)"
+              }
+            }
+          }
+        }
+      },
     "acf": {
         "mode": "preview",
-        "renderTemplate": "render.php"
+        "renderTemplate": "render.php",
+        "blockVersion": 3
     },
     "editorScript": "file:./edit.js",
     "editorStyle": "file:./index.css",

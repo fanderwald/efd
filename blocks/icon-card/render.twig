@@ -1,0 +1,16 @@
+<div class="icon-card align-{{block.align}}
+{{fields.icon_card_image ? ' has-icon' : ' no-icon'}}
+{{fields.icon_card_orientation ? ' has-'~fields.icon_card_orientation~'-orientation'}}"
+ {{ fields.aos_animations ? ' data-aos="' ~ fields.aos_animations  ~ '"'}}>	
+ 	{% if fields.icon_card_image %}
+	<div class="icon-card-graphic">
+		<picture>
+			{% set image = get_image(fields.icon_card_image) %}
+			<img src="{{image.src}}" alt="{{image.alt}}" width="{{image.width}}" height="{{image.height}}">
+		</picture>
+	</div>
+	{% endif %}
+	<div class="icon-card-text">
+		<InnerBlocks />
+	</div>
+</div>

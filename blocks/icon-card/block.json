@@ -1,0 +1,24 @@
+{
+    "name": "acf/icon-card",
+    "title": "Icon Card",
+    "description"  : "This component is used to display a topic card accented with a large icon.",
+    "options":[],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","story"],
+    "supports": {
+        "jsx": true,
+        "align": ["full", "wide"],
+        "color": {
+            "text": true,
+            "background": true,
+            "link": false
+        }
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "blockVersion": 3
+    }
+}
+

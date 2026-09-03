@@ -1,0 +1,58 @@
+// Icon Card
+@use '../../src/assets/scss/global' as *;
+
+.icon-card {
+    display:grid;
+    margin-bottom:26px;
+    padding:20px 24px 24px 24px;
+    border:2px solid var(--wp--preset--color--primary);
+    border-radius: $border-radius;
+    &.has-icon {
+        @include breakpoint(medium){
+            gap:var(--wp--preset--spacing--max-40);   
+            grid-template-columns:175px 1fr;
+            padding-left:24px 24px 24px 0;
+        }
+    }
+    
+    .icon-card-graphic {
+        picture {
+            max-width:100px;
+            max-height:100px;
+            display: block;
+            width:100%;
+            height:auto;
+            
+        }
+        @include breakpoint(medium){
+            margin:0 auto;
+        }
+        img {
+            height:100%;
+            width:100%;
+            object-fit: contain;
+            object-position: top center;
+            @include breakpoint(medium){
+                object-position: center;
+            }
+
+        }
+        @include breakpoint(small only){
+            
+            gap:32px;
+            
+        }
+    }
+    .icon-card-text {
+        padding-top:10px;
+        @include breakpoint(medium){
+            padding-right:8%;
+        }
+    }
+    &.no-icon {
+        .icon-card-text {
+            margin-top:0;
+        }
+    }
+    
+}

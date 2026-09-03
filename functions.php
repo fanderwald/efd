@@ -129,6 +129,11 @@ function load_svg_sprite() {
             <symbol id="menu-dropdown-arrow" viewBox="0 0 15 9">
                 <path id="Arrow_Down" data-name="Arrow Down" d="M712.479,1054.252l-7.494-6.748,2.008-2.229,5.533,4.982,5.825-5.005,1.955,2.275Z" transform="translate(-704.985 -1045.251)" fill="currentColor"/>
             </symbol>
+            <symbol id="external-link-arrow" viewBox="0 0 12 12">
+                <path d="M4 2H2.75C2.336 2 2 2.336 2 2.75v6.5c0 .414.336.75.75.75h6.5c.414 0 .75-.336.75-.75V8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M6 2h4v4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M10 2L5.5 6.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </symbol>
         </defs>   
     </svg>';
 }
