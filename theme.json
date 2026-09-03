@@ -62,6 +62,7 @@
 					"size": "clamp(22px, calc((100vw - 744px) / (1440 - 744) * (28 - 22) + 22px), 28px)",
 					"name": "Fluid 22-28"
 				},
+				
 				{
 					"slug": "fixed-32",
 					"size": "32px",
@@ -333,6 +334,14 @@
 				},
 				"color": {
 				"text": "#244c5a"
+				}
+			},
+			"core/list": {
+				"color": {
+					"text": "var(--wp--preset--color--primary)"
+				},
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--fluid-18-20)"
 				}
 			}
 		}

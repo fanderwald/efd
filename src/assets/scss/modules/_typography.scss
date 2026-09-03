@@ -10,20 +10,17 @@
 
 p,li {
   font-family:$body-font-family;
-  color:var(--wp--preset--color--primary);
   line-height:1.4;
   &:last-child {
 	margin:0;
   }
 }
-.wp-block-list {
-	font-size:var(--wp--preset--font-size--regular);
-}
+
 .wp-block-paragraph {
   margin-block-start:0;
 }
 
-.wp-block-paragraph a, figcaption a, .caption-link {
+.wp-block-paragraph a, figcaption a, .caption-link{
 	background-color: transparent;
 	background-image: linear-gradient(var(--wp--preset--color--secondary),var(--wp--preset--color--secondary	));
 	background-size: 100% 1px;

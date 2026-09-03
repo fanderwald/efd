@@ -46,36 +46,56 @@ figcaption {
 .wp-block-list {
     li {
         margin-bottom:1rem;
-        color:inherit;
+        //color:var(--wp--preset--color--primary);
+        font-family: var(--wp--preset--font-family--primary);
+        //font-size: var(--wp--preset--font-size--fluid-18-20);
     }
     &.is-style-no-bullets {
         padding:0;
         margin:0;
         list-style: none;
+        color:inherit !important;
+        font-size:inherit;
     }
 }
 .wp-block-separator {
     border-top:4px solid;
 }
 .wp-block-accordion {
+    border-top:1px solid var(--wp--preset--color--primary);
     .wp-block-accordion-item {
-        border-bottom:1px solid var(--wp--preset--color--off-black);
+        border-bottom:1px solid var(--wp--preset--color--primary);
+        margin-block-start:0;
+        margin-block-end:0;
+        transition:all 0.2s ease;
+        &.is-open {
+            .wp-block-accordion-panel {
+                margin:0 0 32px 0 !important;
+            }
+        }
+        &:hover {
+            .wp-block-accordion-heading {
+                color:var(--wp--preset--color--secondary);
+            }
+            .wp-block-accordion-heading::before {
+                transform:rotate(360deg);
+            }
+        }
     }
     .wp-block-accordion-panel {
-        margin:21px 0;
+       // margin:21px 0;
     }
     .wp-block-accordion-heading {
-        font-size:var(--wp--preset--font-size--regular);
-        font-family: var(--wp--preset--font-family--body);
-        font-weight: 500;
-        text-transform:uppercase;
+        font-size:var(--wp--preset--font-size--fluid-22-28);
+        font-family: var(--wp--preset--font-family--primary);
+        font-weight: 700;
         list-style:none;
         position: relative;
         cursor:pointer;
-        margin:21px 0;
+        padding:21px 0 !important;
         padding:0;
         position: relative;
-        
+        transition:all 0.2s ease;
         button {
             padding:0;
             span {
@@ -93,20 +113,24 @@ figcaption {
             content:"";
             position:absolute;
             display:block;
-            top:5px;
+            top:21px;
             right:5px;
-            width:18px;
-            height:9px;
-            background-image:url(../images/triangle-icon.svg);
+            width:28px;
+            height:28px;
+            background-image:url(../images/plus-icon.svg);
             background-size:contain;
             background-repeat:no-repeat;
             background-position:center;
             pointer-events:none;
+            transition:all 0.2s ease;
         }
     }
-
+    .wp-block-accordion-item.is-open .wp-block-accordion-heading {
+        color:var(--wp--preset--color--secondary);
+    }
     .wp-block-accordion-item.is-open .wp-block-accordion-heading::before {
-        transform:rotate(180deg);
+        background-image:url(../images/minus-icon.svg);
+        transform:rotate(90deg);
         transform-origin:center;
     }
 
@@ -118,7 +142,7 @@ figcaption {
         }
 
         p {
-            font-size:var(--wp--preset--font-size--max-28);
+            font-size:var(--wp--preset--font-size--fluid-18-20);
             line-height: 1.3;
         }
     }
