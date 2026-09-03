@@ -65,7 +65,7 @@ ul li {
 }
 &.has-vertical-orientation {
   @include breakpoint(xmedium){
-    padding-left:var(--wp--preset--spacing--fluid-32-80);
+    padding-left:var(--wp--preset--spacing--fluid-24-36);
   }
   ul {
     border-bottom:none;
@@ -76,6 +76,7 @@ ul li {
     ul li {
       grid-template-columns: unset;
       border-top:2px solid var(--wp--preset--color--primary);
+      background-color:transparent;
       &:hover {
         background-color:unset;
       }

@@ -45,52 +45,20 @@
       object-fit: cover;
     }
   }
-  &.has-billboard-background {
-    .section-background-image {
-      background-size:contain !important;
-      background-position: bottom;
-      background-repeat: no-repeat;
+  &.has-inset-style {
+    .inset-container {
+      border-radius: $border-radius;
       @include breakpoint(medium){
         background-size:cover !important;
         background-position: top;
       }
+      @include breakpoint(small only){
+        margin-left:-6vw;
+        margin-right: -6vw;
+      }
     }
   }
-  .section-top-gradient {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:25%;
-    z-index: 0;
-    background-image: linear-gradient(180deg, #F4F1E8 0%, rgba(244, 241, 232, 0.00) 100%);
-    pointer-events:none;
-  }
- .section-left-texture, .section-right-texture {
-    position:absolute;
-    top:0;
-    width:clamp(4.688rem, -0.042rem + 10.811vi, 9.688rem);
-    height:100%;
-    z-index: -1;
-    background-size:contain;
-    background-position: top;
-    background-repeat: repeat-y;
-  }
-  .section-left-texture {
-    left:0;
-    background-image: url('../images/left-texture-r2.png');
-  }
-  .section-right-texture {
-    right:0;
-    background-image: url('../images/right-texture-r2.png');
-  }
-  &.has-shape-mask {
-    mask-image: url('../images/shape-mask.svg');
-    mask-size: cover;
-    mask-position:90% 0%;
-    mask-repeat: no-repeat;
-    margin-top:calc(var(--wp--preset--spacing--max-50) * -1);
-  }
+  
   
   
   .wp-block-columns, .image-layout {
