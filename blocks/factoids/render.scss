@@ -56,12 +56,44 @@ ul li {
   }
   .factoids-description {
     font-size:var(--wp--preset--font-size--fluid-18-24);
+    color:var(--wp--preset--color--primary);
     @include breakpoint(medium){
       text-align: right;
     }
   }
+  
 }
-
+&.has-vertical-orientation {
+  @include breakpoint(xmedium){
+    padding-left:var(--wp--preset--spacing--fluid-32-80);
+  }
+  ul {
+    border-bottom:none;
+    @include breakpoint(medium down){
+      margin-bottom:32px;
+    }
+  }
+    ul li {
+      grid-template-columns: unset;
+      border-top:2px solid var(--wp--preset--color--primary);
+      &:hover {
+        background-color:unset;
+      }
+      &:before, &:after {
+        display:none;
+      }
+    }
+    .factoids-metric {
+      font-size:var(--wp--preset--font-size--fixed-70);
+      font-weight:900;
+    }
+    .factoids-description {
+      font-size:18px;
+      @include breakpoint(medium){
+        text-align: unset;
+      }
+    }
+  }
 
 }
 

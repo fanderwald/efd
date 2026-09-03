@@ -1,5 +1,5 @@
 <div class="factoids 
-{{fields.factoids_size ? 'factoids-xl'}}
+{{fields.factoids_orientation ? 'has-'~fields.factoids_orientation~'-orientation'}}
 "  {{attributes ? attributes}}>	
 	<ul class="factoids-list">
 		{% for factoid in fields.factoids%}

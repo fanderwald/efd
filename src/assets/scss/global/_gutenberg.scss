@@ -62,9 +62,9 @@ figcaption {
     border-top:4px solid;
 }
 .wp-block-accordion {
-    border-top:1px solid var(--wp--preset--color--primary);
+    border-top:2px solid var(--wp--preset--color--primary);
     .wp-block-accordion-item {
-        border-bottom:1px solid var(--wp--preset--color--primary);
+        border-bottom:2px solid var(--wp--preset--color--primary);
         margin-block-start:0;
         margin-block-end:0;
         transition:all 0.2s ease;
@@ -96,6 +96,9 @@ figcaption {
         padding:0;
         position: relative;
         transition:all 0.2s ease;
+        @include breakpoint(medium) {
+            padding:32px 0 !important;
+        }
         button {
             padding:0;
             span {
@@ -115,14 +118,17 @@ figcaption {
             display:block;
             top:21px;
             right:5px;
-            width:28px;
-            height:28px;
+            width:36px;
+            height:36px;
             background-image:url(../images/plus-icon.svg);
             background-size:contain;
             background-repeat:no-repeat;
             background-position:center;
             pointer-events:none;
             transition:all 0.2s ease;
+            @include breakpoint(medium){
+                top:32px;
+            }
         }
     }
     .wp-block-accordion-item.is-open .wp-block-accordion-heading {

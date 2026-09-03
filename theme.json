@@ -62,13 +62,6 @@
 					"size": "clamp(22px, calc((100vw - 744px) / (1440 - 744) * (28 - 22) + 22px), 28px)",
 					"name": "Fluid 22-28"
 				},
-				
-				{
-					"slug": "fixed-32",
-					"size": "32px",
-					"name": "Fixed 32px",
-					"fluid": false
-				},
 				{
 					"slug": "fluid-24-42",
 					"size": "clamp(24px, calc((100vw - 744px) / (1440 - 744) * (42 - 24) + 24px), 42px)",
@@ -93,6 +86,12 @@
 					"slug": "fluid-42-70",
 					"size": "clamp(42px, calc((100vw - 744px) / (1440 - 744) * (70 - 42) + 42px), 70px)",
 					"name": "Fluid 42-70"
+				},
+				{
+					"slug": "fixed-70",
+					"size": "70px",
+					"name": "Fixed 70px",
+					"fluid": false
 				}
 			]
 		},
