@@ -57,6 +57,28 @@ figcaption {
         color:inherit !important;
         font-size:inherit;
     }
+    &.is-style-jumbo-list {
+        list-style: none;
+        padding-left:36px;
+        li {
+            margin-bottom:1.25rem;
+            padding-left:2px;
+            position: relative;
+            @include breakpoint(medium){
+            padding-left:8px;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                left: -36px;
+                background-color: var(--wp--preset--color--secondary);
+                width:24px;
+                height:24px;
+                border-radius: 24px;
+                top: 3px;
+            }
+            }
+    }
 }
 .wp-block-separator {
     border-top:4px solid;

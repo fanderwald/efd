@@ -7,6 +7,9 @@
     padding:20px 24px 24px 24px;
     border:2px solid var(--wp--preset--color--primary);
     border-radius: $border-radius;
+    @include breakpoint(medium){
+        padding:32px 32px 32px 24px;
+    }
     &.has-icon {
         @include breakpoint(medium){
             gap:var(--wp--preset--spacing--max-40);   
@@ -17,8 +20,8 @@
     
     .icon-card-graphic {
         picture {
-            max-width:100px;
-            max-height:100px;
+            max-width:115px;
+            max-height:115px;
             display: block;
             width:100%;
             height:auto;
@@ -45,6 +48,9 @@
     }
     .icon-card-text {
         padding-top:10px;
+        h3 {
+            margin-bottom:12px;
+        }
         @include breakpoint(medium){
             padding-right:8%;
         }
