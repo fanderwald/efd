@@ -23,6 +23,7 @@ add_filter( 'block_categories_all', 'custom_block_category', 10, 2 );
 add_action( 'init', 'register_acf_blocks');
 function register_acf_blocks() {
     register_block_type( __DIR__ . '/../blocks/call-to-action' );
+    register_block_type( __DIR__ . '/../blocks/context-nav' );
     register_block_type( __DIR__ . '/../blocks/factoids' );
     register_block_type( __DIR__ . '/../blocks/icon-card' );
     register_block_type( __DIR__ . '/../blocks/impact-scroll' );
@@ -38,33 +39,5 @@ function register_acf_blocks() {
     register_block_type( __DIR__ . '/../blocks/topper-split' );
     register_block_type( __DIR__ . '/../blocks/video-mp4' );
 }
-function pel_split_quote_cite( $block_content, $block ) {
-    if ( false === strpos( $block_content, '<cite' ) ) {
-        return $block_content;
-    }
 
-    return preg_replace_callback(
-        '/<cite[^>]*>(.*?)<\/cite>/is',
-        function ( $matches ) {
-            $raw = wp_strip_all_tags( html_entity_decode( $matches[1], ENT_QUOTES | ENT_HTML5 ) );
-            $parts = array_map( 'trim', explode( '|', $raw, 2 ) );
-
-            $name = $parts[0] ?? '';
-            $role = $parts[1] ?? '';
-
-            $html  = '<cite class="quote-cite">';
-            if ( $name !== '' ) {
-                $html .= '<span class="quote-cite-name">' . esc_html( $name ) . '</span>';
-            }
-            if ( $role !== '' ) {
-                $html .= '<span class="quote-cite-role">' . esc_html( $role ) . '</span>';
-            }
-            $html .= '</cite>';
-
-            return $html;
-        },
-        $block_content
-    );
-}
-add_filter( 'render_block_core/quote', 'pel_split_quote_cite', 10, 2 );
 ?>

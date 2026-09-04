@@ -1,8 +1,8 @@
 {
     "apiVersion": 3,
     "name": "acf/topper-cover",
-    "title": "Topper (Home)",
-    "description"  : "This component displays text overlaying a large animated gallery background.",
+    "title": "Topper",
+    "description"  : "This component displays topper text overlaying a large background color.",
     "options":["Mobile Image"],
     "category": "custom-blocks",
     "icon": "images-alt2",
@@ -10,11 +10,11 @@
     "attributes": {
         "headingColor": {
             "type": "string",
-            "default": "var(--wp--preset--color--eggshell)"
+            "default": "var(--wp--preset--color--white)"
         },
         "paragraphColor": {
             "type": "string",
-            "default": "var(--wp--preset--color--eggshell)"
+            "default": "var(--wp--preset--color--white)"
         }
     },
     "supports": {

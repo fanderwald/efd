@@ -25,7 +25,7 @@ Frontend styles for gutenberg blocks
         color:var(--wp--preset--color--primary);
         margin:10px 0 !important;
         @include breakpoint(xmedium){
-            font-size: 18px;
+            font-size: 16px;
         }
     }
     &.is-style-rounded {

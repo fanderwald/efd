@@ -1,0 +1,57 @@
+// Context Nav
+@use '../../src/assets/scss/global' as *;
+
+.context-nav {
+  display:none;
+  @include breakpoint(medium){
+    display:inline-block;
+    width:max-content;
+    float:right;
+  }
+  .nav-heading {
+    color:var(--wp--preset--color--secondary);
+    font-size:16px;
+    margin-bottom:10px;
+    //margin:0;
+  }
+  ul {
+    margin:0;
+    padding:0;
+    display:grid;
+    gap:10px;
+    width:max-content;
+    @include breakpoint(small only){
+      display:inline-flex;
+      gap:1rem;
+    }
+    li {
+      list-style-type: none;
+      padding-left:0;
+      font-weight: 500;
+      margin-bottom:0;
+      color:inherit;
+      a {
+        padding-right:0;
+        background-size:0 1px;
+        font-size:16px;
+        font-weight: 500;
+        &:hover {
+          background-size:100% 1px;
+        }
+      }
+      &:before {
+        display:none;
+        
+      }
+    }
+  }
+  
+}
+
+.editor-styles-wrapper {
+  .context-nav {
+    li {
+      list-style-type:none;
+    }
+  }
+}

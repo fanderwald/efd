@@ -1,0 +1,8 @@
+<nav class="context-nav" {{attributes}}>
+	<p class="nav-heading">{{fields.nav_heading | default('On This Page')}}</p>
+	<ul class="context-nav-list" data-magellan>
+	   {% for nav in fields.context_nav %}
+	   <li><a href="#{{nav.navigation_title | sanitize}}">{{nav.navigation_title}}</a></li>
+	   {% endfor %}
+	</ul>
+ </nav>

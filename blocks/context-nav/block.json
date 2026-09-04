@@ -1,0 +1,19 @@
+{
+    "name": "acf/context-nav",
+    "title": "Context Nav",
+    "description"  : "This component creates a set of jump links to sections within a page",
+    "options":[""],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","link"],
+    "supports": {
+        "align": true,
+        "jsx": true,
+        "color": true
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    }
+}
+
