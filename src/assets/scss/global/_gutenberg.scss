@@ -38,9 +38,9 @@ Frontend styles for gutenberg blocks
     }
 }
 figcaption {
-        font-family: var(--wp--preset--font-family--body);
-        font-size: var(--wp--preset--font-size--fluid-14-18);
-        color:var(--wp--preset--color--charcoal);
+        font-family: var(--wp--preset--font-family--primary);
+        font-size: 16px;
+        color:var(--wp--preset--color--primary);
     }
 
 .wp-block-list {
@@ -131,8 +131,19 @@ figcaption {
         }
         button {
             padding:0;
-            span {
+            span.wp-block-accordion-heading__toggle-title { 
                 padding-right:48px;
+            }
+            span.wp-block-accordion-heading__toggle-icon {
+                //padding-right:48px;
+                color:var(--wp--preset--color--secondary);
+                width:36px;
+                height:36px;
+                font-weight: 300;
+                font-size:45px;
+                @include breakpoint(xmedium){
+                    font-size:55px;
+                }
             }
         }
         .wp-block-accordion-heading__toggle,.wp-block-accordion-heading__toggle-title {
@@ -142,24 +153,24 @@ figcaption {
             display: none;
         }
 
-        &::before {
-            content:"";
-            position:absolute;
-            display:block;
-            top:21px;
-            right:5px;
-            width:36px;
-            height:36px;
-            background-image:url(../images/plus-icon.svg);
-            background-size:contain;
-            background-repeat:no-repeat;
-            background-position:center;
-            pointer-events:none;
-            transition:all 0.2s ease;
-            @include breakpoint(medium){
-                top:32px;
-            }
-        }
+        // &::before {
+        //     content:"";
+        //     position:absolute;
+        //     display:block;
+        //     top:21px;
+        //     right:5px;
+        //     width:36px;
+        //     height:36px;
+        //     background-image:url(../images/plus-icon.svg);
+        //     background-size:contain;
+        //     background-repeat:no-repeat;
+        //     background-position:center;
+        //     pointer-events:none;
+        //     transition:all 0.2s ease;
+        //     @include breakpoint(medium){
+        //         top:32px;
+        //     }
+        // }
     }
     .wp-block-accordion-item.is-open .wp-block-accordion-heading {
         color:var(--wp--preset--color--secondary);

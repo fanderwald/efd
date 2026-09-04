@@ -25,6 +25,10 @@ if (document.querySelector('.video-mp4')) {
     await import('../../../blocks/video-mp4/render.js');
 }
 
+if (document.querySelector('.image-carousel')) {
+    await import('../../../blocks/image-carousel/render.js');
+}
+
 var e = window.matchMedia("(prefers-color-scheme: dark)"),
     t = e.matches,
     i = document.querySelectorAll('link[rel="icon"]');

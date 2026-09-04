@@ -1,0 +1,34 @@
+{% set classes = [
+    'image-carousel',
+    block.align ? 'align-' ~ block.align,
+    block.textColor ? 'has-'~block['textColor']~'-text-color',
+    block.backgroundColor ? 'has-'~block['backgroundColor']~'-background-color',
+	block.className ? block['className'],
+	fields.carousel_size ? 'has-'~fields['carousel_size']~'-carousel-size',
+    ]|filter(v => v)|join(' ') %}
+
+<div{{fields.section_id ? ' id="'~fields.section_id~'"'}} class="{{classes}}" {{attributes}}>	
+	{% set swiper_id = 'swiper-' ~ block.id %}
+	<div id="{{swiper_id}}" class="image-carousel-swiper{{ is_editor ? ' is-editor'}}" {% if fields.carousel_autoplay_delay is defined %}data-swiper-autoplay="{{fields.carousel_autoplay_delay}}"{% endif %}>
+		<div class="swiper-wrapper">
+			{% for image in fields.image_list %}
+			<div class="swiper-slide">
+				{% if image.url %}
+				<picture>
+					<img src="{{image.url}}" alt="{{image.alt}}" width="{{image.width}}" height="{{image.height}}">
+				</picture>
+				{% endif %}
+				{% if image.alt %}
+				<figcaption>{{ image.alt }}</figcaption>
+				{% endif %}
+			</div>
+			{% endfor %}
+		</div>
+		{#<InnerBlocks class="swiper-wrapper" />#}
+		{#<div class="swiper-pagination"></div>#}
+		<div class="swiper-navigation{{block[textColor] ? ' has-'~block['textColor']~'-color'}}">
+			<div class="swiper-button-prev"><svg class="small-icon"><use xlink:href="#swiper-arrow"></use></svg></div>
+			<div class="swiper-button-next"><svg class="small-icon"><use xlink:href="#swiper-arrow"></use></svg></div>
+		</div>
+	</div>
+</div>

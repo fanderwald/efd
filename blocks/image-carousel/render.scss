@@ -1,0 +1,95 @@
+// Image Carousel
+@use '../../src/assets/scss/global' as *;
+
+.image-carousel {
+  position: relative;
+  overflow: hidden;
+  .swiper-slide {
+      position: relative;
+      picture {
+        width:100%;
+        aspect-ratio: 4/3;
+        max-width: 100%;
+        overflow: hidden;
+        img {
+          width:100%;
+          height:100%;
+          display: block;
+          object-fit: cover;
+          border-radius: $border-radius;
+        }
+      }
+      figcaption {
+        margin-top: 10px;
+      }
+    }
+  .swiper-navigation {
+    position:relative;
+    display: flex;
+    justify-content:flex-start;
+    gap: 10px;
+    height:40px;
+    margin-top:var(--wp--preset--spacing--fluid-24-36);
+    .swiper-button-prev,.swiper-button-next {
+      position:relative !important;
+      color:var(--wp--preset--color--primary);
+      transition: color 0.2s ease;
+      width:40px !important;
+      height:40px !important;
+      right:unset;
+      //top:unset;
+      left:unset;
+      //bottom:unset;
+      display:block !important;
+      &::after,&::before {
+        display:none;
+      }
+      &:hover {
+        color:var(--wp--preset--color--yellow-green);
+      }
+      svg {
+        width:40px;
+        height:40px;
+        display: block;
+        fill: currentColor;
+      }
+    }
+    .swiper-button-prev {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.editor-styles-wrapper .image-carousel {
+  cursor:pointer;
+    position:relative;
+    z-index: 1;
+    .image-swiper {
+      pointer-events: none !important;
+      position: relative;
+      z-index: 0;
+    }
+    .image-swiper.is-editor {
+      pointer-events: none;
+    }
+  .swiper-wrapper,.swiper-slide {
+    pointer-events: none !important;
+  }
+  .swiper-wrapper {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(200px), 1fr));
+    gap: 3px;
+  }
+  .swiper-slide {
+    picture {
+      width:calc(20% - 3px);
+      aspect-ratio: 4/3;
+    }
+    
+  }
+  .swiper-navigation,figcaption {
+    display:none;
+  }
+}

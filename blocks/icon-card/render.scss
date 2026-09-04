@@ -8,7 +8,7 @@
     border:2px solid var(--wp--preset--color--primary);
     border-radius: $border-radius;
     @include breakpoint(medium){
-        padding:32px 32px 32px 24px;
+        padding:30px 32px 32px 24px;
     }
     &.has-icon {
         @include breakpoint(medium){
