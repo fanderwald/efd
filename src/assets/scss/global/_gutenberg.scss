@@ -59,7 +59,10 @@ figcaption {
     }
     &.is-style-jumbo-list {
         list-style: none;
-        padding-left:36px;
+        padding-left:30px;
+        @include breakpoint(medium){
+            padding-left:36px;
+        }
         li {
             margin-bottom:1.25rem;
             padding-left:2px;
@@ -70,12 +73,17 @@ figcaption {
             &::before {
                 content: '';
                 position: absolute;
-                left: -36px;
+                left: -30px;
                 background-color: var(--wp--preset--color--secondary);
-                width:24px;
-                height:24px;
+                width:18px;
+                height:18px;
                 border-radius: 24px;
-                top: 3px;
+                top: 5px;
+                @include breakpoint(medium){
+                    left: -36px;
+                    width:24px;
+                    height:24px;
+                }
             }
             }
     }
