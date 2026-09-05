@@ -61,10 +61,10 @@ add_action( 'init', function() {
         )
     );
     register_block_style(
-        'core/group',
+        'core/accordion',
         array(
-            'name'  => 'rounded-corners',
-            'label' => __( 'Rounded Corners', 'foundationpress' ),
+            'name'  => 'numbered',
+            'label' => __( 'Numbered', 'foundationpress' ),
         )
     );
 } );

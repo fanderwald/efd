@@ -44,11 +44,13 @@ figcaption {
     }
 
 .wp-block-list {
+    padding:0 0 0 15px;
     li {
         margin-bottom:1rem;
-        //color:var(--wp--preset--color--primary);
         font-family: var(--wp--preset--font-family--primary);
-        //font-size: var(--wp--preset--font-size--fluid-18-20);
+        &::marker {
+            color:var(--wp--preset--color--secondary);
+        }
     }
     &.is-style-no-bullets {
         padding:0;
@@ -98,23 +100,25 @@ figcaption {
         margin-block-start:0;
         margin-block-end:0;
         transition:all 0.2s ease;
+        color:var(--wp--preset--color--primary);
         &.is-open {
             .wp-block-accordion-panel {
                 margin:0 0 32px 0 !important;
+                @include breakpoint(medium){
+                    margin:0 0 48px 0 !important;    
+                }
             }
         }
         &:hover {
-            .wp-block-accordion-heading {
+            .wp-block-accordion-heading button {
                 color:var(--wp--preset--color--secondary);
             }
-            .wp-block-accordion-heading::before {
-                transform:rotate(360deg);
+            .wp-block-accordion-heading .wp-block-accordion-heading__toggle-icon {
+                //color:var(--wp--preset--color--yellow-green);
             }
         }
     }
-    .wp-block-accordion-panel {
-       // margin:21px 0;
-    }
+    
     .wp-block-accordion-heading {
         font-size:var(--wp--preset--font-size--fluid-22-28);
         font-family: var(--wp--preset--font-family--primary);
@@ -122,20 +126,23 @@ figcaption {
         list-style:none;
         position: relative;
         cursor:pointer;
-        padding:21px 0 !important;
         padding:0;
         position: relative;
         transition:all 0.2s ease;
-        @include breakpoint(medium) {
-            padding:32px 0 !important;
-        }
         button {
             padding:0;
+            padding:21px 0 !important;
+            color:var(--wp--preset--color--primary);
+            @include breakpoint(medium) {
+                padding:32px 0 !important;
+            }
             span.wp-block-accordion-heading__toggle-title { 
-                padding-right:48px;
+                padding-right:10px;
+                @include breakpoint(medium) {
+                    padding-right:48px;
+                }
             }
             span.wp-block-accordion-heading__toggle-icon {
-                //padding-right:48px;
                 color:var(--wp--preset--color--secondary);
                 width:36px;
                 height:36px;
@@ -152,25 +159,6 @@ figcaption {
         &::-webkit-details-marker {
             display: none;
         }
-
-        // &::before {
-        //     content:"";
-        //     position:absolute;
-        //     display:block;
-        //     top:21px;
-        //     right:5px;
-        //     width:36px;
-        //     height:36px;
-        //     background-image:url(../images/plus-icon.svg);
-        //     background-size:contain;
-        //     background-repeat:no-repeat;
-        //     background-position:center;
-        //     pointer-events:none;
-        //     transition:all 0.2s ease;
-        //     @include breakpoint(medium){
-        //         top:32px;
-        //     }
-        // }
     }
     .wp-block-accordion-item.is-open .wp-block-accordion-heading {
         color:var(--wp--preset--color--secondary);
@@ -183,14 +171,59 @@ figcaption {
 
     .wp-block-details__content {
         padding-bottom:20px;
-
         h1,h2,h3,h4,h5,h6 {
             margin-bottom:0;
         }
-
         p {
             font-size:var(--wp--preset--font-size--fluid-18-20);
             line-height: 1.3;
+        }
+    }
+    &.is-style-numbered {
+        counter-reset: accordion-item-counter;
+        .wp-block-accordion-item {
+            counter-increment: accordion-item-counter;
+            padding-left:43px;
+            position: relative;
+            @include breakpoint(medium){
+                padding-left:var(--wp--preset--spacing--fluid-50-100);
+            }
+            &::before {
+                @include pseudo-element;
+                content: counter(accordion-item-counter);
+                position: absolute;
+                left: 0;
+                top: 24px;
+                width:26px;
+                height:26px;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                border:2px solid var(--wp--preset--color--primary);
+                font-size:20px;
+                font-weight:500;
+                color:var(--wp--preset--color--primary);
+                font-family:var(--wp--preset--font-family--primary);
+                border-radius: 90px;
+                @include breakpoint(medium) {
+                    top: 32px;
+                    width:var(--wp--preset--font-size--fluid-36-65);
+                    height:var(--wp--preset--font-size--fluid-36-65);
+                    font-size:var(--wp--preset--font-size--fluid-30-48);
+                }
+            }
+            button {
+                @include breakpoint(medium) {
+                    padding:var(--wp--preset--spacing--fluid-32-50) 0 !important;
+                }
+                &[aria-expanded="true"] {
+                    padding-bottom:8px !important;
+                    @include breakpoint(medium){
+                        padding-bottom:28px !important;
+                    }
+                }
+            }
+            
         }
     }
 }
