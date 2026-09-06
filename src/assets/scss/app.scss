@@ -2,6 +2,7 @@
 
 @use 'settings';
 @use '../../../node_modules/foundation-sites/scss/foundation' as *;
+@use '../../../node_modules/simplebar/dist/simplebar';
 
 // Global
 @use "global/wp-admin";

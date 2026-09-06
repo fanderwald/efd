@@ -1,0 +1,16 @@
+<div class="grant-recipients-list" data-simplebar aria-label="Grant Recipients List" {{attributes ? attributes}}>
+		{% for recipient in fields.recipient_list %}
+		<div class="grant-recipient">
+			{% if recipient.grant_recipient_url %}
+				<p class="grant-recipient-name"><a href="{{recipient.grant_recipient_url}}" target="_blank"><strong>{{ recipient.grant_recipient_name ? recipient.grant_recipient_name : recipient.post_title }}</strong>
+				<svg class="small-icon"><use xlink:href="#link-arrow"></use></svg></a></p>
+					
+			<p class="grant-recipient-description">{{ recipient.grant_recipient_description }}</p>
+			{% else %}
+			<p class="grant-recipient-name"><strong>{{ recipient.grant_recipient_name ? recipient.grant_recipient_name : recipient.post_title }}</strong></p>
+			<p class="grant-recipient-description">{{ recipient.grant_recipient_description }}</p>
+			{% endif %}
+		</div>
+		{% endfor %}
+		
+</div>

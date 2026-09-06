@@ -1,0 +1,84 @@
+// Jumbo List
+@use '../../src/assets/scss/global' as *;
+
+.grant-recipients-list {
+  //border-top:1px solid var(--wp--preset--color--primary);
+  height:50vh;
+  min-height:300px;
+  &:before {
+    @include pseudo-element;
+    top:0;
+    left:0;
+    width:calc(100% - 24px);
+    height:1px;
+    background-color:var(--wp--preset--color--primary);
+    @include breakpoint(medium){
+      width:calc(100% - 32px);
+    }
+  }
+
+  .grant-recipient {
+    position:relative;
+    display:grid;
+    gap:3px;
+    margin-right:24px;
+    padding: 10px 40px 10px 0px;
+    border-bottom:1px solid var(--wp--preset--color--primary);
+    @include breakpoint(medium){
+      gap:1rem;
+      grid-template-columns: 1fr 2fr;
+      padding: 10px 50px 10px 0px;
+      margin-right:32px;
+    }
+    
+    svg {
+      fill:currentColor;
+      width: 20px;
+      height:15px;
+      position:absolute;
+      right:4px;
+      top:50%;
+      transform: translateY(-50%);
+      transition:all 0.2s ease;
+    }
+    p, a {
+      font-size:18px;
+      line-height: 1.2;
+      margin:0;
+      color:var(--wp--preset--color--primary);
+      transition:all 0.2s ease;
+    }
+    a {
+      &:before {
+        @include pseudo-element;
+        inset:0;
+      }
+      &:hover {
+        color:var(--wp--preset--color--secondary);
+        svg {
+          transform:translateY(-50%) translateX(4px);
+        }
+      }
+      
+    }
+    &:has(a):hover p{
+      color: var(--wp--preset--color--secondary) !important;
+    }
+  }
+  
+}
+
+/* 2. Optional: Custom styling for the scrollbar thumb (the bar itself) */
+.grant-recipients-list .simplebar-scrollbar::before {
+  background-color: var(--wp--preset--color--primary); /* Change to your preferred bar color */
+  border-radius: 12px;        /* Rounded corners */
+  opacity: 1;              /* Visible opacity */
+}
+
+
+/* 4. Optional: Custom styling for the track background */
+.grant-recipients-list .simplebar-track.simplebar-vertical {
+  width: 16px;               /* Scrollbar track width */
+  background-color: #f1f1f1; /* Track background color */
+  border-radius: 12px;;
+}

@@ -3,7 +3,6 @@
 .tabbed-content-group {
     display:grid;
     gap:var(--wp--preset--spacing--fluid-32-80);
-    @include grid-container;
     
 }
 
