@@ -1,0 +1,28 @@
+{
+    "name": "acf/tabbed-content-story",
+    "title": "Tabbed Content Story",
+    "description"  : "This component is used with the Tabbed Content component to create individually selectable content groups.",
+    "options":[],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","story"],
+    "supports": {
+        "jsx": true,
+        "align": true,
+        "color": true,
+        "innerBlocks": true,
+        "spacing": {
+            "margin": false,
+            "padding": true,
+            "blockGap": true,
+            "__experimentalDefaultControls": {
+                "padding": true
+            }
+        }
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    }
+}
+

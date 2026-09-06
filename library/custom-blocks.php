@@ -33,6 +33,8 @@ function register_acf_blocks() {
     register_block_type( __DIR__ . '/../blocks/story' );
     register_block_type( __DIR__ . '/../blocks/story-grid' );
 	register_block_type( __DIR__ . '/../blocks/story-section' );
+    register_block_type( __DIR__ . '/../blocks/tabbed-content' );
+    register_block_type( __DIR__ . '/../blocks/tabbed-content-story' );
     register_block_type( __DIR__ . '/../blocks/topper-carousel-content' );
     register_block_type( __DIR__ . '/../blocks/topper-carousel-leader' );
     register_block_type( __DIR__ . '/../blocks/topper-carousel-grid' );

@@ -68,6 +68,7 @@
         background-color:var(--wp--preset--color--primary);
         white-space: nowrap;
         border-radius:50px;
+        text-align: left;
         &:hover {
             color:var(--wp--preset--color--primary) !important;
             background-color: var(--wp--preset--color--yellow-green) !important;

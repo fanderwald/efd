@@ -29,6 +29,10 @@ if (document.querySelector('.image-carousel')) {
     await import('../../../blocks/image-carousel/render.js');
 }
 
+if (document.querySelector('.tabbed-content')) {
+    await import('../../../blocks/tabbed-content/render.js');
+}
+
 var e = window.matchMedia("(prefers-color-scheme: dark)"),
     t = e.matches,
     i = document.querySelectorAll('link[rel="icon"]');

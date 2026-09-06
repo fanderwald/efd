@@ -1,0 +1,28 @@
+{% set classes = [
+    'tabbed-content-group',
+    block.textColor ? 'has-'~block['textColor']~'-text-color',
+    block.backgroundColor ? 'has-'~block['backgroundColor']~'-background-color',
+	block['gradient'] ? ' has-'~block['gradient']~'-gradient',
+	block.className ? block['className']
+    ]|filter(v => v)|join(' ') %}
+
+<div class="{{classes}}" {{attributes}}>
+	<div class="tabbed-content-nav" data-aos="fade-right">
+		<div class="nav-list">
+			<ul class="content-nav show-for-medium">
+				{% for nav in fields.content_nav_list %}
+				<li><a href="#"{{loop.first ? ' class="is-active"'}} data-category="{{nav.content_id}}">{{nav.content_heading}}</a></li>
+				{% endfor %}
+			</ul>
+			<select class="content-nav-select hide-for-medium" aria-label="Navigate to section">
+				{% for nav in fields.content_nav_list %}
+				<option value="{{nav.content_id}}"{{loop.first ? ' selected' : ''}}>{{nav.content_heading}}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+	<div class="tabbed-content" data-aos="fade-left">
+		<InnerBlocks />
+	</div>
+</div>
+

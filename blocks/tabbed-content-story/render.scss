@@ -1,0 +1,12 @@
+// Tabbed Content Story
+@use '../../src/assets/scss/global' as *;
+.tabbed-content-story {
+  
+  
+}
+
+.editor-styles-wrapper {
+  .wp-block-acf-tabbed-content-story {
+    padding:0 !important;
+  }
+}

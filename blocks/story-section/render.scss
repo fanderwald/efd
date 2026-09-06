@@ -53,8 +53,8 @@
         background-position: top;
       }
       @include breakpoint(small only){
-        margin-left:-6vw;
-        margin-right: -6vw;
+        margin-left:-24px;
+        margin-right: -24px;
       }
     }
   }

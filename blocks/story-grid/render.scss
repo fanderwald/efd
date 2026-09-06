@@ -61,6 +61,14 @@
       }
     }
   }
+  &.has-stack-on-tablet {
+    & > .acf-innerblocks-container {
+      @include breakpoint(medium down){
+        display:grid;
+        grid-template-columns:1fr;
+      }
+    }
+  }
   &.has-grid-gap-off-mobile {
     & > .acf-innerblocks-container {
       @include breakpoint(small only){
