@@ -56,9 +56,6 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		// CDN hosted jQuery migrate for compatibility with jQuery 3.x
 		//wp_register_script( 'jquery-migrate', '//code.jquery.com/jquery-migrate-3.0.1.min.js', array('jquery'), '3.0.1', false );
 
-		// Enqueue jQuery migrate. Uncomment the line below to enable.
-		// wp_enqueue_script( 'jquery-migrate' );
-
 		// Enqueue Foundation scripts
 		wp_enqueue_script( 'foundation', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'app.js' ), array( 'jquery' ), null, true );
 
@@ -83,3 +80,19 @@ if ( ! function_exists( 'foundationpress_block_editor_styles' ) ) :
 	}
 	add_action( 'enqueue_block_editor_assets', 'foundationpress_block_editor_styles' );
 endif;
+
+function foundationpress_person_focal_point_script() {
+	$screen = get_current_screen();
+	if ( ! $screen || 'people' !== $screen->post_type || ! $screen->is_block_editor() ) {
+		return;
+	}
+
+		wp_enqueue_script(
+			'person-focal-point',
+			get_template_directory_uri() . '/src/assets/js/person-focal-point.js',
+			array( 'wp-components', 'wp-data', 'wp-edit-post', 'wp-element', 'wp-plugins' ),
+			filemtime( get_template_directory() . '/src/assets/js/person-focal-point.js' ),
+			true
+		);
+}
+add_action( 'admin_enqueue_scripts', 'foundationpress_person_focal_point_script' );

@@ -1,0 +1,28 @@
+{% set classes = [
+    'people-list',
+    block.align ? 'align-' ~ block.align,
+    block.textColor ? 'has-'~block['textColor']~'-text-color',
+    block.backgroundColor ? 'has-'~block['backgroundColor']~'-background-color',
+	block.className ? block['className']
+    ]|filter(v => v)|join(' ') %}
+
+<div class="{{classes}}" {{attributes}}>
+	<div class="person-list">
+	{% for person in fields.people_list %}
+		{% set person_post = get_post(person) %}
+		<div class="person-card" itemscope itemtype="https://schema.org/Person">
+			<div class="person-portrait">
+				<picture>
+					{% set image = get_image(person_post.thumbnail|default(global.portrait_placeholder)) %}
+					<img src="{{image.src}}" alt="{{image.alt}}" width="{{image.width}}" height="{{image.height}}" {{ 'style="object-position:' ~ people_focal_points[person_post.id]|default('50% 50%') ~ ';"' }}>
+				</picture>
+			</div>
+			<div class="person-text">
+				<h3 class="person-heading" itemprop="name">{{person_post.title}}</h3>
+				<p class="person-sub-heading" itemprop="affiliation">{{person_post.position}}</p>
+				<p class="person-position" itemprop="jobTitle">{{person_post.affiliation}}</p>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+</div>

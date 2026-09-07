@@ -3,10 +3,9 @@
 		<div class="content-group">
 			<div class="content-block logo-block">
 				<a href="{{site.link}}" rel="home" aria-label="Home">
-				<picture>
-					{% set image = get_image(global.primary_logo_dark) %}
-					{% include 'template-parts/image-srcset.twig' %}
-				</picture>
+				<svg class="primary-logo-dark">
+					<use xlink:href="#primary-logo-dark"></use>
+				</svg>
 				</a>
 			</div>
 			<div class="contact-group">

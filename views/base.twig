@@ -10,7 +10,7 @@
 
 {% endblock %}
 
-<body class="{{ body_class }}">
+<body class="{{ body_class }}{{color_theme ? ' has-'~color_theme~'-color-theme'}}">
     {% if global.body_scripts %}
     {{ global.body_scripts }}
     {% endif %}
@@ -22,7 +22,13 @@
         <nav class="site-navigation">
             <div class="top-nav-left column">
                 <a class="logo" href="{{site.link}}" rel="home" aria-label="Home">
-                    <img src="{{get_image(global.primary_logo).src}}" alt="{{ site.name }}" width="{{get_image(global.primary_logo).width}}" height="{{get_image(global.primary_logo).height}}"/>
+                    <!-- both variants render always; CSS picks one based on color_theme/is_stuck/nav-open state -->
+                    <svg class="primary-logo" aria-hidden="true">
+                        <use xlink:href="#primary-logo"></use>
+                    </svg>
+                    <svg class="primary-logo-dark" aria-hidden="true">
+                        <use xlink:href="#primary-logo-dark"></use>
+                    </svg>
                 </a>            
             </div>
             <div class="top-nav-right column">

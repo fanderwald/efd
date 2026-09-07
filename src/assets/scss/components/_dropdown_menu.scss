@@ -183,23 +183,30 @@
 				z-index: 4;
 			}
 		}
-		
 	}
 }
 
-// .has-topper-cover, .nav-open {
-// 	.dropdown.menu:not(.submenu) {
-// 		li {
-// 			color:var(--wp--preset--color--white);
-// 		}
-// 		& > li.menu-item > a {
-// 			color: var(--wp--preset--color--white);
-// 			&:hover {
-// 				color: var(--wp--preset--color--campfire);
-// 			}
-// 		}
-// 		.is-dropdown-submenu a {
-// 			color: var(--wp--preset--color--primary);
-// 		}
-// 	}
-// }
+.has-light-color-theme {
+	header:not(.is_stuck) {
+	.dropdown.menu:not(.submenu) {
+		li {
+			//color:var(--wp--preset--color--primary);
+		}
+		& > li.menu-item > a {
+			color: var(--wp--preset--color--primary);
+			&:hover {
+				color: var(--wp--preset--color--secondary);
+			}
+		}
+		& > li.current-menu-item > a, & > li.current_page_parent > a {
+			color: var(--wp--preset--color--secondary) !important;
+			&:after, &:hover:after {
+				background-color:var(--wp--preset--color--primary) !important;
+			}
+		}
+		.is-dropdown-submenu-parent:hover::before {
+			background-color: var(--wp--preset--color--secondary) !important;
+		}
+	}
+	}
+}

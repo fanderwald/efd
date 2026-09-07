@@ -1,0 +1,45 @@
+// Topper - Cover
+@use '../../src/assets/scss/global' as *;
+.topper-text {
+  position: relative;
+  overflow:hidden;
+  z-index:1;
+
+  //height: 40vw;
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+  
+  @include grid-container;
+  & > .acf-innerblocks-container {
+    padding-top:220px;
+    display:grid;
+    align-content:flex-end;
+    @include breakpoint(medium){
+      padding-top:300px;
+    }
+
+    .story-grid > .acf-innerblocks-container {
+      display:block;
+      @include breakpoint(medium){
+      display:grid;
+      gap: var(--wp--style--block-gap, 0);
+      grid-template-columns: auto auto;
+      align-content: flex-end;
+      }
+      .story {
+        align-self: flex-end;
+        & > .acf-innerblocks-container {
+          max-width:unset;
+        }
+      }
+    }
+  }
+}
+
+.editor-styles-wrapper {
+  .wp-block-acf-topper-cover {
+    z-index:0;
+    margin-top:0;
+  }
+}
+

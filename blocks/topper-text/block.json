@@ -1,0 +1,35 @@
+{
+    "apiVersion": 3,
+    "name": "acf/topper-text",
+    "title": "Topper (Text)",
+    "description"  : "This component displays text-only topper.",
+    "options":["Mobile Image"],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","topper"],
+    "attributes": {
+        "headingColor": {
+            "type": "string",
+            "default": "var(--wp--preset--color--white)"
+        },
+        "paragraphColor": {
+            "type": "string",
+            "default": "var(--wp--preset--color--white)"
+        }
+    },
+    "supports": {
+        "align": true,
+        "jsx": true,
+        "color": {
+            "text": true,
+            "link": false,
+            "background": true,
+            "gradients": true
+        }
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    }
+}
+

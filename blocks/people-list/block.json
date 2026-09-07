@@ -1,0 +1,34 @@
+{
+    "name": "acf/people-list",
+    "title": "People List",
+    "description"  : "This component displays a team members list in grid format",
+    "options":["Grid"],
+    "category": "custom-blocks",
+    "icon": "images-alt2",
+    "keywords": ["custom","story"],
+    "supports": {
+        "jsx": true,
+        "align": true,
+        "color": {
+          "text": true,
+          "link": false,
+          "background": true,
+          "gradients": true
+        },
+        "customClassName": true,
+        "spacing": {
+            "margin": true,
+            "padding": true,
+            "__experimentalDefaultControls": {
+                "padding": true,
+                "margin": true
+            }
+        }
+    },
+    "acf": {
+        "renderTemplate": "render.php",
+        "blockVersion": 3,
+        "useForm": true
+    }
+}
+

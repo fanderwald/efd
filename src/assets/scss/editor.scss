@@ -19,3 +19,7 @@
 @use "modules/wpforms";
 
 @import "../../../blocks/**/*.scss";
+
+.editor-post-featured-image__preview .editor-post-featured-image__preview-image {
+    aspect-ratio: 1/1 !important;
+}

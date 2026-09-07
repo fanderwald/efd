@@ -1,0 +1,9 @@
+<section class="{{ [
+	'topper-text',
+	block.align ? 'align-' ~ block.align,
+	block.textColor ? 'has-' ~ block.textColor ~ '-color',
+	block.backgroundColor ? 'has-' ~ block.backgroundColor ~ '-background-color',
+	block.gradient ? 'has-' ~ block.gradient ~ '-gradient-background'
+  	]|filter(v => v)|join(' ') }}">
+	<InnerBlocks />
+</section>

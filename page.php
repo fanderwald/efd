@@ -25,7 +25,7 @@ $context = Timber::context();
 
 $timber_post     = Timber::get_post();
 $context['post'] = $timber_post;
-
+$context['color_theme'] = get_field('color_theme');
 
 
 Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page_tpl.twig' ), $context );
