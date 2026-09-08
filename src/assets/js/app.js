@@ -54,6 +54,9 @@ $(window).on("scroll", function() {
       $('header').addClass('is_stuck');
   } else {
     $('header').removeClass('is_stuck');
+  }
+
+  if ( $(window).scrollTop() <= 5 ) {
     // keep mobile menu from staying open behind a header that's no longer stuck
     $('.mobile-menu').removeClass("open");
     $('body').removeClass('nav-open');

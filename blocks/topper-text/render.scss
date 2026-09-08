@@ -23,7 +23,7 @@
       @include breakpoint(medium){
       display:grid;
       gap: var(--wp--style--block-gap, 0);
-      grid-template-columns: auto auto;
+     // grid-template-columns: auto auto;
       align-content: flex-end;
       }
       .story {

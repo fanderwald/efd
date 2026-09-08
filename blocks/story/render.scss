@@ -20,12 +20,11 @@
   }
   .acf-innerblocks-container {
     //max-width:1160px;
-    //margin-left:auto;
+    margin-left:unset;
     //margin-right:auto;
     width:100%;
-    @include breakpoint(xmedium){
-      max-width:70vw;
-    }
+    max-width:1024px;
+    
   }
   &.align-center {
     align-items: center;
