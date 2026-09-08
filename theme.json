@@ -84,6 +84,11 @@
 					"name": "Fluid 35-56"
 				},
 				{
+					"slug": "fluid-32-65",
+					"size": "clamp(32px, calc((100vw - 744px) / (1440 - 744) * (65 - 32) + 32px), 65px)",
+					"name": "Fluid 32-65"
+				},
+				{
 					"slug": "fluid-36-65",
 					"size": "clamp(36px, calc((100vw - 744px) / (1440 - 744) * (65 - 36) + 36px), 65px)",
 					"name": "Fluid 36-65"

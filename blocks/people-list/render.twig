@@ -10,7 +10,7 @@
 	<div class="person-list">
 	{% for person in fields.people_list %}
 		{% set person_post = get_post(person) %}
-		<div class="person-card" itemscope itemtype="https://schema.org/Person">
+		<div class="person-card{{ person_post.people_bio ? ' has-bio' : '' }}" itemscope itemtype="https://schema.org/Person">
 			<div class="person-portrait">
 				<picture>
 					{% set image = get_image(person_post.thumbnail|default(global.portrait_placeholder)) %}
@@ -18,9 +18,16 @@
 				</picture>
 			</div>
 			<div class="person-text">
-				<h3 class="person-heading" itemprop="name">{{person_post.title}}</h3>
+				{% if person_post.people_bio %}
+					<h3 class="person-heading" itemprop="name"><a href="{{person_post.link}}">{{person_post.title}}</a></h3>
+				{% else %}
+					<h3 class="person-heading" itemprop="name">{{person_post.title}}</h3>
+				{% endif %}
 				<p class="person-sub-heading" itemprop="affiliation">{{person_post.position}}</p>
 				<p class="person-position" itemprop="jobTitle">{{person_post.affiliation}}</p>
+				{% if person_post.email_address %}
+					<p class="person-email"><a href="mailto:{{person_post.email_address}}" itemprop="email"><i class="fa fa-envelope"></i></a></p>
+				{% endif %}
 			</div>
 		</div>
 	{% endfor %}

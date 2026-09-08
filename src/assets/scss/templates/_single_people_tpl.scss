@@ -1,0 +1,105 @@
+// Default Page Template
+@use '../global' as *;
+
+.single-people {
+    .people-content {
+        @include grid-container;
+        display:grid;
+        padding-top:200px;
+        @include breakpoint(medium){
+            padding-top:250px;
+            gap:var(--wp--preset--spacing--fluid-50-100);
+            
+        }
+        @include breakpoint(xmedium){
+            width:66vw;
+            margin-left:0;
+            max-width:1200px;
+        }
+        &.has-image {
+            @include breakpoint(medium){
+                width:unset;
+                max-width:unset;
+                grid-template-columns: 1fr clamp(200px, calc((100vw - 744px) / (1440 - 744) * (400 - 200) + 200px), 400px)
+            }
+        }
+        .people-text {
+            .micro-heading a {
+                font-weight: 700;
+                line-height: 1.2;
+                margin-bottom:0;
+                padding-bottom:16px;
+                font-size:var(--wp--preset--font-size--fluid-18-20);
+                color:var(--wp--preset--color--primary);
+                transition:all 0.2s ease;
+                &:hover {
+                    .link-arrow {
+                        transform:rotate(-180deg) translateX(4px);
+                    }
+                }
+            }
+            .link-arrow {
+                width:20px;
+                height:15px;
+                transform:rotate(-180deg);
+                color:var(--wp--preset--color--secondary);
+                margin-right:5px;
+                transition:all 0.2s ease;
+            }
+            h1 {
+                color:var(--wp--preset--color--primary);
+                font-size:var(--wp--preset--font-size--fluid-32-65);
+                margin-bottom:0;
+            }
+            .people-position {
+                font-size:var(--wp--preset--font-size--fluid-30-48);
+                color:var(--wp--preset--color--secondary);
+                font-weight:300;
+                margin:0;
+            }
+            .sub-header {
+                border-top:2px solid var(--wp--preset--color--primary);
+                border-bottom:1px solid var(--wp--preset--color--primary);
+                display:grid;
+                grid-template-columns: auto 40px;
+                align-items:center;
+                margin:20px 0 24px 0;
+                .people-affiliation {
+                    font-size:var(--wp--preset--font-size--fluid-18-20);
+                    color:var(--wp--preset--color--primary);
+                    font-weight:500;
+                    gap:15px;
+                    margin:0;
+                    padding:10px 0;
+                    @include breakpoint(medium){
+                        padding:15px 0;
+                    }
+                }
+                .people-email {
+                    a {
+                        font-size:22px;
+                        color:var(--wp--preset--color--primary);
+                        &:hover {
+                            color:var(--wp--preset--color--secondary);
+                        }
+                    }
+                    
+                }
+            }
+            .people-bio {
+                margin-top:var(--wp--preset--spacing--fluid-24-40);
+                p {
+                    font-size:var(--wp--preset--font-size--fluid-18-20);
+                    color:var(--wp--preset--color--primary);
+                }
+            }
+        }
+        .people-image {
+            img {
+                max-width:100%;
+                height:auto;
+                border-radius: $border-radius;
+            }
+        }
+    }
+}

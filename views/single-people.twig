@@ -1,0 +1,45 @@
+{% extends "base.twig" %}
+
+
+{% block content %}
+<div class="main-content-wrapper">
+    <div class="people-content{{ post.thumbnail ? ' has-image' : '' }}">
+        <div class="people-text">
+            <div class="people-header">
+            <p class="micro-heading"><a href="{{people.link}}"><svg class="link-arrow"><use xlink:href="#link-arrow"></use></svg> Back</a></p>
+            <h1 class="people-title">{{post.title}}</h1>
+            {% if post.position %}
+                <p class="people-position">{{post.position}}</p>
+            {% endif %}
+            {% if post.affiliation or post.email_address %}
+            <div class="sub-header">
+                <p class="people-affiliation">{{post.affiliation}}</p>
+                {% if post.email_address %}
+                    <p class="people-email"><a href="mailto:{{post.email_address}}" itemprop="email"><i class="fa fa-envelope"></i></a></p>
+                {% endif %}
+            </div>
+            {% endif %}
+            </div>
+            {% if post.thumbnail %}
+                <div class="people-image show-for-small-only">
+                    {% set image = get_image(post.thumbnail) %}
+                    <img src="{{image.src}}" alt="{{image.alt}}" width="{{image.width}}" height="{{image.height}}">
+                </div>
+            {% endif %}
+            <div class="people-bio">
+                {{post.people_bio}}
+            </div>
+
+        </div>
+        {% if post.thumbnail %}
+        <div class="people-image show-for-medium">
+            {% set image = get_image(post.thumbnail) %}
+            <img src="{{image.src}}" alt="{{image.alt}}" width="{{image.width}}" height="{{image.height}}">
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+
+   

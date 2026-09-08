@@ -10,20 +10,31 @@
     .person-list {
         display:grid;
         text-align: unset;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
         @include breakpoint(medium){
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            gap: var(--wp--preset--spacing--fluid-32-50);
         }
     }
     .person-card {
         position: relative;
-        padding-top:15px;
-        padding-bottom:15px;
+        &.has-bio:hover {
+            .person-portrait img {
+                transform: scale(1.05);
+            }
+        }
+        @include breakpoint(small only){
+            display:grid;
+            grid-template-columns: 100px auto;
+            gap:20px;
+            align-items: center;
+        }
     }
     .person-portrait {
-        padding-bottom:14px;
+        padding-bottom:0px;
+        @include breakpoint(medium){
+            padding-bottom:12px;
+        }
         picture {
             aspect-ratio: 1/1;
             display: block;
@@ -35,31 +46,48 @@
                 height:100%;
                 object-fit: cover;
                 object-position: center;
+                transition: transform 0.3s ease;
             }
         }
     }
-    .person-text {
-        align-items: self;
-    }
+    
     .person-heading {
         font-family: var(--wp--preset--font-family--primary);
         font-weight: bold;
         font-size: var(--wp--preset--font-size--fluid-18-20);
-        margin:0px 0 3px 0;
+        margin:0;
         line-height: 1.3;
         padding:0;
+        a {
+            color:var(--wp--preset--color--primary);
+            text-decoration:none;
+            &:before {
+                inset:0;
+                @include pseudo-element;
+            }
+        }
     }
     .person-sub-heading {
         font-size: 16px;
-        margin:0;
+        margin:1px 0 0 0;
         line-height: 1.3;
         font-weight:bold;
     }
     .person-position {
         font-size: 16px;
-        margin: 10px 0 0 0;
+        margin: 7px 0 0 0;
         line-height: 1.3;
         
+    }
+    .person-email {
+
+        a {
+            margin-top:7px;
+            color:var(--wp--preset--color--primary);
+            &:hover {
+                color:var(--wp--preset--color--secondary);
+            }
+        }
     }
 }
 
