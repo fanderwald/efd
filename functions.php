@@ -188,3 +188,64 @@ add_action('wp_enqueue_scripts', 'local_fontawesome');
 
 
 
+function live_search_articles() {
+    // 1. Security Check
+    // Verify the nonce sent from the frontend to prevent misuse
+    if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'article_index_nonce' ) ) {
+        wp_send_json_error( 'Invalid nonce' );
+    }
+
+    if ( isset( $_GET['query'] ) ) {
+        $search_query = sanitize_text_field( $_GET['query'] );
+
+        // Allow empty query to reset, or die if strict
+        if ( empty( $search_query ) ) {
+            wp_die();
+        }
+
+        $args = array(
+            'post_type'      => 'post', // Changed from 'team_member'
+            'post_status'    => 'publish',
+            'posts_per_page' => 10,
+            's'              => $search_query,
+            'orderby'        => 'date',
+            'order'          => 'DESC'
+        );
+
+        $query = new WP_Query( $args );
+
+        if ( $query->have_posts() ) {
+            
+            while ( $query->have_posts() ) {
+                $query->the_post();
+                
+                // Formatting: Title + Date (useful for an index)
+                echo '<li>';
+                echo '<a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . '</a>';
+                echo '</li>';
+            }
+            
+        } else {
+            echo '<li class="no-results"><span>No articles found matching that query.</span></li>';
+        }
+        
+        wp_reset_postdata();
+    }
+    
+    wp_die();
+}
+add_action( 'wp_ajax_live_search_articles', 'live_search_articles' );
+add_action( 'wp_ajax_nopriv_live_search_articles', 'live_search_articles' );
+
+function enqueue_article_index_scripts() {
+    // Register your main JS file (assuming you have a main.js or similar)
+    //wp_enqueue_script( 'article-index-js', get_template_directory_uri() . '/dist/js/article-index.js', array(), '1.0', true );
+
+    // Pass PHP data to JavaScript
+    wp_localize_script( 'foundation', 'articleIndexConfig', array(
+        'ajax_url' => admin_url( 'admin-ajax.php' ),
+        'nonce'    => wp_create_nonce( 'article_index_nonce' ) // This matches the verify_nonce above
+    ));
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_article_index_scripts' );
+

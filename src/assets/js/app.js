@@ -77,4 +77,91 @@ $(".mobile-menu li:not(.is-accordion-submenu-parent) a").on("click", function() 
   $('html').toggleClass('no-scroll');
 });
 
+if (document.getElementById('category-select-js')) {
+document.addEventListener('DOMContentLoaded', function() {
+  const categorySelect = document.getElementById('category-select-js');
+  // 1. Define the Resize Logic
+  function resizeSelect(el) {
+    const tempSpan = document.createElement('span');
+    const style = window.getComputedStyle(el);
+    
+    tempSpan.style.visibility = 'hidden';
+    tempSpan.style.position = 'absolute';
+    tempSpan.style.whiteSpace = 'pre';
+    tempSpan.style.font = style.font; 
+    
+    tempSpan.textContent = el.options[el.selectedIndex].text;
+    document.body.appendChild(tempSpan);
+    
+    const textWidth = tempSpan.getBoundingClientRect().width;
+    const paddingLeft = parseFloat(style.paddingLeft) || 0;
+    const paddingRight = parseFloat(style.paddingRight) || 0;
+    
+    // Add an extra 30px specifically for the icon space
+    const iconBuffer = 30; 
+    
+    el.style.width = (textWidth + paddingLeft + paddingRight + iconBuffer) + 'px';
+    
+    document.body.removeChild(tempSpan);
+  }
+      
+  if (categorySelect) {
+      
+      resizeSelect(categorySelect);
+      categorySelect.addEventListener('change', function() {
+          // 3. Resize immediately so the UI looks correct before redirecting
+          resizeSelect(this);
 
+          const destination = this.value;
+          if (destination) {
+              window.location.href = destination;
+          }
+      });
+  }
+});
+}
+if (document.getElementById('clear-search')) {
+  document.getElementById('clear-search').addEventListener('click', function() {
+      document.getElementById('article-search-input').value = ''; // Clear the search field
+      document.getElementById('article-results-container').innerHTML = '';
+      //document.getElementById('search-input').focus();    // Optionally refocus the input field
+  });
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('article-search-input');
+    const resultsContainer = document.getElementById('article-results-container');
+
+    // Debounce Utility: Waits 300ms after user stops typing to send request
+    const debounce = (func, wait) => {
+        let timeout;
+        return function(...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+    };
+
+    const performSearch = (event) => {
+        const query = event.target.value;
+
+        // Visual feedback (optional loading state)
+        if(query.length > 0) {
+            resultsContainer.innerHTML = '<li class="loading"><span>Searching...</span></li>';
+            
+            // Fetch Data
+            fetch(`${articleIndexConfig.ajax_url}?action=live_search_articles&query=${query}&nonce=${articleIndexConfig.nonce}`)
+            .then(response => response.text())
+            .then(html => {
+                resultsContainer.innerHTML = html;
+            })
+            .catch(error => console.error('Error:', error));
+        } else {
+            resultsContainer.innerHTML = ''; // Clear if empty
+        }
+    };
+
+    if (searchInput) {
+        // Attach the debounced function
+        searchInput.addEventListener('input', debounce(performSearch, 300));
+    }
+});

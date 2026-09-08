@@ -58,6 +58,11 @@
 					"name": "Fluid 18-24"
 				},
 				{
+					"slug": "fluid-20-24",
+					"size": "clamp(20px, calc((100vw - 744px) / (1440 - 744) * (24 - 20) + 20px), 24px)",
+					"name": "Fluid 20-24"
+				},
+				{
 					"slug": "fluid-22-28",
 					"size": "clamp(22px, calc((100vw - 744px) / (1440 - 744) * (28 - 22) + 22px), 28px)",
 					"name": "Fluid 22-28"

@@ -1,0 +1,16 @@
+<div class="content-grid-card">
+    <div class="content-grid-card__image">
+        <picture>
+            {% set image = get_image(post.thumbnail) %}
+            {% set sizes = "33vw" %}
+            {% include 'template-parts/image-srcset-webp.twig' %}
+        </picture>
+    </div>
+    <div class="content-grid-card__details">
+        <div class="content-grid-card__header">
+            <h3 class="wp-block-heading content-grid-card__title">
+                <a href="{#{ post.link }#}"><span>{{ post.post_title }}</span></a>
+            </h3>
+        </div>
+    </div>
+</div>

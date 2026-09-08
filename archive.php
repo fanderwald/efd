@@ -14,15 +14,16 @@
  */
 
 $context          = Timber::context();
+$context['term_page'] = Timber::get_term();
+$context['news'] = Timber::get_post(13);
+$context['color_theme'] = 'light';
 $context['categories'] = Timber::get_terms([
     'taxonomy' => 'category',
     'hide_empty' => false,
 ]);
 
-$context['color_theme'] = 'light';
 
 
-
-$templates        = array( 'index.twig' );
+$templates        = array( 'archive.twig' );
 
 Timber::render( $templates, $context );

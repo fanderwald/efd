@@ -4,6 +4,26 @@
 
 <main class="main-content-wrapper">
     {{ post.content }}
+    <div class="article-filters">
+        <div class="search-group">
+            <input type="text" id="article-search-input" placeholder="Search" autocomplete="off">
+            <button type="button" id="clear-search" class="clear-btn" aria-label="Clear search"><i class="fa-solid fa-xmark close-icon"></i><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+            <ul id="article-results-container" class="dropdown-results"></ul>
+        </div>
+        <div class="category-group">
+            {# {% include ['template-parts/category-select.twig'] %} #}
+        </div>
+    </div>
+    <section id="articles" class="article-list">
+		{% for post in posts %}
+            {% include ['template-parts/content-card.twig'] %}
+		{% endfor %}
+	</section>
+    {% if posts.pagination %}
+    <div class="wayfinding">
+        {{ function('foundationpress_pagination') }}
+    </div>
+    {% endif %}
 </main>
 
 {% endblock %}

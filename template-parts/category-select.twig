@@ -1,0 +1,24 @@
+{# <form class="category-select" method="get" action="{{ site.url }}/news">
+    <select name="cat" id="category" onchange="this.form.submit()">
+        <option value="">Explore Topics</option>
+        {% for category in categories %}
+            <option value="{{ category.slug }}" {{ category.id == fn('get_query_var', 'cat') ? 'selected' }}>
+                {{ category.name }}
+            </option>
+        {% endfor %}
+    </select>
+</form> #}
+
+<div class="category-select">
+  <select id="category-select-js">
+    <option value="{{ site.url }}/articles/" {{ current_cat is not defined or current_cat.taxonomy != 'category' ? 'selected' }}>
+      Explore Topics
+    </option>
+    {% set current_cat = fn('get_queried_object') %}
+    {% for category in categories %}
+      <option value="{{ category.link }}" {{ current_cat.term_id == category.term_id ? 'selected' }}>
+        {{ category.name }}
+      </option>
+    {% endfor %}
+  </select>
+</div>

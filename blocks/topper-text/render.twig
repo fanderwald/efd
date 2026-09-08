@@ -5,5 +5,5 @@
 	block.backgroundColor ? 'has-' ~ block.backgroundColor ~ '-background-color',
 	block.gradient ? 'has-' ~ block.gradient ~ '-gradient-background'
   	]|filter(v => v)|join(' ') }}">
-	<InnerBlocks />
+	<InnerBlocks template="{{template}}"/>
 </section>
