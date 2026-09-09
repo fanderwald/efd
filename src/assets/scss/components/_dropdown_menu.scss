@@ -36,21 +36,21 @@
 	&:hover {
 		text-decoration: none;
 		background-size: 0 1px;
-		color:var(--wp--preset--color--secondary);
+		color:var(--wp--preset--color--yellow-green);
 	}
 	}
 	& > li.current_page_parent > a {
 		color:var(--wp--preset--color--secondary);
 		opacity:1;
 		&:hover {
-			color:var(--wp--preset--color--secondary);
+			color:var(--wp--preset--color--yellow-green);
 		}
 	}
 	& > li.current-menu-item > a {
 		color:var(--wp--preset--color--secondary);
 		opacity:1;
 		&:hover {
-			color:var(--wp--preset--color--secondary);
+			color:var(--wp--preset--color--yellow-green);
 		}
 	}
 	& > li.current-menu-item:has( ~ li:hover) a,& > li:hover ~ .current-menu-item a {

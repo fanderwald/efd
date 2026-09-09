@@ -20,7 +20,7 @@ p,li {
   margin-block-start:0;
 }
 
-.wp-block-paragraph a, figcaption a, .caption-link, .wp-block-list a{
+.wp-block-paragraph a, figcaption a, .caption-link, .wp-block-list a, article p a{
 	background-color: transparent;
 	background-image: linear-gradient(var(--wp--preset--color--secondary),var(--wp--preset--color--secondary	));
 	background-size: 100% 1px;
