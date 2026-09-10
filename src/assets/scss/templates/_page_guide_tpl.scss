@@ -1,0 +1,87 @@
+// Default Page Template
+@use '../global' as *;
+@use 'sass:color';
+
+.page-template-page_guide_tpl {
+  .topper-text {
+    h1 {
+      margin:0;
+    }
+    border-bottom-left-radius:$border-radius;
+    border-bottom-right-radius:$border-radius;
+    border-bottom:2px solid var(--wp--preset--color--primary);
+    border-left:2px solid var(--wp--preset--color--primary);
+    border-right:2px solid var(--wp--preset--color--primary);
+    padding-bottom:var(--wp--preset--spacing--fluid-32-50);
+  }
+  h3 {
+    padding-bottom:var(--wp--preset--spacing--fluid-24-36);
+  }
+  .page-content {
+    display:grid;
+    gap:var(--wp--preset--spacing--fluid-32-80);
+    padding-top:var(--wp--preset--spacing--fluid-70-110);
+    @include grid-container;
+    @include breakpoint(medium) {
+      grid-template-columns: 1fr 200px;
+    }
+    .story-section {
+      padding-left:0;
+      padding-right:0;
+    }
+  }
+  .context-nav {
+    display:none;
+    position:sticky;
+    top:var(--wp--preset--spacing--fluid-32-80);
+    @include breakpoint(medium){
+      display:block;
+      width:max-content;
+      float:none;
+    }
+    .nav-heading {
+      color:var(--wp--preset--color--secondary);
+      font-size:16px;
+      margin-bottom:10px;
+      //margin:0;
+    }
+    ul {
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:10px;
+      width:max-content;
+      @include breakpoint(small only){
+        display:inline-flex;
+        gap:1rem;
+      }
+      li {
+        list-style-type: none;
+        padding-left:0;
+        font-weight: 500;
+        margin-bottom:0;
+        color:inherit;
+        a {
+          padding-right:0;
+          background-size:0 1px;
+          font-size:16px;
+          font-weight: 500;
+          color:var(--wp--preset--color--primary);
+          &:hover {
+            background-size:100% 1px;
+          }
+          &.is-active {
+            color:var(--wp--preset--color--secondary);
+          }
+        }
+        &:before {
+          display:none;
+          
+        }
+      }
+    }
+    
+  }
+}
+
+

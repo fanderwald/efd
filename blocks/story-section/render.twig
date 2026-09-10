@@ -1,4 +1,4 @@
-<section{{fields.section_id ? ' id="'~fields.section_id~'"'}} {{section_attributes}}>	
+<section{{fields.section_id ? ' id="'~fields.section_id~'" data-magellan-target="' ~ fields.section_id ~ '"'}} {{section_attributes}} >
 	
 	{% if inset_style %}
 		<div {{inner_attributes}}>

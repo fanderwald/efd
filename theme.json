@@ -67,6 +67,7 @@
 					"size": "clamp(22px, calc((100vw - 744px) / (1440 - 744) * (28 - 22) + 22px), 28px)",
 					"name": "Fluid 22-28"
 				},
+				
 				{
 					"slug": "fixed-32",
 					"size": "32px",
@@ -77,6 +78,11 @@
 					"slug": "fluid-24-42",
 					"size": "clamp(24px, calc((100vw - 744px) / (1440 - 744) * (42 - 24) + 24px), 42px)",
 					"name": "Fluid 24-42"
+				},
+				{
+					"slug": "fluid-28-36",
+					"size": "clamp(28px, calc((100vw - 744px) / (1440 - 744) * (36 - 28) + 28px), 36px)",
+					"name": "Fluid 28-36"
 				},
 				{
 					"slug": "fluid-30-48",

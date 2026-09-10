@@ -1,0 +1,44 @@
+{% extends "base.twig" %}
+
+
+{% block content %}
+
+
+<main class="main-content-wrapper page-guide-template">
+    <header class="topper-text">
+        <div class="acf-innerblocks-container">
+            <div class="story-grid two-wide-grid align-center">
+                <div class="acf-innerblocks-container">
+                    <div class="story">
+                        <h1 class="wp-block-heading has-primary-color">{{ topper_heading| default(post.title) }}</h1>
+                    </div>
+                    <div class="story">
+                        {% if topper_content %}
+                        <p class="wp-block-paragraph">{{ topper_content }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="page-content">
+        <div class="main-content">
+            {{ post.content }} 
+        </div>
+        <aside>
+            <nav class="context-nav">
+                <p class="nav-heading">{{context_nav_heading | default('On This Page')}}</p>
+                <ul class="context-nav-list">
+                {% for nav in context_nav %}
+                <li><a href="#{{nav.navigation_title | sanitize}}">{{nav.navigation_title}}</a></li>
+                {% endfor %}
+                </ul>
+            </nav>
+
+        </aside>
+    </div>
+      
+</main>
+
+
+{% endblock %}

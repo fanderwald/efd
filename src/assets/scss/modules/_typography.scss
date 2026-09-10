@@ -49,6 +49,7 @@ h1 {
 	font-family:$header-font-family;
 	line-height:1.1;
 	text-wrap:pretty;
+	font-size:var(--wp--preset--font-size--fluid-36-65);
 	margin-block-start:0 !important;
 	@include breakpoint(medium) {
 		line-height:1.2 !important;
