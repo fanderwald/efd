@@ -1,10 +1,17 @@
 <div class="content-grid-card">
     <div class="content-grid-card__image">
+        {% if post.thumbnail is not empty %}
         <picture>
             {% set image = get_image(post.thumbnail) %}
             {% set sizes = "33vw" %}
             {% include 'template-parts/image-srcset-webp.twig' %}
         </picture>
+        {% else %}
+        {% set cat = post.terms('category')|first %}
+        <div class="content-grid-card__placeholder content-grid-card__placeholder--{{ cat.slug|default('default') }}">
+            <p>{{ cat.name|default('default') }}</p>
+        </div>
+    {% endif %}
     </div>
     <div class="content-grid-card__details">
         <div class="content-grid-card__header">

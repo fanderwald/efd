@@ -293,11 +293,6 @@
 					"text": "var(--wp--preset--color--primary)"
 				}
 			},
-			"h1": {
-				"color": {
-					"text": "var(--wp--preset--color--white)"
-				}
-			},
 			"h2": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--fluid-30-48)",

@@ -19,7 +19,7 @@
       display:flex;
       flex-direction: column;
       transition: all 0.2s ease;
-      gap:10px;
+      gap:15px;
       .content-grid-card__image {
         display:block;
         picture {
@@ -34,6 +34,21 @@
             width:100%;
             height:100%;
             transition:all 0.5s ease;
+          }
+        }
+        .content-grid-card__placeholder {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-end;
+          aspect-ratio: 16/10;
+          border-radius: $border-radius;
+          background-image: linear-gradient(199deg, #244c5a 0%, #5cb8b2 250%);
+          
+          p {
+            margin: 0;
+            font-size: var(--wp--preset--font-size--fixed-32);
+            color: var(--wp--preset--color--white);
+            padding:24px;
           }
         }
       }
