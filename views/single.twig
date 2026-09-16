@@ -9,9 +9,8 @@
 	<article class="article-content">
 		<header class="article-topper topper-text">
 			<div class="acf-innerblocks-container">
-				<p class="wp-block-paragraph is-style-micro-heading">Stories of Impact</p>
+				<p class="wp-block-paragraph is-style-micro-heading">{{ post.terms('category') == 'uncategorized' ? 'Stories of Impact' : post.terms('category') | join(', ') }}</p>
 				<h1 class="wp-block-heading has-primary-color">{{ post.title }}</h1>
-				
 			</div>
 		</header>
 		<div class="entry-content">
@@ -23,8 +22,7 @@
 					{% include 'template-parts/image-srcset-webp.twig' %}
 				</picture>
 				{% endif %}
-				
-				{{post.content}}
+				{{post.content }}
 			</div>
 			<aside class="article-sidebar">
 				<div class="sticky-container">

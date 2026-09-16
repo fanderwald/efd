@@ -10,8 +10,8 @@
  */
 
 $context = Timber::context();
-$context['theme_color'] = 'default-color';
 $context['is_front_page'] = 'false';
+$context['color_theme'] = 'light';
 
 Timber::render( '404.twig', $context );
 
