@@ -1,0 +1,18 @@
+{% set classes = [
+    'document-list',
+    block.align ? 'align-' ~ block.align,
+    block.textColor ? 'has-'~block['textColor']~'-text-color',
+    block.backgroundColor ? 'has-'~block['backgroundColor']~'-background-color',
+	block.className ? block['className']
+    ]|filter(v => v)|join(' ') %}
+
+<div class="{{classes}}" {{attributes}}>
+	<div class="wp-block-buttons" itemscope itemtype="https://schema.org/CreativeWork">
+	{% for document in documents %}
+		{% set document_post = get_post(document) %}
+		<div class="wp-block-button is-style-link-arrow">
+			<a class="wp-block-button__link" href="{{document_post.document_file.url}}" target="blank" rel="noopener noreferrer" itemprop="url"><span>{{document_post.title}}<svg class="link-arrow"><use xlink:href="#external-link-arrow"></use></svg></span></a>
+		</div>
+	{% endfor %}
+	</div>
+</div>

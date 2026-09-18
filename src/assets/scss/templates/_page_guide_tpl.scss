@@ -50,7 +50,7 @@
       padding:0;
       display:grid;
       gap:10px;
-      width:max-content;
+      width:250px;
       @include breakpoint(small only){
         display:inline-flex;
         gap:1rem;

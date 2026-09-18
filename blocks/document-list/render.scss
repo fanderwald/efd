@@ -1,0 +1,38 @@
+// People List
+@use '../../src/assets/scss/global' as *;
+
+.document-list .wp-block-buttons {
+    display:grid;
+    padding-top:var(--wp--preset--spacing--fluid-20-24);
+    padding-bottom:var(--wp--preset--spacing--fluid-20-24);
+    position:relative;
+    @include breakpoint(medium){
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 10px 25px;
+    }
+    .wp-block-button__link {
+        color:var(--wp--preset--color--primary);
+        span {
+            position:relative;
+            display:inline-block;
+            svg {
+                position:absolute;
+                right:-15px;
+                top:50%;
+                transform:translateY(-50%) translateX(0);
+            }
+        }
+        &:hover {
+            span svg {
+                transform:translateY(-50%) translateX(4px);
+            }
+        }
+    }
+}
+
+.editor-styles-wrapper {
+    .document-list {
+        
+        
+    }
+}

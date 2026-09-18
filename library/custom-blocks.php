@@ -24,6 +24,7 @@ add_action( 'init', 'register_acf_blocks');
 function register_acf_blocks() {
     register_block_type( __DIR__ . '/../blocks/call-to-action' );
     register_block_type( __DIR__ . '/../blocks/context-nav' );
+    register_block_type( __DIR__ . '/../blocks/document-list' );
     register_block_type( __DIR__ . '/../blocks/factoids' );
     register_block_type( __DIR__ . '/../blocks/grant-recipients-list' );
     register_block_type( __DIR__ . '/../blocks/icon-card' );
