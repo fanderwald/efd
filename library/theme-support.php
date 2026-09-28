@@ -29,7 +29,14 @@ if ( ! function_exists( 'foundationpress_theme_support' ) ) :
 		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ) );
 
 		add_theme_support( 'editor-styles' );
-		add_editor_style( '/dist/assets/css/' . foundationpress_asset_path( 'editor.css' ) );
+
+        if ( ! \FoundationPress\Vite\is_dev() ) {
+            $editor_css = \FoundationPress\Vite\asset_url( 'src/assets/scss/editor.scss' );
+            if ( ! empty( $editor_css ) ) {
+                $relative_editor_css = str_replace( get_template_directory_uri() . '/', '', $editor_css );
+                add_editor_style( $relative_editor_css );
+            }
+        }
 		add_editor_style( 'https://use.typekit.net/bep7pnj.css' );
 
 		add_theme_support( 'responsive-embeds' );

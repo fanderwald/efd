@@ -13,72 +13,72 @@
 // Check to see if rev-manifest exists for CSS and JS static asset revisioning
 //https://github.com/sindresorhus/gulp-rev/blob/master/integration.md
 
-if ( ! function_exists( 'foundationpress_asset_path' ) ) :
-	function foundationpress_asset_path( $filename ) {
-		$filename_split = explode( '.', $filename );
-		$dir            = end( $filename_split );
-		$manifest_path  = dirname( dirname( __FILE__ ) ) . '/dist/assets/' . $dir . '/rev-manifest.json';
-
-		if ( file_exists( $manifest_path ) ) {
-			$manifest = json_decode( file_get_contents( $manifest_path ), true );
-		} else {
-			$manifest = array();
-		}
-
-		if ( array_key_exists( $filename, $manifest ) ) {
-			return $manifest[ $filename ];
-		}
-		return $filename;
-	}
-endif;
-
+use FoundationPress\Vite;
 
 if ( ! function_exists( 'foundationpress_scripts' ) ) :
-	function foundationpress_scripts() {
-		global $ver_num; // define global variable for the version number
-		$ver_num = mt_rand();
-		// Enqueue Adobe Fonts
-		wp_enqueue_style( 'adobe-fonts', 'https://use.typekit.net/bep7pnj.css', array(), null, 'all' );
+    function foundationpress_scripts() {
+        // Enqueue Adobe Fonts or web fonts
+        wp_enqueue_style( 'adobe-fonts', 'https://use.typekit.net/bep7pnj.css', array(), null, 'all' );
 
-		// Enqueue the main Stylesheet.
-		wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), null, 'all' );
+        // Ensure WordPress core jQuery is loaded for plugins
+        wp_enqueue_script( 'jquery' );
 
-		// Deregister the jquery version bundled with WordPress.
-		//wp_deregister_script( 'jquery' );
-		wp_enqueue_script( 'jquery' );
+        if ( Vite\is_dev() ) {
+            // Development: Vite HMR client + direct source entries
+            wp_enqueue_script( 'vite-client', Vite\get_vite_host() . '/@vite/client', array(), null, true );
+            wp_enqueue_style( 'vite-app-css', Vite\asset_url( 'src/assets/scss/app.scss' ), array(), null, 'all' );
+            wp_enqueue_script( 'foundation', Vite\asset_url( 'src/assets/js/app.js' ), array( 'jquery', 'vite-client' ), null, true );
+        } else {
+            // Production: Load compiled CSS and JS from manifest
+            $css_url = Vite\asset_url( 'src/assets/scss/app.scss' );
+            if ( ! empty( $css_url ) ) {
+                wp_enqueue_style( 'main-stylesheet', $css_url, array(), null, 'all' );
+            }
 
-		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
-		//wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js', array(), '3.6.0', false );
+            $js_url = Vite\asset_url( 'src/assets/js/app.js' );
+            if ( ! empty( $js_url ) ) {
+                wp_enqueue_script( 'foundation', $js_url, array( 'jquery' ), null, true );
+            }
+        }
 
-		// Deregister the jquery-migrate version bundled with WordPress.
-		//wp_deregister_script( 'jquery-migrate' );
+        // Comment reply script
+        if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+            wp_enqueue_script( 'comment-reply' );
+        }
+    }
 
-		// CDN hosted jQuery migrate for compatibility with jQuery 3.x
-		//wp_register_script( 'jquery-migrate', '//code.jquery.com/jquery-migrate-3.0.1.min.js', array('jquery'), '3.0.1', false );
-
-		// Enqueue Foundation scripts
-		wp_enqueue_script( 'foundation', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'app.js' ), array( 'jquery' ), null, true );
-
-		// Enqueue FontAwesome from CDN. Uncomment the line below if you need FontAwesome.
-		//wp_enqueue_script( 'fontawesome', 'https://use.fontawesome.com/5016a31c8c.js', array(), '4.7.0', true );
-
-		// Add the comment-reply library on pages where it is necessary
-		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-			wp_enqueue_script( 'comment-reply' );
-		}
-
-	}
-
-	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
+    add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
 endif;
 
-// Enqueue block editor styles
-if ( ! function_exists( 'foundationpress_block_editor_styles' ) ) :
-	function foundationpress_block_editor_styles() {
-		// Enqueue editor styles for the block editor
-		wp_enqueue_style( 'block-editor-styles', get_template_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'editor.css' ), false, null, 'all' );
-	}
-	add_action( 'enqueue_block_editor_assets', 'foundationpress_block_editor_styles' );
+/**
+ * Enqueue editor assets in Gutenberg block editor.
+ */
+if ( ! function_exists( 'foundationpress_editor_scripts' ) ) :
+    function foundationpress_editor_scripts() {
+        if ( Vite\is_dev() ) {
+            wp_enqueue_script( 'vite-client', Vite\get_vite_host() . '/@vite/client', array(), null, true );
+            wp_enqueue_style( 'vite-editor-css', Vite\asset_url( 'src/assets/scss/editor.scss' ), array(), null, 'all' );
+        }
+    }
+
+    add_action( 'enqueue_block_editor_assets', 'foundationpress_editor_scripts' );
+
+    add_action( 'enqueue_block_assets', function() {
+        if ( is_admin() && Vite\is_dev() ) {
+            wp_enqueue_style( 'vite-editor-canvas-css', Vite\asset_url( 'src/assets/scss/editor.scss' ), array(), null, 'all' );
+        }
+    } );
+
+    add_filter( 'block_editor_settings_all', function( $editor_settings ) {
+        if ( Vite\is_dev() ) {
+            $editor_settings['styles'][] = array(
+                'css'            => "@import url('" . Vite\asset_url( 'src/assets/scss/editor.scss' ) . "');",
+                '__unstableType' => 'theme',
+                'isGlobalStyles' => false,
+            );
+        }
+        return $editor_settings;
+    } );
 endif;
 
 function foundationpress_person_focal_point_script() {

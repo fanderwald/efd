@@ -1,0 +1,92 @@
+{
+  "_preload-helper-BZ1Pz5am.js": {
+    "file": "assets/js/preload-helper-BZ1Pz5am.js",
+    "name": "preload-helper"
+  },
+  "_swiper-bundle-DlYCexrt.js": {
+    "file": "assets/js/swiper-bundle-DlYCexrt.js",
+    "name": "swiper-bundle"
+  },
+  "blocks/image-carousel/render.js": {
+    "file": "assets/js/render-CIhH2dhF.js",
+    "name": "render",
+    "src": "blocks/image-carousel/render.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_swiper-bundle-DlYCexrt.js"
+    ]
+  },
+  "blocks/impact-scroll/render.js": {
+    "file": "assets/js/render-0Ad8by64.js",
+    "name": "render",
+    "src": "blocks/impact-scroll/render.js",
+    "isDynamicEntry": true
+  },
+  "blocks/tabbed-content/render.js": {
+    "file": "assets/js/render-BWqNS2sN.js",
+    "name": "render",
+    "src": "blocks/tabbed-content/render.js",
+    "isDynamicEntry": true
+  },
+  "blocks/topper-carousel-grid/render.js": {
+    "file": "assets/js/render-BRzmDA3J.js",
+    "name": "render",
+    "src": "blocks/topper-carousel-grid/render.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_swiper-bundle-DlYCexrt.js"
+    ]
+  },
+  "blocks/video-mp4/render.js": {
+    "file": "assets/js/render-D5Zp0ldv.js",
+    "name": "render",
+    "src": "blocks/video-mp4/render.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_preload-helper-BZ1Pz5am.js"
+    ],
+    "dynamicImports": [
+      "node_modules/plyr/dist/plyr.mjs"
+    ]
+  },
+  "node_modules/plyr/dist/plyr.mjs": {
+    "file": "assets/js/plyr-Uytzv_c7.js",
+    "name": "plyr",
+    "src": "node_modules/plyr/dist/plyr.mjs",
+    "isDynamicEntry": true
+  },
+  "src/assets/js/app.js": {
+    "file": "assets/js/app-DkAOdJbt.js",
+    "name": "app",
+    "src": "src/assets/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_preload-helper-BZ1Pz5am.js"
+    ],
+    "dynamicImports": [
+      "blocks/topper-carousel-grid/render.js",
+      "blocks/impact-scroll/render.js",
+      "blocks/video-mp4/render.js",
+      "blocks/image-carousel/render.js",
+      "blocks/tabbed-content/render.js"
+    ]
+  },
+  "src/assets/scss/app.scss": {
+    "file": "assets/css/app-style-D6DGX5Gx.css",
+    "name": "app-style",
+    "names": [
+      "app-style.css"
+    ],
+    "src": "src/assets/scss/app.scss",
+    "isEntry": true
+  },
+  "src/assets/scss/editor.scss": {
+    "file": "assets/css/editor-style-DoG7SROw.css",
+    "name": "editor-style",
+    "names": [
+      "editor-style.css"
+    ],
+    "src": "src/assets/scss/editor.scss",
+    "isEntry": true
+  }
+}

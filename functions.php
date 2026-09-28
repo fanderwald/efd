@@ -7,6 +7,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 Timber\Timber::init();
 
+require_once( 'library/vite.php' );
 require_once( 'library/foundation.php' );
 require_once( 'library/navigation.php' );
 require_once( 'library/enqueue-scripts.php' );

@@ -5,7 +5,7 @@ This is a hybrid WordPress theme using the Zurb [Foundation for Sites 6](https:/
 
 # Requirements
 
-**This theme requires [Node.js](http://nodejs.org) v20 to be installed on your machine.**  
+**This theme requires [Node.js](http://nodejs.org) v20+/v24 to be installed on your machine.**  
 This theme also uses Sass and style changes must be compiled into css before uploading. 
 
 ## Timber

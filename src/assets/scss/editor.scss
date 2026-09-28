@@ -18,7 +18,7 @@
 //@use "modules/swiper";
 @use "modules/wpforms";
 
-@import "../../../blocks/**/*.scss";
+@use "blocks";
 
 .editor-post-featured-image__preview .editor-post-featured-image__preview-image {
     aspect-ratio: 1/1 !important;

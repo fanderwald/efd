@@ -11,3 +11,5 @@ packaged/
 wpcs/
 sitespeed-result/
 .DS_Store
+dist/.vite-dev
+.vite/

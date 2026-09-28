@@ -32,7 +32,8 @@
 
 .editor-styles-wrapper {
     .document-list {
-        
-        
+        a {
+            pointer-events: none;
+        }
     }
 }
