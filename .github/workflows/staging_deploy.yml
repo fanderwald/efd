@@ -17,7 +17,7 @@ jobs:
         with:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          host: ${{ secrets.SFTP_SERVER }} # Changed to IP address
+          server: ${{ secrets.SFTP_SERVER }} # Changed to server
           port: 22
           remote_path: '/htdocs/wp-content/themes/efd/'
           sftp_only: true
