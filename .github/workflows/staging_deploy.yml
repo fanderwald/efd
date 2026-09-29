@@ -1,0 +1,39 @@
+name: SFTP Deploy to Sentree Staging
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy-via-sftp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: '2'
+
+      - name: SFTP Deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          host: ${{ secrets.SFTP_SERVER }} # Changed 'server:' to 'host:'
+          port: 22
+          remote_path: '/htdocs/wp-content/themes/efd/'
+          sftp_only: true
+          exclude: |
+            .git*
+            .github*
+            node_modules*
+            README.md
+          args: '-o ConnectTimeout=5'
+
+      - name: Send notification email
+        run: |
+          echo "Sending email notification..."
+          curl -s --user "api:${{ secrets.MAILGUN_API_KEY }}" \
+            https://api.mailgun.net/v3/github.fabiananderwald.com/messages \
+            -F from='Fabian Anderwald <f@fabiananderwald.com>' \
+            -F to=fanderwald@me.com \
+            -F subject='New EFD Staging Commit' \
+            -F text="Update: ${{ github.event.head_commit.message }}"
