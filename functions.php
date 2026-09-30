@@ -53,7 +53,21 @@ function clean_up_wp_head() {
 }
 add_action('init', 'clean_up_wp_head');
 
-
+/**
+ * Disable WPForms automatic scroll to error on submission across all forms.
+ */
+function wpf_dev_disable_scroll_to_error() {
+    ?>
+    <script type="text/javascript">
+        window.wpforms_pageScroll = false;
+        if (typeof wpforms !== 'undefined') {
+            wpforms.scrollToError = function() {};
+            wpforms.animateScrollTop = function() {};
+        }
+    </script>
+    <?php
+}
+add_action( 'wpforms_wp_footer_end', 'wpf_dev_disable_scroll_to_error', 10 );
 
 add_filter('timber/twig', 'add_to_twig');
 

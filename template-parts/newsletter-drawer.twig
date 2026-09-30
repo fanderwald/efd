@@ -1,0 +1,83 @@
+{% set is_enabled = global.newsletter_enabled is defined ? global.newsletter_enabled : true %}
+{% if is_enabled %}
+{% set title = global.newsletter_title ?: 'Subscribe To Our Newsletter' %}
+{% set description = global.newsletter_description ?: 'Subscribe to our email newsletter today to receive updates on all our latest news and events!' %}
+{% set privacy_statement = global.newsletter_privacy_statement ?: 'We respect your privacy. Your information is safe and will never be shared.' %}
+{% set shortcode_content = global.newsletter_form_shortcode ?: '' %}
+{% set auto_open_delay = global.newsletter_auto_open_delay is defined and global.newsletter_auto_open_delay != '' ? global.newsletter_auto_open_delay : 4 %}
+{% set dismiss_days = global.newsletter_dismiss_days is defined and global.newsletter_dismiss_days != '' ? global.newsletter_dismiss_days : 7 %}
+
+<aside
+	id="efd-newsletter-drawer"
+	class="efd-newsletter-drawer"
+	data-auto-delay="{{ auto_open_delay }}"
+	data-dismiss-days="{{ dismiss_days }}"
+	aria-labelledby="efd-newsletter-title"
+	role="complementary"
+>
+	{# Collapsed trigger pill / tab #}
+	<button
+		type="button"
+		class="efd-newsletter-trigger"
+		id="efd-newsletter-trigger"
+		aria-expanded="false"
+		aria-controls="efd-newsletter-panel"
+		aria-label="{{ title }}"
+	>
+		
+		<span class="efd-newsletter-trigger__label">{{ title }}</span>
+        <span class="efd-newsletter-trigger__icon" aria-hidden="true">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16" fill="currentColor">
+				<path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+			</svg>
+		</span>
+	</button>
+
+	{# Expanded panel #}
+	<div
+		id="efd-newsletter-panel"
+		class="efd-newsletter-panel"
+		aria-hidden="true"
+	>
+		<div class="efd-newsletter-panel__header">
+			<button
+				type="button"
+				class="efd-newsletter-panel__close"
+				id="efd-newsletter-close"
+				aria-label="Close newsletter popup"
+			>
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<h3 id="efd-newsletter-title" class="efd-newsletter-panel__title">{{ title }}</h3>
+			{% if description %}
+				<p class="efd-newsletter-panel__description">{{ description }}</p>
+			{% endif %}
+		</div>
+
+		<div class="efd-newsletter-panel__body">
+			{% if shortcode_content %}
+				{{ shortcode(shortcode_content) }}
+			{% else %}
+				{# Fallback clean form markup if no shortcode is configured in ACF yet #}
+				<form class="efd-newsletter-form" action="#" method="post" onsubmit="return false;">
+					<div class="efd-newsletter-form__field">
+						<label for="efd-newsletter-email" class="screen-reader-text">Email Address</label>
+						<input
+							type="email"
+							id="efd-newsletter-email"
+							name="email"
+							placeholder="Enter your email address"
+							required
+						/>
+					</div>
+					<button type="submit" class="button primary efd-newsletter-form__submit">Subscribe Now</button>
+				</form>
+			{% endif %}
+		</div>
+
+		<div class="efd-newsletter-panel__footer">
+			<p class="efd-newsletter-panel__privacy">{{ privacy_statement }}</p>
+		</div>
+	</div>
+</aside>
+{% endif %}

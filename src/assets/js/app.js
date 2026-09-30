@@ -34,6 +34,11 @@ if (document.querySelector('.tabbed-content')) {
     await import('/blocks/tabbed-content/render.js');
 }
 
+if (document.getElementById('efd-newsletter-drawer')) {
+  const { initNewsletterDrawer } = await import('./modules/newsletter-drawer.js');
+  initNewsletterDrawer();
+}
+
 var e = window.matchMedia("(prefers-color-scheme: dark)"),
     t = e.matches,
     i = document.querySelectorAll('link[rel="icon"]');

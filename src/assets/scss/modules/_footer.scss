@@ -1,6 +1,6 @@
 @use '../global' as *;
 footer {
-	padding-bottom:50px;
+	padding-bottom:100px;
 	@include breakpoint(medium){
 		padding-bottom:var(--wp--preset--spacing--fluid-50-100);
 	}

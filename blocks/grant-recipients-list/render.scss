@@ -17,17 +17,22 @@
     }
   }
 
+  .simplebar-content-wrapper {
+    scroll-snap-type: y proximity;
+  }
+
   .grant-recipient {
+    scroll-snap-align: start;
     position:relative;
     display:grid;
     gap:3px;
     margin-right:24px;
-    padding: 10px 40px 10px 0px;
+    padding: 15px 40px 15px 0px;
     border-bottom:1px solid var(--wp--preset--color--primary);
     @include breakpoint(medium){
       gap:1rem;
       grid-template-columns: 1fr 2fr;
-      padding: 10px 50px 10px 0px;
+      padding: 15px 50px 15px 0px;
       margin-right:32px;
     }
     

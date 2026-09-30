@@ -1,0 +1,254 @@
+@use '../global' as *;
+
+.efd-newsletter-drawer {
+	position: fixed;
+	bottom: 24px;
+	right: var(--wp--preset--spacing--fluid-32-90-vw);
+	z-index: 999;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	font-family: var(--wp--preset--font-family--primary, inherit);
+	box-sizing: border-box;
+	max-width: calc(100vw - (var(--wp--preset--spacing--fluid-32-90-vw) * 2));
+
+	@include breakpoint(small down) {
+		right: 24px;
+		left: 24px;
+        bottom:10px;
+		max-width: calc(100vw - 48px);
+		align-items: stretch;
+	}
+}
+
+// Collapsed trigger tab
+.efd-newsletter-trigger {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	background-color: var(--wp--preset--color--primary, #0c2340);
+	color: var(--wp--preset--color--white, #ffffff);
+	padding: 15px 20px 15px 30px;
+	border-radius: 15px;
+	border: none;
+	cursor: pointer;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+    font-family: var(--wp--preset--font-family--primary, inherit);
+	font-size: var(--wp--preset--font-size--fluid-18-20);
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+	&:hover,
+	&:focus-visible {
+		background-color: var(--wp--preset--color--yellow-green);
+		color: var(--wp--preset--color--primary);
+	}
+
+	.efd-newsletter-trigger__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		svg {
+			width: 18px;
+			height: 18px;
+		}
+	}
+
+	@include breakpoint(small down) {
+		justify-content: center;
+		width: 100%;
+	}
+}
+
+// Expanded panel container
+.efd-newsletter-panel {
+	position: relative;
+	width: 430px;
+	max-width: 100%;
+	box-sizing: border-box;
+	background-color: var(--wp--preset--color--secondary);
+	color: var(--wp--preset--color--white);
+	border-radius: 15px;
+	box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+	//border: 1px solid rgba(0, 0, 0, 0.08);
+	//border-bottom: none;
+	padding: 2rem;
+	display: none;
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.25s ease, transform 0.25s ease;
+
+	@include breakpoint(small down) {
+		width: 100%;
+		padding: 24px;
+	}
+}
+
+// Open state
+.efd-newsletter-drawer.is-open {
+	.efd-newsletter-trigger {
+		display: none;
+	}
+
+	.efd-newsletter-panel {
+		display: block;
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+// Panel Header
+.efd-newsletter-panel__header {
+	position: relative;
+	padding-right: 1.75rem;
+	margin-bottom: 1rem;
+}
+
+.efd-newsletter-panel__close {
+	position: absolute;
+	top: -0.5rem;
+	right: -0.5rem;
+	width: 2rem;
+	height: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	font-size: 1.5rem;
+	line-height: 1;
+	color: var(--wp--preset--color--primary, #0c2340);
+	opacity: 0.6;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+	border-radius: 50%;
+
+	&:hover,
+	&:focus-visible {
+		opacity: 1;
+		transform: scale(1.1);
+		//outline: 2px solid var(--wp--preset--color--primary, #0c2340);
+	}
+}
+
+.efd-newsletter-panel__title {
+	font-size: 20px;
+	font-weight: 700;
+	//line-height: 1.25;
+	margin: 0 0 0.75rem 0;
+	color: var(--wp--preset--color--white);
+    @include breakpoint(medium){
+        font-size: var(--wp--preset--font-size--fluid-18-24);
+    }
+}
+
+.efd-newsletter-panel__description {
+	font-size: var(--wp--preset--font-size--fluid-14-16);
+	//line-height: 1.45;
+	margin: 0;
+	color: var(--wp--preset--color--white);
+}
+
+// Panel Body / Form
+.efd-newsletter-panel__body {
+	margin-bottom: 0.75rem;
+
+	// In case WPForms is used
+	.wpforms-container,
+	div.wpforms-container-full {
+		margin-bottom: 0 !important;
+
+		.wpforms-field {
+			padding: 0 0 0.75rem 0 !important;
+		}
+
+		.wpforms-field-label {
+			font-size: 0.8125rem !important;
+			margin-bottom: 0.25rem !important;
+		}
+
+
+		.wpforms-submit-container {
+			padding: 0.25rem 0 0 !important;
+			margin: 0 !important;
+		}
+
+		button.wpforms-submit {
+			width: 100% !important;
+			background-color: var(--wp--preset--color--primary) !important;
+			//color: var(--wp--preset--color--white, #ffffff) !important;
+			//padding-top: 12px !important;
+	        //padding-bottom: 12px !important;
+	        padding-left:clamp(20px, calc((100vw - 375px) / (1440 - 375) * (24 - 20) + 20px), 24px) !important;
+	        padding-right:clamp(20px, calc((100vw - 375px) / (1440 - 375) * (24 - 20) + 20px), 24px) !important;
+			font-size: var(--wp--preset--font-size--fluid-18-20) !important;
+			font-weight: 600 !important;
+			border-radius: 50px !important;
+			border: none !important;
+			cursor: pointer;
+			transition: background-color 0.2s ease;
+
+			&:hover,
+			&:focus-visible {
+				background-color: var(--wp--preset--color--yellow-green) !important;
+			}
+		}
+	}
+}
+
+// Fallback HTML form styling
+.efd-newsletter-form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.65rem;
+
+	.efd-newsletter-form__field {
+		input {
+			width: 100%;
+			font-size: var(--wp--preset--font-size--fluid-18-20);
+			padding: 0.65rem 0.85rem;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			border-radius: 4px;
+			background-color: #fdfdfd;
+			box-sizing: border-box;
+
+			&:focus {
+				outline: none;
+				border-color: var(--wp--preset--color--primary, #0c2340);
+			}
+		}
+	}
+
+	.efd-newsletter-form__submit {
+		width: 100%;
+		padding-top: 12px !important;
+	    padding-bottom: 12px !important;
+	    padding-left:clamp(20px, calc((100vw - 375px) / (1440 - 375) * (24 - 20) + 20px), 24px) !important;
+	    padding-right:clamp(20px, calc((100vw - 375px) / (1440 - 375) * (24 - 20) + 20px), 24px) !important;
+		font-size: var(--wp--preset--font-size--fluid-18-20) !important;
+		font-weight: 600 !important;
+		border-radius: 50px;
+		cursor: pointer;
+		background-color: var(--wp--preset--color--primary, #0c2340);
+		color: var(--wp--preset--color--white, #ffffff);
+		border: none;
+		transition: background-color 0.2s ease;
+
+		&:hover,
+		&:focus-visible {
+			background-color: var(--wp--preset--color--yellow-green);
+            color:var(--wp--preset--color--primary);
+		}
+	}
+}
+
+// Panel Footer
+.efd-newsletter-panel__footer {
+	.efd-newsletter-panel__privacy {
+		font-size: 0.75rem;
+		line-height: 1.35;
+		margin: 0;
+		color: white;
+	}
+}
