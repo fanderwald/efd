@@ -169,7 +169,7 @@ function browserSyncProxyPlugin() {
   return {
     name: 'vite-plugin-browsersync-proxy',
     configureServer(server) {
-      let targetUrl = 'https://the-apartment-group-dallas-clone.local';
+      let targetUrl = 'http://localhost';
       const configPath = path.resolve(process.cwd(), 'config.yml');
       const configDefaultPath = path.resolve(process.cwd(), 'config-default.yml');
       if (fs.existsSync(configPath)) {
@@ -241,6 +241,7 @@ export default defineConfig(({ mode }) => {
   const isDev = mode === 'development';
 
   return {
+    base: isDev ? '/' : './',
     plugins: [
       basicSsl(),
       browserSyncProxyPlugin(),
