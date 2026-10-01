@@ -32,6 +32,7 @@ function register_acf_blocks() {
     register_block_type( __DIR__ . '/../blocks/impact-scroll' );
     register_block_type( __DIR__ . '/../blocks/info-card' );
     register_block_type( __DIR__ . '/../blocks/people-list' );
+    register_block_type( __DIR__ . '/../blocks/registered-block-list' );
     register_block_type( __DIR__ . '/../blocks/story' );
     register_block_type( __DIR__ . '/../blocks/story-grid' );
 	register_block_type( __DIR__ . '/../blocks/story-section' );

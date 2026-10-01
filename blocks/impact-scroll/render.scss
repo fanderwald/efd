@@ -147,13 +147,9 @@
 }
 
 
-.editor-styles-wrapper .story-section {
-    .people-list.has-carousel-list-type {
-        .swiper-wrapper {
-            display:grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap:1rem;  
-        }
+.editor-styles-wrapper .impact-scroll {
+    .impact-card {
+        pointer-events: none;
         
     }
 }

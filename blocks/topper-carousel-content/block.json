@@ -1,7 +1,7 @@
 {
     "name": "acf/topper-carousel-content",
-    "title": "Topper Carousel Content",
-    "description"  : "This component is used only with Topper Carousel to add content overlaying the carousel.",
+    "title": "Topper (Carousel Content)",
+    "description"  : "This component is used only with Topper (Carousel Grid) to add content overlaying the carousel.",
     "options":["Mobile Image"],
     "category": "custom-blocks",
     "icon": "images-alt2",

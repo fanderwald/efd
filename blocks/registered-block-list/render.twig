@@ -1,0 +1,23 @@
+<div {{ attributes }}>
+	{% if blocks_list is not empty %}
+		<div class="registered-block-list__grid">
+			{% for item in blocks_list %}
+				<article class="registered-block-list__card" id="block-{{ item.name|replace({'/': '-', '_': '-'}) }}">
+					<header class="registered-block-list__card-header">
+						<h3 class="registered-block-list__card-title">{{ item.title }}</h3>
+						<code class="registered-block-list__card-slug">{{ item.name }}</code>
+					</header>
+					<div class="registered-block-list__card-body">
+						{% if item.description %}
+							<p class="registered-block-list__card-description">{{ item.description }}</p>
+						{% else %}
+							<p class="registered-block-list__card-description registered-block-list__card-description--empty"><em>No description provided.</em></p>
+						{% endif %}
+					</div>
+				</article>
+			{% endfor %}
+		</div>
+	{% else %}
+		<p class="registered-block-list__empty">No custom blocks registered.</p>
+	{% endif %}
+</div>

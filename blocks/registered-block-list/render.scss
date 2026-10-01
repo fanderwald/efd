@@ -1,0 +1,87 @@
+// Registered Block List Component
+@use '../../src/assets/scss/global' as *;
+
+.registered-block-list {
+  padding-top: var(--wp--preset--spacing--max-50, 2rem);
+  padding-bottom: var(--wp--preset--spacing--max-50, 2rem);
+
+  .registered-block-list__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @include breakpoint(medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(large) {
+      //grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .registered-block-list__card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: $border-radius;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: var(--wp--preset--color--eggshell, #f5f3ef);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .registered-block-list__card-header {
+    margin-bottom: 0.75rem;
+  }
+
+  .registered-block-list__card-title {
+    font-size: var(--wp--preset--font-size--fluid-18-22, 1.25rem);
+    line-height: 1.2;
+    margin: 0 0 0.5rem 0;
+    color: var(--wp--preset--color--primary, #244c5a);
+  }
+
+  .registered-block-list__card-slug {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-family: monospace;
+    background-color: rgba(36, 76, 90, 0.08);
+    color: var(--wp--preset--color--primary, #244c5a);
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    word-break: break-all;
+  }
+
+  .registered-block-list__card-body {
+    flex: 1 1 auto;
+  }
+
+  .registered-block-list__card-description {
+    font-size: var(--wp--preset--font-size--small, 0.9375rem);
+    line-height: 1.5;
+    margin: 0;
+    color: inherit;
+    opacity: 0.85;
+
+    &--empty {
+      opacity: 0.5;
+    }
+  }
+
+  .registered-block-list__empty {
+    font-size: var(--wp--preset--font-size--regular, 1rem);
+    font-style: italic;
+    opacity: 0.75;
+  }
+
+  &.has-text-color {
+    .registered-block-list__card-title,
+    .registered-block-list__card-description {
+      color: inherit !important;
+    }
+  }
+}
