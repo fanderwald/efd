@@ -98,4 +98,9 @@ ul li {
 
 }
 
-
+// Set pointer events none in block editor
+.editor-styles-wrapper {
+  .wp-block-factoids {
+    pointer-events: none;
+  }
+}

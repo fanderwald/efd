@@ -87,3 +87,12 @@
   background-color: #f1f1f1; /* Track background color */
   border-radius: 12px;;
 }
+
+// Set pointer events none in block editor
+.editor-styles-wrapper {
+  .wp-block-acf-grant-recipients-list {
+    a {
+      pointer-events: none;
+    }
+  }
+}
