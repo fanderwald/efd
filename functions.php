@@ -141,6 +141,55 @@ function ea_disable_editor( $id = false ) {
 	return in_array( $id, $excluded_ids ) || in_array( $template, $excluded_templates );
 }
 
+// 1. Render the ACF Taxonomy Filter Dropdown in Admin
+add_action( 'restrict_manage_posts', function( $post_type ) {
+    if ( 'board_document' !== $post_type ) {
+        return;
+    }
+
+    $taxonomy    = 'document_category'; // Updated to match your ACF taxonomy slug
+    $query_param = 'filter_doc_category';
+    $selected    = isset( $_GET[$query_param] ) ? sanitize_text_field( $_GET[$query_param] ) : '';
+
+    wp_dropdown_categories([
+        'show_option_all' => 'All Categories',
+        'taxonomy'        => $taxonomy,
+        'name'            => $query_param,
+        'orderby'         => 'name',
+        'selected'        => $selected,
+        'hierarchical'    => true,
+        'value_field'     => 'slug',
+        'hide_empty'      => false,
+    ]);
+});
+
+// 2. Safely filter the admin list query
+add_action( 'pre_get_posts', function( $query ) {
+    global $pagenow;
+
+    $taxonomy    = 'document_category'; // Updated to match your ACF taxonomy slug
+    $query_param = 'filter_doc_category';
+
+    if ( 
+        is_admin() && 
+        'edit.php' === $pagenow && 
+        $query->is_main_query() && 
+        isset( $_GET['post_type'] ) && 'board_document' === $_GET['post_type'] &&
+        ! empty( $_GET[$query_param] )
+    ) {
+        $term_slug = sanitize_text_field( $_GET[$query_param] );
+
+        $tax_query = [
+            [
+                'taxonomy' => $taxonomy,
+                'field'    => 'slug',
+                'terms'    => $term_slug,
+            ]
+        ];
+
+        $query->set( 'tax_query', $tax_query );
+    }
+});
 
 function load_svg_sprite() {
     echo '<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
