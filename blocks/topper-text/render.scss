@@ -17,7 +17,9 @@
     @include breakpoint(medium){
       padding-top:280px;
     }
-
+    .wp-block-paragraph {
+      margin-top: 0;
+    }
     .story-grid > .acf-innerblocks-container {
       display:block;
       @include breakpoint(medium){

@@ -23,3 +23,10 @@
 .editor-post-featured-image__preview .editor-post-featured-image__preview-image {
     aspect-ratio: 1/1 !important;
 }
+.wp-block-post-title,
+.editor-post-title__block,
+.post-type-post .wp-block-post-content,
+.post-type-post .editor-styles-wrapper .block-editor-block-list__layout {
+  padding-left: 40px;
+  padding-right: 40px;
+}
