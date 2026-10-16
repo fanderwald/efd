@@ -88,13 +88,14 @@ function setup_acf_options_page() {
 add_action('init', 'setup_acf_options_page');
 
 function my_login_logo_one() { 
+    $login_logo = get_field('primary_logo_dark', 'option');
 	?> 
 	<style type="text/css"> 
 	body.login div#login h1 a {
-	background-image: url(<?php echo site_url();?>/wp-content/uploads/2026/07/rp-primary-logo.svg);
+	background-image: url(<?php echo esc_url($login_logo['url']); ?>);
 	background-size:contain;
 	width:300px;
-	height:100px;
+	height:150px;
 	} 
 	</style>
 	 <?php 
